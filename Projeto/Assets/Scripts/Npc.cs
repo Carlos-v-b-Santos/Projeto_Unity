@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Npc : MonoBehaviour
 {
+
+    [Header("Ink JSON")]
+    [SerializeField] private TextAsset inkJSON;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,6 @@ public class Npc : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("Click");
+        DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
     }
 }
