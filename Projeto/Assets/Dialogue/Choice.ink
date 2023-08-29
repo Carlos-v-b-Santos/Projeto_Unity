@@ -12,6 +12,3 @@ Which pokemon do you choose?
 === chosen(pokemon) ===
 You chose {pokemon}!
 -> END
-
-=== already_chose ===
--> END
