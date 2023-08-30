@@ -1,4 +1,9 @@
--> main
+INCLUDE globals.ink
+
+
+
+Eae meu nobre! #speaker:NPC
+{ pokemon_name == "": -> main | -> already_chose}
 
 === main ===
 Which pokemon do you choose?
@@ -10,5 +15,10 @@ Which pokemon do you choose?
         -> chosen("Squirtle")
         
 === chosen(pokemon) ===
+~ pokemon_name = pokemon
 You chose {pokemon}!
+-> END
+
+=== already_chose ===
+You already chose {pokemon_name}!
 -> END

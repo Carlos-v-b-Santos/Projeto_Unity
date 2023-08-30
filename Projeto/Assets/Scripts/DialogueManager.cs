@@ -4,12 +4,17 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
+using Ink.UnityIntegration;
 
 public class DialogueManager : MonoBehaviour
 {
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI displayNameText;
+
+    [Header("Globals Ink File")]
+    [SerializeField] private InkFile globalsInkFile;
 
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
@@ -19,6 +24,10 @@ public class DialogueManager : MonoBehaviour
     private bool dialogueIsPlaying;
 
     private static DialogueManager instance;
+
+    private const string SPEAKER_TAG = "speaker";
+
+    private DialogueVariables dialogueVariables;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -28,6 +37,8 @@ public class DialogueManager : MonoBehaviour
         }
 
         instance = this;
+
+        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
     }
 
     public static DialogueManager GetInstance()
@@ -68,11 +79,17 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
+        dialogueVariables.StartListening(currentStory);
+
+        displayNameText.text = "???";
+
         ContinueStory();
     }
 
     private void ExitDialogueMode()
     {
+        dialogueVariables.StopListening(currentStory);
+
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
@@ -85,6 +102,8 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text = currentStory.Continue();
 
             DisplayChoices();
+
+            HandleTags(currentStory.currentTags);
         }
         else
         {
@@ -92,6 +111,29 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void HandleTags(List<string> currentTags)
+    {
+        foreach(string tag in currentTags)
+        {
+            string[] splitTag = tag.Split(':');
+            if(splitTag.Length != 2)
+            {
+                Debug.LogError("Tag nao pode ser dividida" + tag);
+            }
+            string tagKey = splitTag[0].Trim();
+            string tagValue = splitTag[1].Trim();
+
+            switch(tagKey)
+            {
+                case SPEAKER_TAG:
+                    displayNameText.text = tagValue;
+                    break;
+                default:
+                    Debug.LogWarning("sem Tag" + tag);
+                    break;
+            }
+        }
+    }
     private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
