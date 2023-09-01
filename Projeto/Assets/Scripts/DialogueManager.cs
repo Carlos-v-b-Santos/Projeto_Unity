@@ -28,6 +28,8 @@ public class DialogueManager : MonoBehaviour
     private const string SPEAKER_TAG = "speaker";
 
     private DialogueVariables dialogueVariables;
+
+    GameManager gameManager;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -39,6 +41,8 @@ public class DialogueManager : MonoBehaviour
         instance = this;
 
         dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public static DialogueManager GetInstance()
@@ -81,6 +85,12 @@ public class DialogueManager : MonoBehaviour
 
         dialogueVariables.StartListening(currentStory);
 
+        currentStory.BindExternalFunction("increaseEtica", (float value) =>
+        {
+            Debug.Log(value);
+            gameManager.increaseEtica(value);
+        });
+
         displayNameText.text = "???";
 
         ContinueStory();
@@ -89,6 +99,8 @@ public class DialogueManager : MonoBehaviour
     private void ExitDialogueMode()
     {
         dialogueVariables.StopListening(currentStory);
+
+        currentStory.UnbindExternalFunction("increaseEtica");
 
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
@@ -170,6 +182,9 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex){
         currentStory.ChooseChoiceIndex(choiceIndex);
+
+        
+
         ContinueStory();
     }
 }
