@@ -5,17 +5,31 @@ using TMPro;
 
 public class MatrixManager : MonoBehaviour
 {
-    List<List<int>> colunas = new List<List<int>>();
-    public GameObject elemento;
+    //lista de listas para formar a tabela verdade estatica
+    List<List<bool>> truthTable_static = new List<List<bool>>();
+
+    List<char> expressao;
+
+    //NÃO, '
+    //E, *
+    //OU, + 
+    //condicional, >
+    //bicondicional, -
+
+    //Transform do Canvas, para criação dos elementos
     Transform canvas;
+
+    //Prefab dos elementos visuais da tabela verdade
+    public GameObject elementPrefab;
+    
     
 
     // Start is called before the first frame update
     void Start()
     {  
         canvas = GameObject.Find("Canvas").GetComponent<Transform>();
-        CreateMatriz(2);
-        printMatriz();
+        CreateMatrix(2);
+        PrintMatrix();
     }
 
     // Update is called once per frame
@@ -24,82 +38,90 @@ public class MatrixManager : MonoBehaviour
         
     }
 
-    void CreateMatriz(int qtd_variaveis)
+    void CreateMatrix(int qtd_variaveis)
+    //criar tabela verdade
     {
-        
-        
-        
-        for (int i = 0; i < qtd_variaveis; i++)
-        {
-            colunas.Add(new List<int>());
-            int cont = 1;
-            int valor = 1;
+        int qtd_linhas = (int)Mathf.Pow(2,qtd_variaveis);//quantidade de linhas que tera a tabela
 
-            for(int j = 1; j <= Mathf.Pow(2,qtd_variaveis); j++)
+        //atribuir os valores iniciais da tabela verdade
+        for (int coluna = 0; coluna < qtd_variaveis; coluna++)
+        {
+            truthTable_static.Add(new List<bool>());//adicionar nova coluna
+            
+            int cont = 0;//contador para repetição de variavel
+            bool value = true;//valor a ser atribuido
+            int qtd_repeticoes = (int)Mathf.Pow(2,qtd_variaveis-coluna)/2;//quantidade de repetições do mesmo valor
+
+            for(int linha = 0; linha < qtd_linhas; linha++)
             {
-                if(cont <= (Mathf.Pow(2,(qtd_variaveis-i))/2))
+                if(cont < qtd_repeticoes)
                 {
                     cont++;
                 }
                 else
                 {
-                    if(valor == 1)
-                    {
-                        valor = 0;
-                    }
-                    else
-                    {
-                        valor = 1;
-                    }
-                    cont = 2;
+                    //inverter valor
+                    if(value) value = false;
+                    else value = true;
+
+                    cont = 1;//reiniciar contagem a partir do 1
                 }
-                colunas[i].Add(valor);
+                truthTable_static[coluna].Add(value);//adiciona o valor na linha
 
-                Debug.Log("i:" + i + "j:" + j + "t:" + colunas[i][j-1]);
-            }
-            
+                Debug.Log("c:" + coluna + "l:" + linha + "t:" + truthTable_static[coluna][linha]);
+            }          
         }
 
-        int c_total = colunas.Count;
-        Debug.Log(c_total);
-        int total = 0;
-        colunas.Add(new List<int>());
+        CalculateResultFieldMatrix(qtd_variaveis);
         
-        
-        for(int i = 0; i < Mathf.Pow(2,qtd_variaveis); i++)
-        {
-            for(int j = 0; j < qtd_variaveis; j++ )
-            {
-                total += colunas[j][i];
-            }
-            colunas[c_total].Add(total);
-            total = 0;
-        }
 
 
 
-        //Debug.Log(colunas[0][0]);
+        //Debug.Log(truthTable_static[0][0]);
     }
 
-    void printMatriz()
+    void CalculateResultFieldMatrix(int qtd_variaveis)
+    //calcular o ultimo campo da matriz
+    {
+        int total_colunas = truthTable_static.Count;//atribui a quantidade atual de colunas
+        int qtd_linhas = (int)Mathf.Pow(2,qtd_variaveis);//quantidade de linhas
+        bool result = true;//resultado da expressao
+
+        truthTable_static.Add(new List<bool>());//adiciona uma nova coluna na tabela verdade
+        
+        Debug.Log(total_colunas);
+
+        for(int linha = 0; linha < qtd_linhas; linha++)
+        {
+            result = truthTable_static[0][linha];
+            for(int coluna = 1; coluna < qtd_variaveis; coluna++)
+            {
+                result = result && truthTable_static[coluna][linha];
+                
+            }
+            truthTable_static[total_colunas].Add(result);//atribui o valor final da ultima coluna
+        }
+    }
+
+    void PrintMatrix()
     {
         int posX = 0;
         int posY = 0;
         TMP_Text m_textElement;
 
-        foreach (List<int> i in colunas)
+        foreach (List<bool> i in truthTable_static)
         {
-            foreach(int j in i)
+            foreach(bool j in i)
             {
                 //Debug.Log(i[j]);
-                GameObject clone = Instantiate(elemento, new Vector3(posX, posY, 0), Quaternion.identity, canvas.transform);
+                GameObject clone = Instantiate(elementPrefab, new Vector3(posX, posY, 0), Quaternion.identity, canvas.transform);
                 clone.name = new string("x: " + posX + "y: " + posY);
                 m_textElement = clone.GetComponent<TMP_Text>();
-                m_textElement.text = new string("n: " +j);
-                posY -= 50;
+                m_textElement.text = new string("-" + j + "-");
+                posY -= 75;
             }
             posY = 0;
-            posX += 50;
+            posX += 75;
         }
         
 
