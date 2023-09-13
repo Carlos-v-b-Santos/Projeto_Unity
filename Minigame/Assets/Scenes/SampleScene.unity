@@ -749,6 +749,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 854001754}
     m_Modifications:
+    - target: {fileID: 2415954364119346345, guid: 93864ba738d5fe44e80110312e87d1eb, type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2908598118701534870, guid: 93864ba738d5fe44e80110312e87d1eb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
