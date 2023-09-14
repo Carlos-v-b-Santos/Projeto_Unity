@@ -33,10 +33,12 @@ public class MatrixManager : MonoBehaviour
         expressao.Add('a');
         expressao.Add('*');
         expressao.Add('b');
+        expressao.Add('+');
+        expressao.Add('c');
         Debug.Log(expressao[0]);
 
         canvas = GameObject.Find("Canvas").GetComponent<Transform>();
-        int qtd_variaveis = AnalyseExpression(expressao);
+        int qtd_variaveis = AnalyseExpression(expressao,3);
         CreateMatrix(qtd_variaveis);
         PrintMatrix();
         
@@ -48,24 +50,60 @@ public class MatrixManager : MonoBehaviour
         
     }
 
-    int AnalyseExpression(List<char> expressao)
+    int AnalyseExpression(List<char> expressao, int qtd_variaveis)
     {
-        int i = 0;
-        int qtd_variaveis = 0;
+        int variaveis_usadas = 0;
+        int divisoes = qtd_variaveis;
+        //int qtd_variaveis = 0;
+        int tamanho = expressao.Count;
 
-        foreach (char c in expressao)
+        List<char> analisadas = new List<char>();
+
+        for (int index = 0; index < tamanho; index++)
         {
+            char c = expressao[index];
             switch (c)
             {
-                case '!':
+                //case '!':
                 case '*':
                 case '+':
                 case '>':
                 case '-':
                     operations.Add(c);
-                    variables.Add(new KeyValuePair<int,int>(i++,i++));
-                    qtd_variaveis += 2;
-                    Debug.Log(operations[^1]);
+                    char esq = expressao[index-1];
+                    int esq_index;
+                    char dir = expressao[index+1];
+                    int dir_index;
+
+                    if (analisadas.Contains(esq))
+                    {
+                        esq_index = divisoes;
+                        divisoes++;
+                    }
+                    else
+                    {
+                        esq_index = variaveis_usadas;
+                        variaveis_usadas++;
+                        //qtd_variaveis++;
+                        analisadas.Add(esq);
+                    }
+
+                    if (analisadas.Contains(dir))
+                    {
+                        dir_index = divisoes;
+                        divisoes++;
+                    }
+                    else
+                    {
+                        dir_index = variaveis_usadas;
+                        variaveis_usadas++;
+                        //qtd_variaveis++;
+                        analisadas.Add(dir);
+                    }
+
+                    variables.Add(new KeyValuePair<int,int>(esq_index,dir_index));
+                    Debug.Log("operacores:" + operations[^1]);
+                    Debug.Log("variaveis:" + variables[^1]);
                     Debug.Log(variables.Count);
                     break;
                 /* case 'a':
@@ -115,7 +153,7 @@ public class MatrixManager : MonoBehaviour
             }          
         }
 
-        CalculateResultFieldMatrix(qtd_variaveis);
+        CalculateFieldMatrix(qtd_variaveis);
         
 
 
@@ -123,23 +161,30 @@ public class MatrixManager : MonoBehaviour
         //Debug.Log(truthTable_static[0][0]);
     }
 
-    void CalculateResultFieldMatrix(int qtd_variaveis)
+    void CalculateFieldMatrix(int qtd_variaveis)
     //calcular o ultimo campo da matriz
     {
-        int total_colunas = truthTable_static.Count;//atribui a quantidade atual de colunas
+        int inicio_colunas = truthTable_static.Count;//atribui a quantidade atual de colunas
         int qtd_linhas = (int)Mathf.Pow(2,qtd_variaveis);//quantidade de linhas
         
         //int index_operation = 0;
-        int index_variable = 0;
+       
         
         bool result = true;//resultado da expressao
 
-        truthTable_static.Add(new List<bool>());//adiciona uma nova coluna na tabela verdade
+        //adiciona uma nova coluna na tabela verdade
         
-        Debug.Log(total_colunas);
+        for(int i = 0; i < operations.Count; i++)
+        {
+            truthTable_static.Add(new List<bool>());
+        }
+
+        Debug.Log(inicio_colunas);
 
         for(int linha = 0; linha < qtd_linhas; linha++)
         {
+            int index_coluna = inicio_colunas;
+             int index_variable = 0;
             foreach(char c in operations)
             {
                 switch (c)
@@ -162,8 +207,13 @@ public class MatrixManager : MonoBehaviour
                         Debug.Log("nao implementado");
                         break;
                 }
+
+                truthTable_static[index_coluna].Add(result);
+                index_coluna++;
+                index_variable++;
                 
             }
+            
 /*             for(int coluna = 0; coluna < qtd_variaveis; coluna += 2)
             {
                 foreach (char operacao in operations)
@@ -173,7 +223,7 @@ public class MatrixManager : MonoBehaviour
                 result = result && truthTable_static[coluna][linha];
                 
             } */
-            truthTable_static[total_colunas].Add(result);//atribui o valor final da ultima coluna
+            //atribui o valor final da ultima coluna
         }
     }
 
@@ -192,10 +242,10 @@ public class MatrixManager : MonoBehaviour
                 clone.name = new string("x: " + posX + "y: " + posY);
                 m_textElement = clone.GetComponent<TMP_Text>();
                 m_textElement.text = new string("-" + j + "-");
-                posY -= 75;
+                posY -= 125;
             }
             posY = 0;
-            posX += 75;
+            posX += 125;
         }
         
 
