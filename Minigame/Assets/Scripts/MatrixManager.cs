@@ -8,9 +8,11 @@ public class MatrixManager : MonoBehaviour
     //lista de listas para formar a tabela verdade estatica
     List<List<bool>> truthTable_static = new List<List<bool>>();
 
-    List<char> expressao;
+    List<char> expressao = new List<char>();
+    List<KeyValuePair<int,int>> variables = new List<KeyValuePair<int,int>>();
+    List<char> operations = new List<char>();
 
-    //NÃO, '
+    //NÃO, !
     //E, *
     //OU, + 
     //condicional, >
@@ -27,15 +29,56 @@ public class MatrixManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {  
+        //para testes
+        expressao.Add('a');
+        expressao.Add('*');
+        expressao.Add('b');
+        Debug.Log(expressao[0]);
+
         canvas = GameObject.Find("Canvas").GetComponent<Transform>();
-        CreateMatrix(2);
+        int qtd_variaveis = AnalyseExpression(expressao);
+        CreateMatrix(qtd_variaveis);
         PrintMatrix();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    int AnalyseExpression(List<char> expressao)
+    {
+        int i = 0;
+        int qtd_variaveis = 0;
+
+        foreach (char c in expressao)
+        {
+            switch (c)
+            {
+                case '!':
+                case '*':
+                case '+':
+                case '>':
+                case '-':
+                    operations.Add(c);
+                    variables.Add(new KeyValuePair<int,int>(i++,i++));
+                    qtd_variaveis += 2;
+                    Debug.Log(operations[^1]);
+                    Debug.Log(variables.Count);
+                    break;
+                /* case 'a':
+                case 'b':
+                case 'c':
+                    variables.Add(i++);
+                    qtd_variaveis++;
+                    Debug.Log(variables[^1]);
+                    break; */
+            }
+        }
+
+        return qtd_variaveis;
     }
 
     void CreateMatrix(int qtd_variaveis)
@@ -85,6 +128,10 @@ public class MatrixManager : MonoBehaviour
     {
         int total_colunas = truthTable_static.Count;//atribui a quantidade atual de colunas
         int qtd_linhas = (int)Mathf.Pow(2,qtd_variaveis);//quantidade de linhas
+        
+        //int index_operation = 0;
+        int index_variable = 0;
+        
         bool result = true;//resultado da expressao
 
         truthTable_static.Add(new List<bool>());//adiciona uma nova coluna na tabela verdade
@@ -93,12 +140,39 @@ public class MatrixManager : MonoBehaviour
 
         for(int linha = 0; linha < qtd_linhas; linha++)
         {
-            result = truthTable_static[0][linha];
-            for(int coluna = 1; coluna < qtd_variaveis; coluna++)
+            foreach(char c in operations)
             {
-                result = result && truthTable_static[coluna][linha];
+                switch (c)
+                {
+                    case '!':
+                        Debug.Log("nao implementado");
+                        break;
+                    case '*':
+                        result = truthTable_static[variables[index_variable].Key][linha]
+                                && truthTable_static[variables[index_variable].Value][linha];
+                        break;
+                    case '+':
+                        result = truthTable_static[variables[index_variable].Key][linha]
+                                || truthTable_static[variables[index_variable].Value][linha];
+                        break;
+                    case '>':
+                        Debug.Log("nao implementado");
+                        break;
+                    case '-':
+                        Debug.Log("nao implementado");
+                        break;
+                }
                 
             }
+/*             for(int coluna = 0; coluna < qtd_variaveis; coluna += 2)
+            {
+                foreach (char operacao in operations)
+                {
+                    
+                }
+                result = result && truthTable_static[coluna][linha];
+                
+            } */
             truthTable_static[total_colunas].Add(result);//atribui o valor final da ultima coluna
         }
     }
