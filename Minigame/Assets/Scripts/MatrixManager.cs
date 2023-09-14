@@ -13,10 +13,12 @@ public class MatrixManager : MonoBehaviour
     List<char> operations = new List<char>();
 
     //NÃO, !
+    //bicondicional, -
+    //condicional, >
     //E, *
     //OU, + 
-    //condicional, >
-    //bicondicional, -
+    
+    
 
     //Transform do Canvas, para criação dos elementos
     Transform canvas;
@@ -58,9 +60,30 @@ public class MatrixManager : MonoBehaviour
         int tamanho = expressao.Count;
 
         List<char> analisadas = new List<char>();
+        List<int> operacoes_index = new List<int>();
 
         for (int index = 0; index < tamanho; index++)
         {
+            char c = expressao[index];
+             
+            switch (c)
+            {
+                //case '!':
+                case '*':
+                case '+':
+                case '>':
+                case '-':
+                    operations.Add(c);
+                    for(int i = 0; i < operations.Count; i++)
+                        
+
+
+                    break;
+                case 'a':
+                case 'b':
+                case 'c':
+            }
+        }
             char c = expressao[index];
             switch (c)
             {
