@@ -12,11 +12,11 @@ public class MatrixManager : MonoBehaviour
     List<KeyValuePair<int,int>> variables = new List<KeyValuePair<int,int>>();
     List<char> operations = new List<char>();
 
-    //NÃO, !
-    //bicondicional, -
-    //condicional, >
-    //E, *
-    //OU, + 
+    //NÃO, 1
+    //bicondicional, 2
+    //condicional, 3
+    //E, 4
+    //OU, 5 
     
     
 
@@ -33,14 +33,14 @@ public class MatrixManager : MonoBehaviour
     {  
         //para testes
         expressao.Add('a');
-        expressao.Add('*');
+        expressao.Add('5');
         expressao.Add('b');
-        expressao.Add('+');
-        expressao.Add('c');
-        Debug.Log(expressao[0]);
+        expressao.Add('4');
+        expressao.Add('a');
+        //Debug.Log(expressao[0]);
 
         canvas = GameObject.Find("Canvas").GetComponent<Transform>();
-        int qtd_variaveis = AnalyseExpression(expressao,3);
+        int qtd_variaveis = AnalyseExpression(expressao);
         CreateMatrix(qtd_variaveis);
         PrintMatrix();
         
@@ -52,15 +52,17 @@ public class MatrixManager : MonoBehaviour
         
     }
 
-    int AnalyseExpression(List<char> expressao, int qtd_variaveis)
+    int AnalyseExpression(List<char> expressao)
     {
         int variaveis_usadas = 0;
-        int divisoes = qtd_variaveis;
+        
         //int qtd_variaveis = 0;
         int tamanho = expressao.Count;
-
+        int qtd_variaveis = 0;
         List<char> analisadas = new List<char>();
         List<int> operacoes_index = new List<int>();
+        List<char> variaveis_index = new List<char>();
+        List<int> variaveis_index_analisadas = new List<int>();
 
         for (int index = 0; index < tamanho; index++)
         {
@@ -68,75 +70,95 @@ public class MatrixManager : MonoBehaviour
              
             switch (c)
             {
-                //case '!':
-                case '*':
-                case '+':
-                case '>':
-                case '-':
+                //case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
                     operations.Add(c);
-                    for(int i = 0; i < operations.Count; i++)
+                    operacoes_index.Add(index);
+
+                    for(int i = operations.Count -1; i > 0; i--)
+                    {
+                        if (operations[i - 1] > operations[i])
+                        {
+                            char temp = operations[i - 1];
+                            int temp_ind = operacoes_index[i-1];
+
+                            operations[i - 1] = operations[i];
+                            operacoes_index[i-1] = operacoes_index[i];
+
+                            operations[i] = temp;
+                            operacoes_index[i] = temp_ind;
+                        }
+                        else
+                        {
+
+                            break;
+                        }
                         
-
-
+                    }
                     break;
+
                 case 'a':
                 case 'b':
                 case 'c':
+                    if (!(analisadas.Contains(c)))
+                    {
+                        variaveis_index.Add(c);
+                        qtd_variaveis++;
+                        analisadas.Add(c);
+                    }
+                    break;
             }
         }
-            char c = expressao[index];
-            switch (c)
+
+        analisadas.Clear();
+        int divisoes = qtd_variaveis;
+
+        int temp_i = 0;
+        foreach (int index in operacoes_index)
+        {
+            Debug.Log("operacoes:" + operations[temp_i++] + "index:"+index);
+
+            char esq = expressao[index-1];
+            int esq_index;
+
+            char dir = expressao[index+1];
+            int dir_index;
+
+            if (variaveis_index_analisadas.Contains(index-1))
             {
-                //case '!':
-                case '*':
-                case '+':
-                case '>':
-                case '-':
-                    operations.Add(c);
-                    char esq = expressao[index-1];
-                    int esq_index;
-                    char dir = expressao[index+1];
-                    int dir_index;
-
-                    if (analisadas.Contains(esq))
-                    {
-                        esq_index = divisoes;
-                        divisoes++;
-                    }
-                    else
-                    {
-                        esq_index = variaveis_usadas;
-                        variaveis_usadas++;
-                        //qtd_variaveis++;
-                        analisadas.Add(esq);
-                    }
-
-                    if (analisadas.Contains(dir))
-                    {
-                        dir_index = divisoes;
-                        divisoes++;
-                    }
-                    else
-                    {
-                        dir_index = variaveis_usadas;
-                        variaveis_usadas++;
-                        //qtd_variaveis++;
-                        analisadas.Add(dir);
-                    }
-
-                    variables.Add(new KeyValuePair<int,int>(esq_index,dir_index));
-                    Debug.Log("operacores:" + operations[^1]);
-                    Debug.Log("variaveis:" + variables[^1]);
-                    Debug.Log(variables.Count);
-                    break;
-                /* case 'a':
-                case 'b':
-                case 'c':
-                    variables.Add(i++);
-                    qtd_variaveis++;
-                    Debug.Log(variables[^1]);
-                    break; */
+                esq_index = divisoes;
+                divisoes++;
             }
+            else
+            {
+                esq_index = variaveis_index.IndexOf(esq);
+                variaveis_usadas++;
+                //qtd_variaveis++;
+                variaveis_index_analisadas.Add(index-1);
+                Debug.Log("ultima:" + variaveis_index_analisadas[^1]);
+            }
+
+            if (variaveis_index_analisadas.Contains(index+1))
+            {
+                dir_index = divisoes;
+                divisoes++;
+            }
+            else
+            {
+                dir_index = variaveis_index.IndexOf(dir);
+                variaveis_usadas++;
+                //qtd_variaveis++;
+                variaveis_index_analisadas.Add(index+1);
+                Debug.Log("ultima:" + variaveis_index_analisadas[^1]);
+            }
+
+            variables.Add(new KeyValuePair<int,int>(esq_index,dir_index));
+            
+            Debug.Log("variaveis:" + variables[^1]);
+            Debug.Log(variables.Count);
         }
 
         return qtd_variaveis;
@@ -212,22 +234,22 @@ public class MatrixManager : MonoBehaviour
             {
                 switch (c)
                 {
-                    case '!':
+                    case '1':
                         Debug.Log("nao implementado");
                         break;
-                    case '*':
+                    case '2':
+                        Debug.Log("nao implementado");
+                        break;
+                    case '3':
+                        Debug.Log("nao implementado");
+                        break;
+                    case '4':
                         result = truthTable_static[variables[index_variable].Key][linha]
                                 && truthTable_static[variables[index_variable].Value][linha];
                         break;
-                    case '+':
+                    case '5':
                         result = truthTable_static[variables[index_variable].Key][linha]
                                 || truthTable_static[variables[index_variable].Value][linha];
-                        break;
-                    case '>':
-                        Debug.Log("nao implementado");
-                        break;
-                    case '-':
-                        Debug.Log("nao implementado");
                         break;
                 }
 
