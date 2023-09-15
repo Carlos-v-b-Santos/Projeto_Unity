@@ -17,8 +17,6 @@ public class MatrixManager : MonoBehaviour
     //condicional, 3
     //E, 4
     //OU, 5 
-    
-    
 
     //Transform do Canvas, para criação dos elementos
     Transform canvas;
@@ -26,20 +24,19 @@ public class MatrixManager : MonoBehaviour
     //Prefab dos elementos visuais da tabela verdade
     public GameObject elementPrefab;
     
-    
-
     // Start is called before the first frame update
     void Start()
     {  
         //para testes
-        expressao.Add('a');
-        expressao.Add('5');
-        expressao.Add('b');
-        expressao.Add('4');
-        expressao.Add('a');
+        //expressao.Add('a');
+        //expressao.Add('5');
+        //expressao.Add('b');
+        //expressao.Add('4');
+        //expressao.Add('a');
         //Debug.Log(expressao[0]);
 
         canvas = GameObject.Find("Canvas").GetComponent<Transform>();
+        GenerateExpression(2);
         int qtd_variaveis = AnalyseExpression(expressao);
         CreateMatrix(qtd_variaveis);
         PrintMatrix();
@@ -47,9 +44,36 @@ public class MatrixManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void GenerateExpression(int qtd_variaveis)
     {
-        
+        List<char> operacoes = new List<char>();
+        //operacoes.Add('1');
+        operacoes.Add('2');
+        operacoes.Add('3');
+        operacoes.Add('4');
+        operacoes.Add('5');
+
+        bool var = true;
+        char caracter = (char) 65;
+
+        Debug.Log("expressao:");
+        for(int i = 0; i < (int)Mathf.Pow(2,qtd_variaveis)-1; i++)
+        {
+            if(var)
+            {
+                expressao.Add(caracter++);
+                var = false;
+            }
+            else
+            {
+                expressao.Add(operacoes[Random.Range(0,operacoes.Count)]);
+                var = true;
+            }
+
+            
+            Debug.Log(expressao[^1]);
+        }
+        Debug.Log("fim_expressao");
     }
 
     int AnalyseExpression(List<char> expressao)
@@ -100,9 +124,9 @@ public class MatrixManager : MonoBehaviour
                     }
                     break;
 
-                case 'a':
-                case 'b':
-                case 'c':
+                case 'A':
+                case 'B':
+                case 'C':
                     if (!(analisadas.Contains(c)))
                     {
                         variaveis_index.Add(c);
@@ -234,22 +258,26 @@ public class MatrixManager : MonoBehaviour
             {
                 switch (c)
                 {
-                    case '1':
+                    case '1'://NAO
                         Debug.Log("nao implementado");
                         break;
-                    case '2':
-                        Debug.Log("nao implementado");
+                    case '2'://SE SOMENTE SE
+                        result = (((truthTable_static[variables[index_variable].Key][linha])
+                            &&(truthTable_static[variables[index_variable].Value][linha])) 
+                                || (!(truthTable_static[variables[index_variable].Key][linha]) 
+                            && !(truthTable_static[variables[index_variable].Value][linha])));
                         break;
-                    case '3':
-                        Debug.Log("nao implementado");
+                    case '3'://SE SENAO
+                        result = !(truthTable_static[variables[index_variable].Key][linha])
+                            || truthTable_static[variables[index_variable].Value][linha];
                         break;
-                    case '4':
+                    case '4'://E
                         result = truthTable_static[variables[index_variable].Key][linha]
-                                && truthTable_static[variables[index_variable].Value][linha];
+                            && truthTable_static[variables[index_variable].Value][linha];
                         break;
-                    case '5':
+                    case '5'://OU
                         result = truthTable_static[variables[index_variable].Key][linha]
-                                || truthTable_static[variables[index_variable].Value][linha];
+                            || truthTable_static[variables[index_variable].Value][linha];
                         break;
                 }
 
