@@ -22,7 +22,8 @@ public class MatrixManager : MonoBehaviour
     Transform canvas;
 
     //Prefab dos elementos visuais da tabela verdade
-    public GameObject elementPrefab;
+    public GameObject trueElementPrefab;
+    public GameObject falseElementPrefab;
     
     // Start is called before the first frame update
     void Start()
@@ -302,25 +303,46 @@ public class MatrixManager : MonoBehaviour
 
     void PrintMatrix()
     {
-        int posX = 0;
-        int posY = 0;
-        TMP_Text m_textElement;
+        float posX = -7.0f;
+        float posY = 4.0f;
+        Vector2 pos = new Vector2(posX,posY);
+        GameObject option;
+        GameObject clone;
+
+        //TMP_Text m_textElement;
 
         foreach (List<bool> i in truthTable_static)
         {
+
             foreach(bool j in i)
             {
+                pos = new Vector2(posX, posY);
                 //Debug.Log(i[j]);
-                GameObject clone = Instantiate(elementPrefab, new Vector3(posX, posY, 0), Quaternion.identity, canvas.transform);
+                if(j)
+                {
+                    option = trueElementPrefab;
+                    //GameObject clone = Instantiate(trueElementPrefab, new Vector2(posX, posY), Quaternion.identity, canvas.transform);
+                }
+                else
+                {
+                    option = falseElementPrefab;
+                }
+                clone = Instantiate(option, pos, Quaternion.identity);
+
                 clone.name = new string("x: " + posX + "y: " + posY);
-                m_textElement = clone.GetComponent<TMP_Text>();
-                m_textElement.text = new string("-" + j + "-");
-                posY -= 125;
+                //m_textElement = clone.GetComponent<TMP_Text>();
+                //m_textElement.text = new string("-" + j + "-");
+                posY -= 0.5f;
             }
-            posY = 0;
-            posX += 125;
+            posY = 4.0f;
+            posX += 0.75f;
         }
         
 
+    }
+
+    public void InsertOperationInExpression(char character)
+    {
+        Debug.Log("inserir:" + character);
     }
 }
