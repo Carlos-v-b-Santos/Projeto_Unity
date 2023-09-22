@@ -12,6 +12,8 @@ public class MatrixManager : MonoBehaviour
     List<KeyValuePair<int, int>> variables = new List<KeyValuePair<int, int>>();
     List<char> operations = new List<char>();
 
+    List<string> cabecalho = new List<string>();
+
     //NÃO, 1
     //bicondicional, 2
     //condicional, 3
@@ -22,6 +24,8 @@ public class MatrixManager : MonoBehaviour
     Transform canvas;
 
     //Prefab dos elementos visuais da tabela verdade
+    public GameObject cabecalhoElement;
+
     public GameObject trueElementPrefab;
     public GameObject falseElementPrefab;
 
@@ -77,8 +81,6 @@ public class MatrixManager : MonoBehaviour
                 expressao.Add(operacoes[Random.Range(0, operacoes.Count)]);
                 var = true;
             }
-
-
             Debug.Log(expressao[^1]);
         }
         Debug.Log("fim_expressao");
@@ -154,6 +156,8 @@ public class MatrixManager : MonoBehaviour
                     if (!(analisadas.Contains(c)))
                     {
                         variaveis_index.Add(c);
+                        cabecalho.Add(new string(":"+c));
+                        Debug.Log("cabecalho:" + cabecalho[^1]);
                         qtd_variaveis++;
                         analisadas.Add(c);
                     }
@@ -204,6 +208,8 @@ public class MatrixManager : MonoBehaviour
             }
 
             variables.Add(new KeyValuePair<int, int>(esq_index, dir_index));
+
+            cabecalho.Add(new string(expressao[esq_index] + "" + expressao[index] + "" + expressao[dir_index]));
 
             Debug.Log("variaveis:" + variables[^1]);
             Debug.Log(variables.Count);
@@ -329,8 +335,8 @@ public class MatrixManager : MonoBehaviour
         GameObject option2 = aPrefab;
         Transform expressaoTransform = GameObject.Find("Expressao").GetComponent<Transform>();
         
-        float posX = -6;
-        float posY = 0f;
+        float posX = -7f;
+        float posY = -1.5f;
         Vector2 pos2;
 
         ClearChilds(expressaoTransform);
@@ -366,7 +372,7 @@ public class MatrixManager : MonoBehaviour
                 default:
                     break;
             }
-            posX += 2.0f;
+            posX += 1.5f;
             Instantiate(option2, pos2, Quaternion.identity,expressaoTransform);
         }
         
@@ -374,18 +380,29 @@ public class MatrixManager : MonoBehaviour
 
     void PrintMatrix()
     {
-        float posX = -7.0f;
+        int c = 0;
+        float posX = 1.0f;
         float posY = 4.0f;
         Vector2 pos = new Vector2(posX, posY);
         GameObject option;
         GameObject clone;
         Transform tabelaVerdadeTransform = GameObject.Find("TabelaVerdade").GetComponent<Transform>();
         //TMP_Text m_textElement;
+        TMP_Text m_textElement;
 
         ClearChilds(tabelaVerdadeTransform);
 
         foreach (List<bool> i in truthTable_static)
         {
+            pos = new Vector2(posX, posY);
+
+            clone = Instantiate(cabecalhoElement, pos, Quaternion.identity,tabelaVerdadeTransform);
+            m_textElement = clone.GetComponentInChildren<TMP_Text>();
+            if(m_textElement)
+                Debug.Log("uhu");
+            m_textElement.text = cabecalho[c++];
+
+            posY -= 0.375f;
 
             foreach (bool j in i)
             {
@@ -405,13 +422,11 @@ public class MatrixManager : MonoBehaviour
                 clone.name = new string("x: " + posX + "y: " + posY);
                 //m_textElement = clone.GetComponent<TMP_Text>();
                 //m_textElement.text = new string("-" + j + "-");
-                posY -= 0.5f;
+                posY -= 0.65f;
             }
             posY = 4.0f;
-            posX += 0.75f;
+            posX += 1.55f;
         }
-
-
     }
 
     public void InsertOperationInExpression(string caractere)
@@ -427,6 +442,7 @@ public class MatrixManager : MonoBehaviour
         int qtd_variaveis = AnalyseExpression(expressao);
         CreateMatrix(qtd_variaveis);
         PrintMatrix();
+        VencerJogo();
     }
 
     public void LimparExpressao()
@@ -439,5 +455,33 @@ public class MatrixManager : MonoBehaviour
     {
         expressao.RemoveAt(expressao.Count - 1);
         PrintExpression();
+    }
+
+    void VencerJogo()
+    {
+        CalculeMatrix calculeMatrix = GetComponent<CalculeMatrix>();
+
+        if(this.truthTable_static[^1].Count != calculeMatrix.truthTable_static[^1].Count)
+        {
+            Debug.Log("errado");
+            return;
+        }
+
+
+        for(int i = 0; i < this.truthTable_static[^1].Count; i++)
+        {
+            //Debug.Log("resultado" + i++ + ":" + c);
+            if(this.truthTable_static[^1][i] == calculeMatrix.truthTable_static[^1][i])
+            {
+                Debug.Log("ok" + i);
+            }
+            else
+            {
+                Debug.Log("errado");
+                return;
+            }
+        }
+        
+        Debug.Log("certo");
     }
 }

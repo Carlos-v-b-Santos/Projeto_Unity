@@ -6,11 +6,13 @@ using TMPro;
 public class CalculeMatrix : MonoBehaviour
 {
     //lista de listas para formar a tabela verdade estatica
-    List<List<bool>> truthTable_static = new List<List<bool>>();
+    public List<List<bool>> truthTable_static = new List<List<bool>>();
 
     List<char> expressao = new List<char>();
     List<KeyValuePair<int, int>> variables = new List<KeyValuePair<int, int>>();
     List<char> operations = new List<char>();
+
+    List<string> cabecalho = new List<string>();
 
     //NÃO, 1
     //bicondicional, 2
@@ -22,6 +24,8 @@ public class CalculeMatrix : MonoBehaviour
     Transform canvas;
 
     //Prefab dos elementos visuais da tabela verdade
+    public GameObject cabecalhoElement;
+    
     public GameObject trueElementPrefab;
     public GameObject falseElementPrefab;
 
@@ -31,6 +35,7 @@ public class CalculeMatrix : MonoBehaviour
     public GameObject ePrefab;
     public GameObject sePrefab;
     public GameObject somentePrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +49,7 @@ public class CalculeMatrix : MonoBehaviour
         //Debug.Log(expressao[0]);
 
         canvas = GameObject.Find("Canvas").GetComponent<Transform>();
-        GenerateExpression(2);
+        GenerateExpression(3);
         int qtd_variaveis = AnalyseExpression(expressao);
         CreateMatrix(qtd_variaveis);
         PrintMatrix();
@@ -65,12 +70,17 @@ public class CalculeMatrix : MonoBehaviour
         char caracter = (char)65;
 
         Debug.Log("expressao:");
-        for (int i = 0; i < (int)Mathf.Pow(2, qtd_variaveis) - 1; i++)
+        for (int i = 0; i < 2 * qtd_variaveis - 1; i++)
         {
             if (var)
             {
-                expressao.Add(caracter++);
+                expressao.Add(caracter);
                 var = false;
+
+                if(caracter == 'A')
+                    caracter = 'B';
+                else
+                    caracter = 'A';
             }
             else
             {
@@ -154,6 +164,8 @@ public class CalculeMatrix : MonoBehaviour
                     if (!(analisadas.Contains(c)))
                     {
                         variaveis_index.Add(c);
+                        cabecalho.Add(new string(":"+c));
+                        Debug.Log("cabecalho:" + cabecalho[^1]);
                         qtd_variaveis++;
                         analisadas.Add(c);
                     }
@@ -205,6 +217,9 @@ public class CalculeMatrix : MonoBehaviour
 
             variables.Add(new KeyValuePair<int, int>(esq_index, dir_index));
 
+            cabecalho.Add(new string(expressao[esq_index] + "" + expressao[index] + "" + expressao[dir_index]));
+
+            Debug.Log("cabecalho:" + cabecalho[^1]);
             Debug.Log("variaveis:" + variables[^1]);
             Debug.Log(variables.Count);
         }
@@ -311,6 +326,8 @@ public class CalculeMatrix : MonoBehaviour
 
             }
 
+
+
             /*             for(int coluna = 0; coluna < qtd_variaveis; coluna += 2)
                         {
                             foreach (char operacao in operations)
@@ -322,6 +339,8 @@ public class CalculeMatrix : MonoBehaviour
                         } */
             //atribui o valor final da ultima coluna
         }
+
+        truthTable_static.RemoveRange(qtd_variaveis,truthTable_static.Count-qtd_variaveis-1);
     }
 
     void PrintExpression()
@@ -329,12 +348,12 @@ public class CalculeMatrix : MonoBehaviour
         GameObject option2 = aPrefab;
         //Transform expressaoTransform = GameObject.Find("Expressao").GetComponent<Transform>();
         
-        float posX = -6;
-        float posY = 0f;
+        float posX = -7;
+        float posY = -2f;
         Vector2 pos2;
 
         //ClearChilds(expressaoTransform);
-        
+       
 
 
         foreach (char c in expressao)
@@ -374,18 +393,29 @@ public class CalculeMatrix : MonoBehaviour
 
     void PrintMatrix()
     {
+        int c = 0;
         float posX = -7.0f;
         float posY = 4.0f;
         Vector2 pos = new Vector2(posX, posY);
         GameObject option;
         GameObject clone;
         //Transform tabelaVerdadeTransform = GameObject.Find("TabelaVerdade").GetComponent<Transform>();
-        //TMP_Text m_textElement;
+        TMP_Text m_textElement;
 
         //ClearChilds(tabelaVerdadeTransform);
 
         foreach (List<bool> i in truthTable_static)
         {
+            
+            pos = new Vector2(posX, posY);
+
+            clone = Instantiate(cabecalhoElement, pos, Quaternion.identity);
+            m_textElement = clone.GetComponentInChildren<TMP_Text>();
+            if(m_textElement)
+                Debug.Log("uhu");
+            m_textElement.text = cabecalho[c++];
+
+            posY -= 0.4f;
 
             foreach (bool j in i)
             {
@@ -405,10 +435,10 @@ public class CalculeMatrix : MonoBehaviour
                 clone.name = new string("x: " + posX + "y: " + posY);
                 //m_textElement = clone.GetComponent<TMP_Text>();
                 //m_textElement.text = new string("-" + j + "-");
-                posY -= 0.5f;
+                posY -= 0.65f;
             }
             posY = 4.0f;
-            posX += 0.75f;
+            posX += 1.55f;
         }
 
 
