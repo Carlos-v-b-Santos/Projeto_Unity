@@ -206,8 +206,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380481257}
-        m_TargetAssemblyTypeName: MatrixManager, Assembly-CSharp
+      - m_Target: {fileID: 679799625}
+        m_TargetAssemblyTypeName: DynamicMatrixManager, Assembly-CSharp
         m_MethodName: InsertOperationInExpression
         m_Mode: 5
         m_Arguments:
@@ -607,8 +607,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380481257}
-        m_TargetAssemblyTypeName: MatrixManager, Assembly-CSharp
+      - m_Target: {fileID: 679799625}
+        m_TargetAssemblyTypeName: DynamicMatrixManager, Assembly-CSharp
         m_MethodName: InsertOperationInExpression
         m_Mode: 5
         m_Arguments:
@@ -874,8 +874,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380481257}
-        m_TargetAssemblyTypeName: MatrixManager, Assembly-CSharp
+      - m_Target: {fileID: 679799625}
+        m_TargetAssemblyTypeName: DynamicMatrixManager, Assembly-CSharp
         m_MethodName: LimparExpressao
         m_Mode: 1
         m_Arguments:
@@ -1109,8 +1109,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380481257}
-        m_TargetAssemblyTypeName: MatrixManager, Assembly-CSharp
+      - m_Target: {fileID: 679799625}
+        m_TargetAssemblyTypeName: DynamicMatrixManager, Assembly-CSharp
         m_MethodName: InsertOperationInExpression
         m_Mode: 5
         m_Arguments:
@@ -1251,6 +1251,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &594849510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594849511}
+  - component: {fileID: 594849512}
+  m_Layer: 0
+  m_Name: StaticMatrixManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &594849511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594849510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1380481258}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &594849512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594849510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae1698193688f74f83246b3ca28a966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cabecalhoElement: {fileID: 3869422347348138465, guid: 4dfb88b06bdd2b3418dffaf90e8dc036, type: 3}
+  trueElementPrefab: {fileID: 5368225707671544561, guid: e4356f3e415391c43a7e5859519eead2, type: 3}
+  falseElementPrefab: {fileID: 5897105498039951193, guid: c34423e4a9975df4ba0e288570b3a770, type: 3}
+  aPrefab: {fileID: 6080186531295773569, guid: 6998cdd908c1d2a41ab7c911e0425d9b, type: 3}
+  bPrefab: {fileID: 8301433567120811374, guid: 87d5fdfa49b43f741b571e9039a51911, type: 3}
+  ouPrefab: {fileID: 772553975256942589, guid: 095d5cbd2a624874f8c7ec6d82b4e5d9, type: 3}
+  ePrefab: {fileID: 4224067171549325067, guid: 4c618222ea7fbab41a090a2644c82061, type: 3}
+  sePrefab: {fileID: 3244570376580402923, guid: a6502396389657341a4dc1c24bcb1049, type: 3}
+  somentePrefab: {fileID: 4804356511837555459, guid: d71e2e45b4a7c4d468941cf780045eda, type: 3}
 --- !u!1 &626678019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,6 +1372,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &679799623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679799624}
+  - component: {fileID: 679799625}
+  m_Layer: 0
+  m_Name: DynamicMatrixManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &679799624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679799623}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1380481258}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &679799625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679799623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46c3445b4a2ab149b3a55f0757f8e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cabecalhoElement: {fileID: 3869422347348138465, guid: 4dfb88b06bdd2b3418dffaf90e8dc036, type: 3}
+  trueElementPrefab: {fileID: 5368225707671544561, guid: e4356f3e415391c43a7e5859519eead2, type: 3}
+  falseElementPrefab: {fileID: 5897105498039951193, guid: c34423e4a9975df4ba0e288570b3a770, type: 3}
+  aPrefab: {fileID: 6080186531295773569, guid: 6998cdd908c1d2a41ab7c911e0425d9b, type: 3}
+  bPrefab: {fileID: 8301433567120811374, guid: 87d5fdfa49b43f741b571e9039a51911, type: 3}
+  ouPrefab: {fileID: 772553975256942589, guid: 095d5cbd2a624874f8c7ec6d82b4e5d9, type: 3}
+  ePrefab: {fileID: 4224067171549325067, guid: 4c618222ea7fbab41a090a2644c82061, type: 3}
+  sePrefab: {fileID: 3244570376580402923, guid: a6502396389657341a4dc1c24bcb1049, type: 3}
+  somentePrefab: {fileID: 4804356511837555459, guid: d71e2e45b4a7c4d468941cf780045eda, type: 3}
 --- !u!1 &728710132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,8 +1508,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380481257}
-        m_TargetAssemblyTypeName: MatrixManager, Assembly-CSharp
+      - m_Target: {fileID: 679799625}
+        m_TargetAssemblyTypeName: DynamicMatrixManager, Assembly-CSharp
         m_MethodName: InsertOperationInExpression
         m_Mode: 5
         m_Arguments:
@@ -1462,7 +1568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 799699037}
   m_Layer: 0
-  m_Name: TabelaVerdade
+  m_Name: TabelaVerdadeDinamica
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1566,8 +1672,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380481257}
-        m_TargetAssemblyTypeName: MatrixManager, Assembly-CSharp
+      - m_Target: {fileID: 679799625}
+        m_TargetAssemblyTypeName: DynamicMatrixManager, Assembly-CSharp
         m_MethodName: InsertOperationInExpression
         m_Mode: 5
         m_Arguments:
@@ -2134,8 +2240,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380481257}
-        m_TargetAssemblyTypeName: MatrixManager, Assembly-CSharp
+      - m_Target: {fileID: 679799625}
+        m_TargetAssemblyTypeName: DynamicMatrixManager, Assembly-CSharp
         m_MethodName: InsertOperationInExpression
         m_Mode: 5
         m_Arguments:
@@ -2193,36 +2299,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1380481258}
-  - component: {fileID: 1380481257}
-  - component: {fileID: 1380481259}
   m_Layer: 0
-  m_Name: MatrixManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1380481257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380481256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2acec999974533543879dcf50a929ec4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cabecalhoElement: {fileID: 3869422347348138465, guid: 4dfb88b06bdd2b3418dffaf90e8dc036, type: 3}
-  trueElementPrefab: {fileID: 5368225707671544561, guid: e4356f3e415391c43a7e5859519eead2, type: 3}
-  falseElementPrefab: {fileID: 5897105498039951193, guid: c34423e4a9975df4ba0e288570b3a770, type: 3}
-  aPrefab: {fileID: 6080186531295773569, guid: 6998cdd908c1d2a41ab7c911e0425d9b, type: 3}
-  bPrefab: {fileID: 8301433567120811374, guid: 87d5fdfa49b43f741b571e9039a51911, type: 3}
-  ouPrefab: {fileID: 772553975256942589, guid: 095d5cbd2a624874f8c7ec6d82b4e5d9, type: 3}
-  ePrefab: {fileID: 4224067171549325067, guid: 4c618222ea7fbab41a090a2644c82061, type: 3}
-  sePrefab: {fileID: 3244570376580402923, guid: a6502396389657341a4dc1c24bcb1049, type: 3}
-  somentePrefab: {fileID: 4804356511837555459, guid: d71e2e45b4a7c4d468941cf780045eda, type: 3}
 --- !u!4 &1380481258
 Transform:
   m_ObjectHideFlags: 0
@@ -2235,30 +2318,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 679799624}
+  - {fileID: 594849511}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1380481259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380481256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc2ba7d9ab57aac4297731b8612afb2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cabecalhoElement: {fileID: 3869422347348138465, guid: 4dfb88b06bdd2b3418dffaf90e8dc036, type: 3}
-  trueElementPrefab: {fileID: 5368225707671544561, guid: e4356f3e415391c43a7e5859519eead2, type: 3}
-  falseElementPrefab: {fileID: 5897105498039951193, guid: c34423e4a9975df4ba0e288570b3a770, type: 3}
-  aPrefab: {fileID: 6080186531295773569, guid: 6998cdd908c1d2a41ab7c911e0425d9b, type: 3}
-  bPrefab: {fileID: 8301433567120811374, guid: 87d5fdfa49b43f741b571e9039a51911, type: 3}
-  ouPrefab: {fileID: 772553975256942589, guid: 095d5cbd2a624874f8c7ec6d82b4e5d9, type: 3}
-  ePrefab: {fileID: 4224067171549325067, guid: 4c618222ea7fbab41a090a2644c82061, type: 3}
-  sePrefab: {fileID: 3244570376580402923, guid: a6502396389657341a4dc1c24bcb1049, type: 3}
-  somentePrefab: {fileID: 4804356511837555459, guid: d71e2e45b4a7c4d468941cf780045eda, type: 3}
 --- !u!1 &1445295214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,8 +2674,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380481257}
-        m_TargetAssemblyTypeName: MatrixManager, Assembly-CSharp
+      - m_Target: {fileID: 679799625}
+        m_TargetAssemblyTypeName: DynamicMatrixManager, Assembly-CSharp
         m_MethodName: GerarTabela
         m_Mode: 1
         m_Arguments:
@@ -2877,8 +2941,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1380481257}
-        m_TargetAssemblyTypeName: MatrixManager, Assembly-CSharp
+      - m_Target: {fileID: 679799625}
+        m_TargetAssemblyTypeName: DynamicMatrixManager, Assembly-CSharp
         m_MethodName: DeleteOperationInExpression
         m_Mode: 1
         m_Arguments:

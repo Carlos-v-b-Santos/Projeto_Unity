@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class CalculeMatrix : MonoBehaviour
+public class DynamicMatrixManager : MonoBehaviour
 {
     //lista de listas para formar a tabela verdade estatica
-    public List<List<bool>> truthTable_static = new List<List<bool>>();
+    List<List<bool>> truthTable_static = new List<List<bool>>();
 
     List<char> expressao = new List<char>();
     List<KeyValuePair<int, int>> variables = new List<KeyValuePair<int, int>>();
@@ -25,7 +25,7 @@ public class CalculeMatrix : MonoBehaviour
 
     //Prefab dos elementos visuais da tabela verdade
     public GameObject cabecalhoElement;
-    
+
     public GameObject trueElementPrefab;
     public GameObject falseElementPrefab;
 
@@ -35,7 +35,6 @@ public class CalculeMatrix : MonoBehaviour
     public GameObject ePrefab;
     public GameObject sePrefab;
     public GameObject somentePrefab;
-
 
     // Start is called before the first frame update
     void Start()
@@ -49,10 +48,10 @@ public class CalculeMatrix : MonoBehaviour
         //Debug.Log(expressao[0]);
 
         canvas = GameObject.Find("Canvas").GetComponent<Transform>();
-        GenerateExpression(3);
-        int qtd_variaveis = AnalyseExpression(expressao);
-        CreateMatrix(qtd_variaveis);
-        PrintMatrix();
+        //GenerateExpression(2);
+        //int qtd_variaveis = AnalyseExpression(expressao);
+        //CreateMatrix(qtd_variaveis);
+        //PrintMatrix();
 
     }
 
@@ -70,25 +69,18 @@ public class CalculeMatrix : MonoBehaviour
         char caracter = (char)65;
 
         Debug.Log("expressao:");
-        for (int i = 0; i < 2 * qtd_variaveis - 1; i++)
+        for (int i = 0; i < (int)Mathf.Pow(2, qtd_variaveis) - 1; i++)
         {
             if (var)
             {
-                expressao.Add(caracter);
+                expressao.Add(caracter++);
                 var = false;
-
-                if(caracter == 'A')
-                    caracter = 'B';
-                else
-                    caracter = 'A';
             }
             else
             {
                 expressao.Add(operacoes[Random.Range(0, operacoes.Count)]);
                 var = true;
             }
-
-
             Debug.Log(expressao[^1]);
         }
         Debug.Log("fim_expressao");
@@ -101,12 +93,12 @@ public class CalculeMatrix : MonoBehaviour
         operations.Clear();
     }
 
-    //void ClearChilds(Transform pai)
-    //{
-    //    foreach (Transform child in pai) {
-    //        Destroy(child.gameObject);
-    //    }
-    //}
+    void ClearChilds(Transform pai)
+    {
+        foreach (Transform child in pai) {
+            Destroy(child.gameObject);
+        }
+    }
 
     int AnalyseExpression(List<char> expressao)
     {
@@ -219,7 +211,6 @@ public class CalculeMatrix : MonoBehaviour
 
             cabecalho.Add(new string(expressao[esq_index] + "" + expressao[index] + "" + expressao[dir_index]));
 
-            Debug.Log("cabecalho:" + cabecalho[^1]);
             Debug.Log("variaveis:" + variables[^1]);
             Debug.Log(variables.Count);
         }
@@ -326,8 +317,6 @@ public class CalculeMatrix : MonoBehaviour
 
             }
 
-
-
             /*             for(int coluna = 0; coluna < qtd_variaveis; coluna += 2)
                         {
                             foreach (char operacao in operations)
@@ -339,21 +328,19 @@ public class CalculeMatrix : MonoBehaviour
                         } */
             //atribui o valor final da ultima coluna
         }
-
-        truthTable_static.RemoveRange(qtd_variaveis,truthTable_static.Count-qtd_variaveis-1);
     }
 
     void PrintExpression()
     {
         GameObject option2 = aPrefab;
-        //Transform expressaoTransform = GameObject.Find("Expressao").GetComponent<Transform>();
+        Transform expressaoTransform = GameObject.Find("Expressao").GetComponent<Transform>();
         
-        float posX = -7;
-        float posY = -2f;
+        float posX = -7f;
+        float posY = -1.5f;
         Vector2 pos2;
 
-        //ClearChilds(expressaoTransform);
-       
+        ClearChilds(expressaoTransform);
+        
 
 
         foreach (char c in expressao)
@@ -385,8 +372,8 @@ public class CalculeMatrix : MonoBehaviour
                 default:
                     break;
             }
-            posX += 2.0f;
-            Instantiate(option2, pos2, Quaternion.identity);
+            posX += 1.5f;
+            Instantiate(option2, pos2, Quaternion.identity,expressaoTransform);
         }
         
     }
@@ -394,28 +381,28 @@ public class CalculeMatrix : MonoBehaviour
     void PrintMatrix()
     {
         int c = 0;
-        float posX = -7.0f;
+        float posX = 1.0f;
         float posY = 4.0f;
         Vector2 pos = new Vector2(posX, posY);
         GameObject option;
         GameObject clone;
-        //Transform tabelaVerdadeTransform = GameObject.Find("TabelaVerdade").GetComponent<Transform>();
+        Transform tabelaVerdadeTransform = GameObject.Find("TabelaVerdadeDinamica").GetComponent<Transform>();
+        //TMP_Text m_textElement;
         TMP_Text m_textElement;
 
-        //ClearChilds(tabelaVerdadeTransform);
+        ClearChilds(tabelaVerdadeTransform);
 
         foreach (List<bool> i in truthTable_static)
         {
-            
             pos = new Vector2(posX, posY);
 
-            clone = Instantiate(cabecalhoElement, pos, Quaternion.identity);
+            clone = Instantiate(cabecalhoElement, pos, Quaternion.identity,tabelaVerdadeTransform);
             m_textElement = clone.GetComponentInChildren<TMP_Text>();
             if(m_textElement)
                 Debug.Log("uhu");
             m_textElement.text = cabecalho[c++];
 
-            posY -= 0.4f;
+            posY -= 0.375f;
 
             foreach (bool j in i)
             {
@@ -430,7 +417,7 @@ public class CalculeMatrix : MonoBehaviour
                 {
                     option = falseElementPrefab;
                 }
-                clone = Instantiate(option, pos, Quaternion.identity);
+                clone = Instantiate(option, pos, Quaternion.identity,tabelaVerdadeTransform);
 
                 clone.name = new string("x: " + posX + "y: " + posY);
                 //m_textElement = clone.GetComponent<TMP_Text>();
@@ -440,8 +427,6 @@ public class CalculeMatrix : MonoBehaviour
             posY = 4.0f;
             posX += 1.55f;
         }
-
-
     }
 
     public void InsertOperationInExpression(string caractere)
@@ -457,6 +442,7 @@ public class CalculeMatrix : MonoBehaviour
         int qtd_variaveis = AnalyseExpression(expressao);
         CreateMatrix(qtd_variaveis);
         PrintMatrix();
+        VencerJogo();
     }
 
     public void LimparExpressao()
@@ -469,5 +455,35 @@ public class CalculeMatrix : MonoBehaviour
     {
         expressao.RemoveAt(expressao.Count - 1);
         PrintExpression();
+    }
+
+    void VencerJogo()
+    {
+        DynamicMatrixManager dynamicMatrixManager = GetComponent<DynamicMatrixManager>();
+
+        if(this.truthTable_static[^1].Count != dynamicMatrixManager.truthTable_static[^1].Count)
+        {
+            Debug.Log("errado");
+            return;
+        }
+
+
+        for(int i = 0; i < this.truthTable_static[^1].Count; i++)
+        {
+            //Debug.Log("resultado" + i++ + ":" + c);
+            if(this.truthTable_static[^1][i] == dynamicMatrixManager.truthTable_static[^1][i])
+            {
+                Debug.Log("ok" + i);
+            }
+            else
+            {
+                Debug.Log("errado");
+                return;
+            }
+        }
+        
+        Debug.Log("certo");
+
+        
     }
 }
