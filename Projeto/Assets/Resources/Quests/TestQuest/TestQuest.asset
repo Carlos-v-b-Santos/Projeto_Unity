@@ -15,5 +15,6 @@ MonoBehaviour:
   <id>k__BackingField: TestQuest
   displayName: TESTANDO...
   questPrerequisites: []
-  questStepPrefabs: []
+  questStepPrefabs:
+  - {fileID: 2453105826439716304, guid: 3207f1f4c8e317e4b8311b8cb8624e32, type: 3}
   eticPointsReward: 10
