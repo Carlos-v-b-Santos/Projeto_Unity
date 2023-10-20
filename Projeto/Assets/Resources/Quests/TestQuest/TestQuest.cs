@@ -16,11 +16,11 @@ public class TestQuest : QuestStep
 
     //FinishQuestStep();
 
-    private void UpdateState()
-    {
+    //private void UpdateState()
+    //{
         //string state = coinsCollected.ToString();
         //ChangeState(state);
-    }
+    //}
 
     protected override void SetQuestStepState(string state)
     {

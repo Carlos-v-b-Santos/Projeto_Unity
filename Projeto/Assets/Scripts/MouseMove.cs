@@ -11,7 +11,6 @@ public class MouseMove : MonoBehaviour
 
     private Vector2 movePlayer;
 
-    [SerializeField] float speed = 2f;
     // Start is called before the first frame updat
 
     private PlayerInputActions input;

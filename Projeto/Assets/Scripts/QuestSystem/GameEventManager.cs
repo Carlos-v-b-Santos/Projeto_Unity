@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameEventManager : MonoBehaviour
 {
-    public static GameEventManager instance {  get; private set; }
+    public static GameEventManager instance { get; private set; }
 
     public QuestEvents questEvents;
     private void Awake()
@@ -14,8 +13,15 @@ public class GameEventManager : MonoBehaviour
             Debug.LogError("Mais que um GameEventManager");
         }
         instance = this;
-
+        if (instance != null)
+        {
+            Debug.Log("GameEventManager instaciado");
+        }
         //initialize all events
         questEvents = new QuestEvents();
+        if (questEvents != null)
+        {
+            Debug.Log("questEvents instaciado");
+        }
     }
 }
