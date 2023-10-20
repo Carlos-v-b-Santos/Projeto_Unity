@@ -51,4 +51,7 @@ public class MouseMove : MonoBehaviour
     }
     private void OnEnable() => input.Enable();
     private void OnDisable() => input.Disable();
+
+
+
 }

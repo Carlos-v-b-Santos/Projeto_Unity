@@ -22,6 +22,16 @@ public class QuestPoint : MonoBehaviour
         questId = questInfoForPoint.id;
     }
 
+    //teste
+    private void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            Debug.Log("space key was pressed");
+            SubmitPressed();
+        }
+    }
+
     private void OnEnable()
     {
         GameEventManager.instance.questEvents.onQuestStateChange += QuestStateChange;
@@ -36,17 +46,21 @@ public class QuestPoint : MonoBehaviour
 
     private void SubmitPressed()
     {
+        
+
         if (!playerIsNear)
         {
             return;
         }
 
         if(currentQuestState.Equals(QuestState.CAN_START)&& startPoint) 
-        { 
+        {
+            Debug.Log("Quest Iniciada");
             GameEventManager.instance.questEvents.StartQuest(questId);
         }
         else if(currentQuestState.Equals(QuestState.CAN_FINISH)&& finishPoint)
         {
+            Debug.Log("Quest Finalizada");
             GameEventManager.instance.questEvents.FinishQuest(questId);
         }
     }
