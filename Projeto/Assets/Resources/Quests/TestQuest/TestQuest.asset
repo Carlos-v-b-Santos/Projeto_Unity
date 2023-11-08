@@ -16,5 +16,6 @@ MonoBehaviour:
   displayName: TESTANDO...
   questPrerequisites: []
   questStepPrefabs:
+  - {fileID: 7077565190817550225, guid: ba68a5ef02206ec479b370e69c2227a3, type: 3}
   - {fileID: 2453105826439716304, guid: 3207f1f4c8e317e4b8311b8cb8624e32, type: 3}
   eticPointsReward: 10

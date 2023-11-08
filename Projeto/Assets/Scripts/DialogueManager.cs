@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,13 +24,15 @@ public class DialogueManager : MonoBehaviour
 
     private bool dialogueIsPlaying;
 
-    private static DialogueManager instance;
+    public static DialogueManager instance;
 
     private const string SPEAKER_TAG = "speaker";
 
     private DialogueVariables dialogueVariables;
 
     GameManager gameManager;
+    public event Action Finalizar;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -85,6 +88,12 @@ public class DialogueManager : MonoBehaviour
 
         dialogueVariables.StartListening(currentStory);
 
+        currentStory.BindExternalFunction("finalizarQuestStep", () =>
+        {
+            Debug.Log("finalizar parte da quest");
+            Finalizar();
+        });
+
         currentStory.BindExternalFunction("increaseEtica", (float value) =>
         {
             Debug.Log(value);
@@ -101,6 +110,7 @@ public class DialogueManager : MonoBehaviour
         dialogueVariables.StopListening(currentStory);
 
         currentStory.UnbindExternalFunction("increaseEtica");
+        currentStory.UnbindExternalFunction("finalizarQuestStep");
 
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
@@ -183,8 +193,9 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex){
         currentStory.ChooseChoiceIndex(choiceIndex);
 
+        //teste
         
 
-        ContinueStory();
+    ContinueStory();
     }
 }

@@ -1,6 +1,7 @@
 INCLUDE globals.ink
 
 EXTERNAL increaseEtica(value)
+EXTERNAL finalizarQuestStep()
 
 Eae meu nobre! #speaker:NPC
 { pokemon_name == "": -> main | -> already_chose}
@@ -18,6 +19,7 @@ Which pokemon do you choose?
         -> chosen("Squirtle")
         
 === chosen(pokemon) ===
+~ finalizarQuestStep()
 ~ pokemon_name = pokemon
 You chose {pokemon}!
 -> END

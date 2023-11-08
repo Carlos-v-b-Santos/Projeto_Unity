@@ -27,4 +27,14 @@ public class TestQuest : QuestStep
         //this.coinsCollected = System.Int32.Parse(state);
         //UpdateState();
     }
+
+    //------------------------------------------------------
+    private void OnEnable()
+    {
+        DialogueManager.instance.Finalizar += FinishQuestStep;
+    }
+    private void OnDisable()
+    {
+        DialogueManager.instance.Finalizar -= FinishQuestStep;
+    }
 }
