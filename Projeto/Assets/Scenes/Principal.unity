@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 318903938}
   - component: {fileID: 318903939}
   m_Layer: 0
-  m_Name: GameEventManager
+  m_Name: GameEventsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

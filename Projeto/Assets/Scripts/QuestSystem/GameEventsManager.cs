@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public class GameEventManager : MonoBehaviour
+public class GameEventsManager : MonoBehaviour
 {
-    public static GameEventManager instance { get; private set; }
+    public static GameEventsManager instance { get; private set; }
 
     public QuestEvents questEvents;
     private void Awake()

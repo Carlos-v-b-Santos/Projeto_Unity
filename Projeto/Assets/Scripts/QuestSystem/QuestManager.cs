@@ -23,20 +23,20 @@ public class QuestManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEventManager.instance.questEvents.onStartQuest += StartQuest;
-        GameEventManager.instance.questEvents.onAdvanceQuest += AdvanceQuest;
-        GameEventManager.instance.questEvents.onFinishQuest += FinishQuest;
+        GameEventsManager.instance.questEvents.onStartQuest += StartQuest;
+        GameEventsManager.instance.questEvents.onAdvanceQuest += AdvanceQuest;
+        GameEventsManager.instance.questEvents.onFinishQuest += FinishQuest;
 
-        GameEventManager.instance.questEvents.onQuestStepStateChange += QuestStepStateChange;
+        GameEventsManager.instance.questEvents.onQuestStepStateChange += QuestStepStateChange;
     }
 
     private void OnDisable()
     {
-        GameEventManager.instance.questEvents.onStartQuest -= StartQuest;
-        GameEventManager.instance.questEvents.onAdvanceQuest -= AdvanceQuest;
-        GameEventManager.instance.questEvents.onFinishQuest -= FinishQuest;
+        GameEventsManager.instance.questEvents.onStartQuest -= StartQuest;
+        GameEventsManager.instance.questEvents.onAdvanceQuest -= AdvanceQuest;
+        GameEventsManager.instance.questEvents.onFinishQuest -= FinishQuest;
 
-        GameEventManager.instance.questEvents.onQuestStepStateChange -= QuestStepStateChange;
+        GameEventsManager.instance.questEvents.onQuestStepStateChange -= QuestStepStateChange;
     }
 
     private void Start()
@@ -48,7 +48,7 @@ public class QuestManager : MonoBehaviour
             {
                 quest.InstantiateCurrentQuestStep(this.transform);
             }
-            GameEventManager.instance.questEvents.QuestStateChance(quest);
+            GameEventsManager.instance.questEvents.QuestStateChance(quest);
         }
     }
 
@@ -56,7 +56,7 @@ public class QuestManager : MonoBehaviour
     {
         Quest quest = GetQuestById(id);
         quest.state = state;
-        GameEventManager.instance.questEvents.QuestStateChance(quest);
+        GameEventsManager.instance.questEvents.QuestStateChance(quest);
     }
 
     private bool CheckRequirementsMet(Quest quest)
