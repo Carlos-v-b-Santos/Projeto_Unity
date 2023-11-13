@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572577fdbcd978e419a0c7c75abcc113, type: 3}
+  m_Name: Mission
+  m_EditorClassIdentifier: 
+  <id>k__BackingField: Mission
+  displayName: 
+  questPrerequisites: []
+  questStepPrefabs:
+  - {fileID: 4521019737196113378, guid: 73c4379baae243642a7ee97756148519, type: 3}
+  eticPointsReward: 10

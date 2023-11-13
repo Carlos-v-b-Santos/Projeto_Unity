@@ -14,11 +14,12 @@ public class QuestManager : MonoBehaviour
     {
         questMap = CreateQuestMap();
 
-        Quest quest = GetQuestById("TestQuest");
-        Debug.Log(quest.info.displayName);
+        //Quest quest = GetQuestById("TestQuest");
+        //Quest quest = GetQuestById("Mission0");
+        //Debug.Log(quest.info.displayName);
         //Debug.Log(quest.info.levelRequirement);
-        Debug.Log(quest.state);
-        Debug.Log(quest.CurrentStepExists());
+        //Debug.Log(quest.state);
+        //Debug.Log(quest.CurrentStepExists());
     }
 
     private void OnEnable()
@@ -142,6 +143,7 @@ public class QuestManager : MonoBehaviour
         Dictionary<string,Quest> idToQuestMap = new Dictionary<string, Quest>();
         foreach (QuestInfoSO questInfo in allQuests)
         {
+            Debug.Log("questinfo id: " + questInfo.id);
             if(idToQuestMap.ContainsKey(questInfo.id))
             {
                 Debug.LogWarning("id duplicado:" + questInfo.id);

@@ -33,10 +33,17 @@ public class DialogueManager : MonoBehaviour
     GameManager gameManager;
     public event Action Finalizar;
 
+    //desativar script
+    public GameObject Player;
+    public GameObject botao_proximo;
+
     // Start is called before the first frame update
     private void Awake()
     {
-        if(instance != null)
+        Player = GameObject.FindWithTag("Player");
+        botao_proximo = GameObject.Find("Next");
+
+        if (instance != null)
         {
             Debug.LogWarning("Mais de uma instancia");
         }
@@ -75,13 +82,16 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if(Input.GetKeyUp(KeyCode.Escape))
-        {
-            ContinueStory();
-        }
+        //if(Input.GetKeyUp(KeyCode.Escape))
+        //{
+        //    ContinueStory();
+        //}
     }
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        Player.GetComponent<MouseMove>().enabled = false;
+        //------------------
+
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
@@ -107,6 +117,8 @@ public class DialogueManager : MonoBehaviour
 
     private void ExitDialogueMode()
     {
+        Player.GetComponent<MouseMove>().enabled = true;
+
         dialogueVariables.StopListening(currentStory);
 
         currentStory.UnbindExternalFunction("increaseEtica");
@@ -117,7 +129,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
     }
 
-    private void ContinueStory()
+    public void ContinueStory()
     {
         if(currentStory.canContinue)
         {

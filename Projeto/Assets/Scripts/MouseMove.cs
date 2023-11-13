@@ -40,7 +40,7 @@ public class MouseMove : MonoBehaviour
         Vector2 point = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         RaycastHit2D hit = (Physics2D.Raycast(point, Vector2.zero));
         
-        if(hit.collider != null) {
+        if(hit.collider != null && hit.rigidbody != null) {
             movePlayer = hit.point;
         }
     }
