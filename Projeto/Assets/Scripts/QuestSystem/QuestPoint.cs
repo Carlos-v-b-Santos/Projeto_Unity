@@ -17,9 +17,12 @@ public class QuestPoint : MonoBehaviour
     private string questId;
     private QuestState currentQuestState;
 
+    private QuestIcon questIcon;
+
     private void Awake()
     {
         questId = questInfoForPoint.Id;
+        questIcon = GetComponentInChildren<QuestIcon>();
     }
 
     //teste
@@ -35,13 +38,13 @@ public class QuestPoint : MonoBehaviour
     private void OnEnable()
     {
         GameEventsManager.Instance.questEvents.OnQuestStateChange += QuestStateChange;
-        //GameEventManager.instance.inputEvents.onSubmitPressed += SubmitPressed;
+        //GameEventsManager.Instance.inputEvents.onSubmitPressed += SubmitPressed;
     }
 
     private void OnDisable()
     {
         GameEventsManager.Instance.questEvents.OnQuestStateChange -= QuestStateChange;
-        //GameEventManager.instance.inputEvents.onSubmitPressed -= SubmitPressed;
+        //GameEventsManager.Instance.inputEvents.onSubmitPressed -= SubmitPressed;
     }
 
     private void SubmitPressed()
@@ -72,6 +75,7 @@ public class QuestPoint : MonoBehaviour
         {
             currentQuestState = quest.state;
             Debug.Log("Quest with id: " + questId + "update to state: " + currentQuestState);
+            questIcon.SetState(currentQuestState,startPoint,finishPoint);
         }
     }
 
