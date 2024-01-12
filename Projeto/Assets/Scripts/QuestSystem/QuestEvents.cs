@@ -1,49 +1,35 @@
 using System;
 
 public class QuestEvents
+//Envia todos os eventos relacionado ao sistema de quests
 {
-    public event Action<string> onStartQuest;
+    public event Action<string> OnStartQuest;
     public void StartQuest(string id)
     {
-        if (onStartQuest != null)
-        {
-            onStartQuest(id);
-        }
+        OnStartQuest?.Invoke(id);
     }
 
-    public event Action<string> onAdvanceQuest;
+    public event Action<string> OnAdvanceQuest;
     public void AdvanceQuest(string id)
     {
-        if (onAdvanceQuest != null)
-        {
-            onAdvanceQuest(id);
-        }
+        OnAdvanceQuest?.Invoke(id);
     }
 
-    public event Action<string> onFinishQuest;
+    public event Action<string> OnFinishQuest;
     public void FinishQuest(string id)
     {
-        if (onFinishQuest != null)
-        {
-            onFinishQuest(id);
-        }
+        OnFinishQuest?.Invoke(id);
     }
 
-    public event Action<Quest> onQuestStateChange;
+    public event Action<Quest> OnQuestStateChange;
     public void QuestStateChance(Quest quest)
     {
-        if (onQuestStateChange != null)
-        {
-            onQuestStateChange(quest);
-        }
+        OnQuestStateChange?.Invoke(quest);
     }
 
-    public event Action<string, int, QuestStepState> onQuestStepStateChange;
+    public event Action<string, int, QuestStepState> OnQuestStepStateChange;
     public void QuestStepStateChange(string id, int stepIndex, QuestStepState questStepState)   
     {
-        if (onQuestStepStateChange != null)
-        {
-            onQuestStepStateChange(id, stepIndex, questStepState);
-        }
+        OnQuestStepStateChange?.Invoke(id, stepIndex, questStepState);
     }
 }

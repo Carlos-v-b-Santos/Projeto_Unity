@@ -6,28 +6,30 @@ using UnityEngine;
 
 public class Quest
 {
+    // informacao estatica
     public QuestInfoSO info;
+
+    // informacao de estado
     public QuestState state;
-
     private int currentQuestStepIndex;
-
     private QuestStepState[] questStepStates;
 
     public Quest(QuestInfoSO questInfo)
+    //construtor de quests nao iniciadas
     {
         this.info = questInfo;
         this.state = QuestState.REQUIREMENTS_NOT_MET;
         this.currentQuestStepIndex = 0;
         this.questStepStates = new QuestStepState[info.questStepPrefabs.Length];
+        
         for (int i = 0;i < info.questStepPrefabs.Length;i++)
         {
             questStepStates[i] = new QuestStepState();
-
         }
-
     }
 
     public Quest(QuestInfoSO questInfo, QuestState questState, int currentQuestStepIndex, QuestStepState[] questStepStates)
+    //construtor de Quests ja iniciadas
     {
         this.info = questInfo;
         this.state = questState;
@@ -36,7 +38,7 @@ public class Quest
 
         if(this.questStepStates.Length != this.info.questStepPrefabs.Length)
         {
-            Debug.LogWarning("tamanhos diferentes, problema de sincronizacao" + this.info.id);
+            Debug.LogWarning("tamanhos diferentes, problema de sincronizacao" + this.info.Id);
         }
     }
 
@@ -56,7 +58,7 @@ public class Quest
         if (questStepPrefab != null)
         {
             QuestStep questStep = UnityEngine.Object.Instantiate<GameObject>(questStepPrefab, parentTransform).GetComponent<QuestStep>();
-            questStep.InitializeQuestStep(info.id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state);
+            questStep.InitializeQuestStep(info.Id, currentQuestStepIndex, questStepStates[currentQuestStepIndex].state);
         }
     }
 
@@ -69,7 +71,7 @@ public class Quest
         }
         else
         {
-            Debug.LogWarning("Tentei encontrar o Prefab, mas o index nao existe. Quest Index:" + info.id + "index do passo:" + currentQuestStepIndex);
+            Debug.LogWarning("Tentei encontrar o Prefab, mas o index nao existe. Quest Index:" + info.Id + "index do passo:" + currentQuestStepIndex);
         }
         return questStepPrefab;
     }
@@ -82,7 +84,7 @@ public class Quest
         }
         else
         {
-            Debug.LogWarning("stepIndex fora de range:" + info.id + " stepIndex:" + stepIndex);
+            Debug.LogWarning("stepIndex fora de range:" + info.Id + " stepIndex:" + stepIndex);
         }
     }
 

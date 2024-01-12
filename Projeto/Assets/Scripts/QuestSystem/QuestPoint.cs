@@ -19,7 +19,7 @@ public class QuestPoint : MonoBehaviour
 
     private void Awake()
     {
-        questId = questInfoForPoint.id;
+        questId = questInfoForPoint.Id;
     }
 
     //teste
@@ -34,13 +34,13 @@ public class QuestPoint : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEventsManager.instance.questEvents.onQuestStateChange += QuestStateChange;
+        GameEventsManager.Instance.questEvents.OnQuestStateChange += QuestStateChange;
         //GameEventManager.instance.inputEvents.onSubmitPressed += SubmitPressed;
     }
 
     private void OnDisable()
     {
-        GameEventsManager.instance.questEvents.onQuestStateChange -= QuestStateChange;
+        GameEventsManager.Instance.questEvents.OnQuestStateChange -= QuestStateChange;
         //GameEventManager.instance.inputEvents.onSubmitPressed -= SubmitPressed;
     }
 
@@ -56,32 +56,38 @@ public class QuestPoint : MonoBehaviour
         if(currentQuestState.Equals(QuestState.CAN_START)&& startPoint) 
         {
             Debug.Log("Quest Iniciada");
-            GameEventsManager.instance.questEvents.StartQuest(questId);
+            GameEventsManager.Instance.questEvents.StartQuest(questId);
         }
         else if(currentQuestState.Equals(QuestState.CAN_FINISH)&& finishPoint)
         {
             Debug.Log("Quest Finalizada");
-            GameEventsManager.instance.questEvents.FinishQuest(questId);
+            GameEventsManager.Instance.questEvents.FinishQuest(questId);
         }
     }
 
     private void QuestStateChange(Quest quest)
     {
         //only update the quest state if this point has the correponding quest
-        if(quest.info.id.Equals(questId))
+        if(quest.info.Id.Equals(questId))
         {
             currentQuestState = quest.state;
             Debug.Log("Quest with id: " + questId + "update to state: " + currentQuestState);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        playerIsNear = true;
+        if (otherCollider.CompareTag("Player"))
+        {
+            playerIsNear = true;
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D otherCollider)
     {
-        playerIsNear = false; 
+        if (otherCollider.CompareTag("Player"))
+        {
+            playerIsNear = false;
+        }
     }
 }

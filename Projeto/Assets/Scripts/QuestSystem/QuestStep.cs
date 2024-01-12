@@ -22,14 +22,14 @@ public abstract class QuestStep : MonoBehaviour
         if (!isFinished)
         {
             isFinished = true;
-            GameEventsManager.instance.questEvents.AdvanceQuest(questId);
+            GameEventsManager.Instance.questEvents.AdvanceQuest(questId);
             Destroy(this.gameObject);
         }
     }
 
     protected void ChangeState(string newState)
     {
-        GameEventsManager.instance.questEvents.QuestStepStateChange(questId,stepIndex, new QuestStepState(newState));
+        GameEventsManager.Instance.questEvents.QuestStepStateChange(questId,stepIndex, new QuestStepState(newState));
     }
 
     protected abstract void SetQuestStepState(string state);

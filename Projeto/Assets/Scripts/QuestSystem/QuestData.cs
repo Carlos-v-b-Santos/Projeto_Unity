@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class QuestData
+//informacoes basicas de uma quest
 {
     public QuestState state;
     public int questStepIndex;

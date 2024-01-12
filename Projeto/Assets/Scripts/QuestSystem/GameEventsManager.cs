@@ -2,21 +2,24 @@ using System;
 using UnityEngine;
 
 public class GameEventsManager : MonoBehaviour
+//Reponsável por centralizar todos os eventos possiveis no jogo
 {
-    public static GameEventsManager instance { get; private set; }
+    public static GameEventsManager Instance { get; private set; }
 
     public QuestEvents questEvents;
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Debug.LogError("Mais que um GameEventManager");
         }
-        instance = this;
-        if (instance != null)
+        Instance = this;
+
+        if (Instance != null)
         {
             Debug.Log("GameEventManager instaciado");
         }
+
         //initialize all events
         questEvents = new QuestEvents();
         if (questEvents != null)
