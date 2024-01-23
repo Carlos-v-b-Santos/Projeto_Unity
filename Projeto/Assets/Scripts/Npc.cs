@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,10 +6,17 @@ using UnityEngine;
 
 public class Npc : MonoBehaviour
 {
+    private PlayerInputActions playerInputActions;
+
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
-    
+
     // Start is called before the first frame update
+    private void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+    }
+
     void Start()
     {
         
@@ -22,6 +30,8 @@ public class Npc : MonoBehaviour
 
     void OnMouseDown()
     {
-        DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+        
+        GameEventsManager.Instance.dialogueEvents.EnterDialogue(inkJSON);
+        //DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
     }
 }

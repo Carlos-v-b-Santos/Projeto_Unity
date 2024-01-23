@@ -7,6 +7,7 @@ public class GameEventsManager : MonoBehaviour
     public static GameEventsManager Instance { get; private set; }
 
     public QuestEvents questEvents;
+    public DialogueEvents dialogueEvents;
     private void Awake()
     {
         if (Instance != null)
@@ -25,6 +26,12 @@ public class GameEventsManager : MonoBehaviour
         if (questEvents != null)
         {
             Debug.Log("questEvents instaciado");
+        }
+
+        dialogueEvents = new DialogueEvents();
+        if(dialogueEvents != null)
+        {
+            Debug.Log("dialogueEvents instaciado");
         }
     }
 }

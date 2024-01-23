@@ -87,9 +87,10 @@ public class DialogueManager : MonoBehaviour
         //    ContinueStory();
         //}
     }
+
     public void EnterDialogueMode(TextAsset inkJSON)
     {
-        Player.GetComponent<MouseMove>().enabled = false;
+        //Player.GetComponent<MouseMove>().enabled = false;
         //------------------
 
         currentStory = new Story(inkJSON.text);
@@ -209,5 +210,15 @@ public class DialogueManager : MonoBehaviour
         
 
     ContinueStory();
+    }
+
+    private void OnEnable()
+    {
+        GameEventsManager.Instance.dialogueEvents.OnEnterDialogue += EnterDialogueMode;
+    }
+
+    private void OnDisable()
+    {
+        GameEventsManager.Instance.dialogueEvents.OnEnterDialogue -= EnterDialogueMode;
     }
 }

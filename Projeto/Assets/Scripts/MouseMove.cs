@@ -13,8 +13,11 @@ public class MouseMove : MonoBehaviour
 
     // Start is called before the first frame updat
 
-    private PlayerInputActions input;
-    private void Awake() => input = new PlayerInputActions();
+    private PlayerInputActions playerInputActions;
+    private void Awake()
+    {
+        playerInputActions = new PlayerInputActions();
+    }
     void Start()
     {
         
@@ -26,18 +29,23 @@ public class MouseMove : MonoBehaviour
 
         mainCamera = Camera.main; 
 
-        input.Player.Click.performed += Click;
+        playerInputActions.Player.MouseClick.performed += Click;
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(movePlayer);
+        if(Vector2.Distance(transform.position, movePlayer) > 0.5f)
+        {
+            agent.SetDestination(movePlayer);
+        }
+            
     }
 
     private void Click(InputAction.CallbackContext context) 
     {
-        Vector2 point = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector2 mousePosition = playerInputActions.Player.MousePosition.ReadValue<Vector2>();
+        Vector2 point = mainCamera.ScreenToWorldPoint(mousePosition);
         RaycastHit2D hit = (Physics2D.Raycast(point, Vector2.zero));
         
         if(hit.collider != null && hit.rigidbody != null) {
@@ -48,8 +56,14 @@ public class MouseMove : MonoBehaviour
     private void StopNavigation() {
         agent.SetDestination(transform.position);
     }
-    private void OnEnable() => input.Enable();
-    private void OnDisable() => input.Disable();
+    private void OnEnable()
+    {
+        playerInputActions.Enable();
+    }
+    private void OnDisable()
+    {
+       playerInputActions.Disable();
+    }
 
 
 
