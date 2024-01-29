@@ -31,7 +31,8 @@ public class Npc : MonoBehaviour
     void OnMouseDown()
     {
         
-        GameEventsManager.Instance.dialogueEvents.EnterDialogue(inkJSON);
+        //GameEventsManager.Instance.dialogueEvents.EnterDialogue(inkJSON);
+        GameEventsManager.Instance.minigameEvents.EnterMinigame();
         //DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
     }
 }

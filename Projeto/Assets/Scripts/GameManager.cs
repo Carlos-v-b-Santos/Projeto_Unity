@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,5 +26,26 @@ public class GameManager : MonoBehaviour
     public void increaseCompetencia(float points)
     {
         competencia += points;
+    }
+
+    private void EnterMinigame()
+    {
+        SceneManager.LoadScene(1);
+    }
+    private void ExitMinigame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void OnEnable()
+    {
+        GameEventsManager.Instance.minigameEvents.OnEnterMinigame += EnterMinigame;
+        GameEventsManager.Instance.minigameEvents.OnExitMinigame += ExitMinigame;
+    }
+
+    private void OnDisable()
+    {
+        GameEventsManager.Instance.minigameEvents.OnEnterMinigame -= EnterMinigame;
+        GameEventsManager.Instance.minigameEvents.OnExitMinigame -= ExitMinigame;
     }
 }
