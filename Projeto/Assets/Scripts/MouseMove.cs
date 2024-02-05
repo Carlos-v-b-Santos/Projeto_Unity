@@ -44,13 +44,21 @@ public class MouseMove : MonoBehaviour
 
     private void Click(InputAction.CallbackContext context) 
     {
-        Vector2 mousePosition = playerInputActions.Player.MousePosition.ReadValue<Vector2>();
-        Vector2 point = mainCamera.ScreenToWorldPoint(mousePosition);
-        RaycastHit2D hit = (Physics2D.Raycast(point, Vector2.zero));
-        
-        if(hit.collider != null && hit.rigidbody != null) {
-            movePlayer = hit.point;
+        //Vector2 mousePosition = playerInputActions.Player.MousePosition.ReadValue<Vector2>();
+        Ray ray = mainCamera.ScreenPointToRay(playerInputActions.Player.MousePosition.ReadValue<Vector2>());
+        //RaycastHit2D hit = (Physics2D.Raycast(ray, Vector2.zero));
+
+        RaycastHit2D[] hits2DAll = Physics2D.GetRayIntersectionAll(ray);
+        for (int i = 0; i < hits2DAll.Length; ++i)
+        {
+            if (hits2DAll[i].collider != null)
+            {
+                Debug.Log("collider encontrado: " + hits2DAll[i].collider.tag);
+            }
+            movePlayer = hits2DAll[i].point;
         }
+        
+        //}
     }
 
     private void StopNavigation() {
