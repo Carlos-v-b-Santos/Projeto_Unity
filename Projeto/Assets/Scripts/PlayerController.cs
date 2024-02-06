@@ -9,14 +9,14 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed = 10;
     Rigidbody2D rigidbody2d;
-    [SerializeField]Vector2 lookDirection = new Vector2(1, 0);
+    [SerializeField] Vector2 lookDirection = new Vector2(1, 0);
     //float horizontalMove;
     //float verticalMove;
 
-    private PlayerInputActions playerInputActions;
+
     private void Awake()
     {
-        playerInputActions = new PlayerInputActions();
+
     }
 
     // Start is called before the first frame update
@@ -35,10 +35,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 playerMove = playerInputActions.Player.Move.ReadValue<Vector2>();
+        Vector2 playerMove = GameManager.Instance.playerInputActions.Player.Move.ReadValue<Vector2>();
         Vector2 position = rigidbody2d.position;
         position += speed * Time.deltaTime * playerMove;
-        
+
         //transform.position = position;
         //position.x = position.x + speed * horizontalMove * Time.deltaTime;
         //position.y = position.y + speed * verticalMove * Time.deltaTime;
@@ -58,25 +58,13 @@ public class PlayerController : MonoBehaviour
     //    position += speed * Time.deltaTime * playerMove;
     //    rigidbody2d.MovePosition(position);
     //}
-    public void Interact(InputAction.CallbackContext context)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 2f, LayerMask.GetMask("Interactable"));
-        if (hit.collider != null)
-        {
-            Debug.Log("Raycast has hit the object " + hit.collider.gameObject);
-        }
-    }
-
-
-    private void OnEnable()
-    {
-        playerInputActions.Enable();
-        playerInputActions.Player.Interact.performed += Interact;
-    }
-    private void OnDisable()
-    {
-        playerInputActions.Disable();
-        playerInputActions.Player.Interact.performed -= Interact;
-    }
+    //public void Interact(InputAction.CallbackContext context)
+    //{
+    //    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 2f, LayerMask.GetMask("Interactable"));
+    //    if (hit.collider != null)
+    //    {
+    //        Debug.Log("Raycast has hit the object " + hit.collider.gameObject);
+    //    }
+    //}
 }
     

@@ -108,7 +108,7 @@ public class DialogueManager : MonoBehaviour
         currentStory.BindExternalFunction("increaseEtica", (float value) =>
         {
             Debug.Log(value);
-            gameManager.increaseEtica(value);
+            gameManager.IncreaseEtica(value);
         });
 
         displayNameText.text = "???";
@@ -118,7 +118,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ExitDialogueMode()
     {
-        Player.GetComponent<MouseMove>().enabled = true;
+        //Player.GetComponent<MouseMove>().enabled = true;
 
         dialogueVariables.StopListening(currentStory);
 

@@ -1,10 +1,35 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
+    public PlayerInputActions playerInputActions;
+
     [SerializeField] float etica = 0;
     [SerializeField] float competencia = 0;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("Mais que um GameManager");
+        }
+        Instance = this;
+
+        if (Instance != null)
+        {
+            Debug.Log("GameManager instaciado");
+        }
+
+        playerInputActions = new PlayerInputActions();
+        if (playerInputActions != null)
+        {
+            Debug.Log("playerInputActions instaciado");
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +43,12 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void increaseEtica(float points)
+    public void IncreaseEtica(float points)
     {
         etica += points;
     }
 
-    public void increaseCompetencia(float points)
+    public void IncreaseCompetencia(float points)
     {
         competencia += points;
     }
@@ -39,12 +64,16 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        playerInputActions.Enable();
+       
         GameEventsManager.Instance.minigameEvents.OnEnterMinigame += EnterMinigame;
         GameEventsManager.Instance.minigameEvents.OnExitMinigame += ExitMinigame;
     }
 
     private void OnDisable()
     {
+        playerInputActions.Disable();
+
         GameEventsManager.Instance.minigameEvents.OnEnterMinigame -= EnterMinigame;
         GameEventsManager.Instance.minigameEvents.OnExitMinigame -= ExitMinigame;
     }
