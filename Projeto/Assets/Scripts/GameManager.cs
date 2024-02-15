@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] float etica = 0;
     [SerializeField] float competencia = 0;
+    [SerializeField] float pontos_minigame = 0;
 
     private void Awake()
     {
@@ -34,7 +35,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        etica = PlayerPrefs.GetFloat("etica");
+        competencia = PlayerPrefs.GetFloat("competencia");
+        pontos_minigame = PlayerPrefs.GetFloat("score");
     }
 
     // Update is called once per frame
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
     }
     public void ExitMinigame()
     {
+        pontos_minigame = PlayerPrefs.GetFloat("score");
         SceneManager.LoadScene(0);
     }
 

@@ -652,9 +652,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 318903938}
   - {fileID: 1793967177}
   - {fileID: 262235668}
-  - {fileID: 318903938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217090369
@@ -1583,6 +1583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   etica: 0
   competencia: 0
+  pontos_minigame: 0
 --- !u!1001 &444793884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5586,6 +5587,7 @@ MonoBehaviour:
   TimesScale: 300
   dataText: {fileID: 1129868703}
   timeText: {fileID: 52288235}
+  timeOn: 1
 --- !u!4 &692990848
 Transform:
   m_ObjectHideFlags: 0
@@ -9977,10 +9979,10 @@ RectTransform:
   - {fileID: 1274467690}
   m_Father: {fileID: 44666450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 500}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2134698726
 MonoBehaviour:
@@ -10027,10 +10029,10 @@ SceneRoots:
   - {fileID: 44666450}
   - {fileID: 1745447907}
   - {fileID: 249389291}
-  - {fileID: 441258318}
   - {fileID: 953408195}
   - {fileID: 519420032}
   - {fileID: 148868520}
+  - {fileID: 441258318}
   - {fileID: 964917904}
   - {fileID: 1446792158}
   - {fileID: 692990848}

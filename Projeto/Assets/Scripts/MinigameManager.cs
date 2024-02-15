@@ -18,24 +18,28 @@ public class MinigameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void UpdateScore()
     {
+        PlayerPrefs.SetFloat("score", score);
         scoreText.text = string.Format("pontos:" + score);
     }
 
     public void IncreasePoints()
     {
         score += increasePoints;
+        UpdateScore();
     }
 
     public void DecreasePoints()
     {
         score -= decreasePoints;
+        UpdateScore();
     }
 
     public void ResetPoints()
     {
         score = 0.0f;
+        UpdateScore();
     }
 
 

@@ -128,6 +128,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+
+        GameEventsManager.Instance.dialogueEvents.ExitDialogue();
     }
 
     public void ContinueStory()
