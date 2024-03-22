@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Mais que um GameManager");
         }
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+
 
         if (Instance != null)
         {

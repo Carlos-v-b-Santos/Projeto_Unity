@@ -652,9 +652,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 318903938}
-  - {fileID: 1793967177}
   - {fileID: 262235668}
+  - {fileID: 1793967177}
+  - {fileID: 318903938}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &217090369
@@ -983,7 +983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262235667}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1028,7 +1028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318903937}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1060,7 +1060,7 @@ GameObject:
   - component: {fileID: 406053010}
   m_Layer: 8
   m_Name: ComputerTrigger
-  m_TagString: Untagged
+  m_TagString: pc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406053007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb39057a5dd69f2419d422ba779da5e8, type: 3}
   m_Name: 
@@ -1562,7 +1562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441258316}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6663,7 +6663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0cc9776396354d418663e4184daacd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 9b8fdbec0dc7ab4409d4c8717f5c9abd, type: 3}
+  inkJSON: {fileID: 4900000, guid: ae4daa19fdfddbe408cc48b0f39c5e96, type: 3}
 --- !u!1 &1043092255
 GameObject:
   m_ObjectHideFlags: 0
@@ -8886,6 +8886,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   lookDirection: {x: 1, y: 0}
+  computerIsNear: 0
+  npcIsNear: 0
 --- !u!1 &1533826123
 GameObject:
   m_ObjectHideFlags: 0
@@ -9356,7 +9358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793967176}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10031,12 +10033,12 @@ SceneRoots:
   - {fileID: 249389291}
   - {fileID: 953408195}
   - {fileID: 519420032}
-  - {fileID: 148868520}
+  - {fileID: 217090371}
   - {fileID: 441258318}
+  - {fileID: 148868520}
   - {fileID: 964917904}
   - {fileID: 1446792158}
   - {fileID: 692990848}
-  - {fileID: 217090371}
   - {fileID: 784936983}
   - {fileID: 1763303601}
   - {fileID: 233978152}

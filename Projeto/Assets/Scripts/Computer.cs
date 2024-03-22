@@ -5,41 +5,15 @@ using UnityEngine.InputSystem;
 public class Computer : MonoBehaviour
 {
     //UnityEvent m_MyEvent;
-    private bool playerIsNear;
-    Rigidbody2D rigidbody2d;
-
-    private void Awake()
-    {
-
-    }
-    void Start()
-    {
-        rigidbody2d = GetComponent<Rigidbody2D>();
-        //if (m_MyEvent == null)
-        //    m_MyEvent = new UnityEvent();
-
-        //m_MyEvent.AddListener(Ping);
-    }
-
-    //void Update()
-    //{
-        //if (Input.anyKeyDown && m_MyEvent != null)
-        //{
-        //    m_MyEvent.Invoke();
-        //}
-    //}
-
-    //void Ping()
-    //{
-    //    Debug.Log("Ping");
-    //}
+    private bool playerIsNear = false;
 
     private void Interact(InputAction.CallbackContext context)
     {
-        Debug.Log("interagir");
+        Debug.Log("interagir pc");
         //RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 2f, LayerMask.GetMask("Interactable"));
         if (!playerIsNear)
         {
+            Debug.Log("player longe");
             return;
         }
 
@@ -49,6 +23,7 @@ public class Computer : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("interagir pc inscrito");
         GameManager.Instance.playerInputActions.Player.Interact.performed += Interact;
     }
     private void OnDisable()
