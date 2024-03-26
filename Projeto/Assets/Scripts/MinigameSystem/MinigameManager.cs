@@ -13,7 +13,8 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] private float increasePoints = 100.0f;
     [SerializeField] private float decreasePoints = 100.0f;
 
-    public bool isInitialized {  get; set; }
+    //public bool isInitialized {  get; set; }
+    public bool isInitialized;
     public int CurrentScore { get; set; }
     private const string highScoreKey = "HighScore0";
     

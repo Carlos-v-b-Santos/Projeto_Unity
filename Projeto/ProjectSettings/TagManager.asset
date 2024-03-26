@@ -8,6 +8,8 @@ TagManager:
   - npc
   - ground
   - wall
+  - Obstacle
+  - Block
   layers:
   - Default
   - TransparentFX
