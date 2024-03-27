@@ -1,3 +1,4 @@
+using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -22,10 +23,15 @@ public class GameplayManager : MonoBehaviour
         Instance = this;
 
         hasGameFinished = false;
-        MinigameManager.Instance.isInitialized = true;
+        //MinigameManager.Instance.isInitialized = true;
 
         score = 0;
         _scoreText.text = score.ToString();
+        //StartCoroutine(SpawnScore());
+    }
+
+    public void StartSpawn()
+    {
         StartCoroutine(SpawnScore());
     }
 
@@ -42,7 +48,7 @@ public class GameplayManager : MonoBehaviour
         
 
         //if(Input.GetMouseButton(0) && !hasGameFinished)
-        if(!hasGameFinished)
+        if(!hasGameFinished && MinigameManager.Instance.isInitialized)
         {
             Debug.Log("teste");
             if (CurrentScore == null)
@@ -114,7 +120,7 @@ public class GameplayManager : MonoBehaviour
     {
         Score prevScore = null;
 
-        while(!hasGameFinished)
+        while(!hasGameFinished && MinigameManager.Instance.isInitialized)
         {
             var tempScore = Instantiate(_scorePrefab);
 
@@ -142,9 +148,14 @@ public class GameplayManager : MonoBehaviour
 
     public void GameEnded()
     {
-        GameEnd?.Invoke();
-        SoundManager.Instance.PlaySound(_loseClip);
         hasGameFinished = true;
+        
+        
+        SoundManager.Instance.PlaySound(_loseClip);
+        Debug.Log("score:" + score);
+        MinigameManager.Instance.CurrentScore = score;
+
+        GameEnd?.Invoke();
         MinigameManager.Instance.GoToMainMenu();
     }
 

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
         if (Instance != null)
         {
             Debug.LogError("Mais que um GameManager");
+            return;
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         etica = PlayerPrefs.GetFloat("etica");
         competencia = PlayerPrefs.GetFloat("competencia");
-        pontos_minigame = PlayerPrefs.GetFloat("score");
+        pontos_minigame = PlayerPrefs.GetInt("totalScore");
     }
 
     // Update is called once per frame

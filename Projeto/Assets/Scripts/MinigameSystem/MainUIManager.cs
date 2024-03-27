@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MainUIManager : MonoBehaviour
 {
+    public static MainUIManager Instance;
+
 
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private TMP_Text _highScoreText;
@@ -22,6 +24,12 @@ public class MainUIManager : MonoBehaviour
 
         int currentScore = MinigameManager.Instance.CurrentScore;
         int highScore = MinigameManager.Instance.HighScore;
+        
+        
+
+        Debug.Log(currentScore + " " + highScore);
+
+        
 
         if(currentScore > highScore)
         {
@@ -30,7 +38,7 @@ public class MainUIManager : MonoBehaviour
         }
         else
         {
-            _newBestText.gameObject.SetActive(false);
+            //_newBestText.gameObject.SetActive(false);
         }
         _highScoreText.text = MinigameManager.Instance.HighScore.ToString();
 
@@ -52,14 +60,39 @@ public class MainUIManager : MonoBehaviour
 
     private void Awake()
     {
-        if(MinigameManager.Instance.isInitialized)
+        if (Instance != null)
         {
-            StartCoroutine(ShowScore());
+            Debug.LogError("Mais que um MainUIManager");
         }
         else
         {
-            _newBestText.gameObject.SetActive(false);
-            _scoreText.gameObject.SetActive(false);
+            Instance = this;
+        }
+        UpdateHighScore();
+        //if(MinigameManager.Instance.isInitialized)
+        //{
+        //    StartCoroutine(ShowScore());
+        //}
+        //else
+        //{
+            //_newBestText.gameObject.SetActive(false);
+            //_scoreText.gameObject.SetActive(false);
+        //    _highScoreText.text = MinigameManager.Instance.HighScore.ToString();
+        //}
+    }
+
+    public void UpdateHighScore()
+    {
+        Debug.Log("testeHighscore");
+        StartCoroutine(ShowScore());
+        if (MinigameManager.Instance.isInitialized)
+        {
+            
+        }
+        else
+        {
+            //_newBestText.gameObject.SetActive(false);
+            //_scoreText.gameObject.SetActive(false);
             _highScoreText.text = MinigameManager.Instance.HighScore.ToString();
         }
     }

@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Data;
+using UnityEngine.SceneManagement;
+using Ink.Runtime;
 
 public class MinigameManager : MonoBehaviour
 {
     public static MinigameManager Instance;
 
     [SerializeField] private TMP_Text  scoreText;
-    [SerializeField] private float score = 0.0f;
-    [SerializeField] private float increasePoints = 100.0f;
-    [SerializeField] private float decreasePoints = 100.0f;
+    [SerializeField] GameObject _menu;
+    public int TotalScore = 0;
+    [SerializeField] private int increasePoints = 100;
+    [SerializeField] private int decreasePoints = 100;
 
     //public bool isInitialized {  get; set; }
     public bool isInitialized;
-    public int CurrentScore { get; set; }
-    private const string highScoreKey = "HighScore0";
+    public int CurrentScore;
+    private const string highScoreKey = "HighScore";
+    //public int highScore;
     
-public int HighScore
+    public int HighScore
     {
         get
         {
@@ -36,35 +40,41 @@ public int HighScore
         if (Instance != null)
         {
             Debug.LogError("Mais que um MinigameManager");
+            
         }
-        Instance = this;
-        //score = PlayerPrefs.GetFloat("score");
+        else
+        {
+            Instance = this;
+        }
+        
+        TotalScore = PlayerPrefs.GetInt("totalScore");
         Init();
         UpdateScore();
+        //highScore = PlayerPrefs.GetInt(highScoreKey);
     }
 
     // Update is called once per frame
     void UpdateScore()
     {
-        PlayerPrefs.SetFloat("score", score);
-        scoreText.text = string.Format("pontos:" + score);
+        PlayerPrefs.SetInt("totalScore", TotalScore);
+        scoreText.text = string.Format("pontos:" + TotalScore);
     }
 
     public void IncreasePoints()
     {
-        score += increasePoints;
+        TotalScore += increasePoints;
         UpdateScore();
     }
 
     public void DecreasePoints()
     {
-        score -= decreasePoints;
+        TotalScore -= decreasePoints;
         UpdateScore();
     }
 
     public void ResetPoints()
     {
-        score = 0.0f;
+        TotalScore = 0;
         UpdateScore();
     }
 
@@ -78,12 +88,22 @@ public int HighScore
     private const string Gameplay = "Gameplay";
     public void GoToMainMenu()
     {
+        MainUIManager.Instance.UpdateHighScore();
+        _menu.SetActive(true);
+        Debug.Log("Current score" + CurrentScore);
+        TotalScore += CurrentScore;
+        UpdateScore();
+
+
+        SceneManager.LoadScene(1);
 
     }
 
     public void GoToGameplay()
     {
-
+        _menu.gameObject.SetActive(false);
+        isInitialized = true;
+        GameplayManager.Instance.StartSpawn();
     }
 
 
