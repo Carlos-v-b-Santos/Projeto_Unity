@@ -20,6 +20,8 @@ public class TimeSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         day = 1;
         month = 1;
         hour = 0;
@@ -36,7 +38,7 @@ public class TimeSystem : MonoBehaviour
     //    StartCoroutine(TimeSystemWork());
     }
 
-    private void StopTimeSystem(TextAsset inkJSON)
+    private void PauseTimeSystem(TextAsset inkJSON)
     {
         timeOn = false;
     //    StopCoroutine(TimeSystemWork());
@@ -109,13 +111,13 @@ public class TimeSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        GameEventsManager.Instance.dialogueEvents.OnEnterDialogue += StopTimeSystem;
+        GameEventsManager.Instance.dialogueEvents.OnEnterDialogue += PauseTimeSystem;
         GameEventsManager.Instance.dialogueEvents.OnExitDialogue += StartTimeSystem;
     }
 
     private void OnDisable()
     {
-        GameEventsManager.Instance.dialogueEvents.OnEnterDialogue -= StopTimeSystem;
+        GameEventsManager.Instance.dialogueEvents.OnEnterDialogue -= PauseTimeSystem;
         GameEventsManager.Instance.dialogueEvents.OnExitDialogue -= StartTimeSystem;
     }
 }

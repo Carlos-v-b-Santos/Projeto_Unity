@@ -108,7 +108,7 @@ public class DialogueManager : MonoBehaviour
         currentStory.BindExternalFunction("increaseEtica", (float value) =>
         {
             Debug.Log(value);
-            gameManager.IncreaseEtica(value);
+            //gameManager.IncreaseEtica(value);
         });
 
         displayNameText.text = "???";

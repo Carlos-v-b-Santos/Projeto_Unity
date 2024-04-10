@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
 
     public PlayerInputActions playerInputActions;
 
-    [SerializeField] float etica = 0;
-    [SerializeField] float competencia = 0;
-    [SerializeField] float pontos_minigame = 0;
+    public const string minigamePointsKey = "MINIGAME_POINTS";
+
+    [SerializeField] int minigamePoints = 0;
+
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
 
         if (Instance != null)
@@ -33,30 +34,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("playerInputActions instaciado");
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        etica = PlayerPrefs.GetFloat("etica");
-        competencia = PlayerPrefs.GetFloat("competencia");
-        pontos_minigame = PlayerPrefs.GetInt("totalScore");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void IncreaseEtica(float points)
-    {
-        etica += points;
-    }
-
-    public void IncreaseCompetencia(float points)
-    {
-        competencia += points;
+        minigamePoints = PlayerPrefs.GetInt(minigamePointsKey);
     }
 
     private void EnterMinigame()
@@ -65,7 +44,7 @@ public class GameManager : MonoBehaviour
     }
     public void ExitMinigame()
     {
-        pontos_minigame = PlayerPrefs.GetFloat("score");
+        minigamePoints = PlayerPrefs.GetInt(minigamePointsKey);
         SceneManager.LoadScene(0);
     }
 

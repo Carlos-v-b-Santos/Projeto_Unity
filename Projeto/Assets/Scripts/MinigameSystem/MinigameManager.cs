@@ -56,7 +56,7 @@ public class MinigameManager : MonoBehaviour
     // Update is called once per frame
     void UpdateScore()
     {
-        PlayerPrefs.SetInt("totalScore", TotalScore);
+        PlayerPrefs.SetInt("MINIGAME_POINTS", TotalScore);
         scoreText.text = string.Format("pontos:" + TotalScore);
     }
 

@@ -6,15 +6,34 @@ public class Npc : MonoBehaviour
     //private PlayerInputActions playerInputActions;
     private bool playerIsNear;
 
+    public string npcName;
+    public string npcRole;
+    private int relationshipPoints = 0;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
 
     //void OnMouseDown()
     //{
-        //GameEventsManager.Instance.dialogueEvents.EnterDialogue(inkJSON);
-        //DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+    //GameEventsManager.Instance.dialogueEvents.EnterDialogue(inkJSON);
+    //DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
     //}
+    public void Start()
+    {
+        relationshipPoints = PlayerPrefs.GetInt(npcName);
+    }
+
+    public void RelationshipPointsIncrease(int points)
+    {
+        relationshipPoints += points;
+        PlayerPrefs.SetInt(npcName, relationshipPoints);
+    }
+
+    public void RelationshipPointsDecrease(int points)
+    {
+        relationshipPoints -= points;
+        PlayerPrefs.SetInt(npcName, relationshipPoints);
+    }
 
     private void Interact(InputAction.CallbackContext context)
     {

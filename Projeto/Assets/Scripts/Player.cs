@@ -5,9 +5,17 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static Unity.Collections.AllocatorManager;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    [SerializeField] float speed = 10;
+    private const string ethicMeterKey = "ETHIC_METER";
+    private const string expPointsKey = "EXP_POINTS";
+    private const string playerLevelKey = "PLAYER_LEVEL";
+    
+    [SerializeField] private int ethicMeter = 100;
+    [SerializeField] private int expPoints = 0;
+    [SerializeField] private int playerLevel = 0;
+
+    [SerializeField] float moveSpeed = 10;
     Rigidbody2D rigidbody2d;
     [SerializeField] Vector2 lookDirection = new Vector2(1, 0);
 
@@ -17,41 +25,74 @@ public class PlayerController : MonoBehaviour
     //float verticalMove;
 
 
-    private void Awake()
-    {
-
-    }
-
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        //horizontalMove = Input.GetAxis("Horizontal");
-        //verticalMove = Input.GetAxis("Vertical");
+        ethicMeter = PlayerPrefs.GetInt(ethicMeterKey);
+        expPoints = PlayerPrefs.GetInt(ethicMeterKey);
+        playerLevel = PlayerPrefs.GetInt(playerLevelKey);
     }
 
     void FixedUpdate()
     {
-        Vector2 playerMove = GameManager.Instance.playerInputActions.Player.Move.ReadValue<Vector2>();
-        Vector2 position = rigidbody2d.position;
-        position += speed * Time.deltaTime * playerMove;
+        PlayerMove(GetMoveInput());
 
         //transform.position = position;
         //position.x = position.x + speed * horizontalMove * Time.deltaTime;
         //position.y = position.y + speed * verticalMove * Time.deltaTime;
 
+        
+    }
+
+    private Vector2 GetMoveInput()
+    {
+        Vector2 playerMove = GameManager.Instance.playerInputActions.Player.Move.ReadValue<Vector2>();
+        Vector2 position = rigidbody2d.position;
+        position += moveSpeed * Time.deltaTime * playerMove;
+        
+        return position;
+    }
+
+    public void PlayerMove(Vector2 position)
+    {
         rigidbody2d.MovePosition(position);
         if (!Mathf.Approximately(position.x, 0.0f) || !Mathf.Approximately(position.y, 0.0f))//para animação
         {
             lookDirection.Set(position.x, position.y);
             lookDirection.Normalize();
         }
+    }
+
+    public void EthicMeterIncrease(int points)
+    {
+        ethicMeter += points;
+        PlayerPrefs.SetInt(ethicMeterKey, ethicMeter);
+    }
+
+    public void EthicMeterDecrease(int points)
+    {
+        ethicMeter -= points;
+        PlayerPrefs.SetInt(ethicMeterKey, ethicMeter);
+    }
+
+    public void ExpPointsIncrease(int points)
+    {
+        expPoints += points;
+        PlayerPrefs.SetInt(expPointsKey, expPoints);
+    }
+
+    public void ExpPointsDecrease(int points)
+    {
+        expPoints -= points;
+        PlayerPrefs.SetInt(expPointsKey, expPoints);
+    }
+
+    public void PlayerLevelUp()
+    {
+        playerLevel++;
+        PlayerPrefs.SetInt(playerLevelKey, playerLevel);
     }
 
     private void Interact(InputAction.CallbackContext context)
