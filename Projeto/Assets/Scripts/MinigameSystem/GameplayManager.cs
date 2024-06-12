@@ -1,12 +1,9 @@
-using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using static Unity.Collections.AllocatorManager;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class GameplayManager : MonoBehaviour
 {
@@ -71,7 +68,7 @@ public class GameplayManager : MonoBehaviour
                 return;
             }
 
-            int currentScoreId = CurrentScore.ColorId;
+            int currentScoreId = CurrentScore.colorId;
             int clickedScoreId = hit.collider.gameObject.GetComponent<MinigamePlayer>().ColorId;
 
             if (currentScoreId != clickedScoreId)
@@ -87,9 +84,9 @@ public class GameplayManager : MonoBehaviour
 
             var tempScore = CurrentScore;
 
-            if (CurrentScore.NextScore != null)
+            if (CurrentScore.nextScore != null)
             {
-                CurrentScore = CurrentScore.NextScore;
+                CurrentScore = CurrentScore.nextScore;
             }
             Destroy(tempScore.gameObject);
             
@@ -102,7 +99,7 @@ public class GameplayManager : MonoBehaviour
         if (!hasGameFinished && MinigameManager.Instance.isInitialized)
         {
             Debug.Log("b1 apertado");
-            int currentScoreId = CurrentScore.ColorId;
+            int currentScoreId = CurrentScore.colorId;
             int pressedScoreId = 1;
 
             if (currentScoreId != pressedScoreId)
@@ -118,9 +115,9 @@ public class GameplayManager : MonoBehaviour
 
             var tempScore = CurrentScore;
 
-            if (CurrentScore.NextScore != null)
+            if (CurrentScore.nextScore != null)
             {
-                CurrentScore = CurrentScore.NextScore;
+                CurrentScore = CurrentScore.nextScore;
             }
             Destroy(tempScore.gameObject);
 
@@ -133,7 +130,7 @@ public class GameplayManager : MonoBehaviour
         if (!hasGameFinished && MinigameManager.Instance.isInitialized)
         {
             Debug.Log("b1 apertado");
-            int currentScoreId = CurrentScore.ColorId;
+            int currentScoreId = CurrentScore.colorId;
             int pressedScoreId = 3;
 
             if (currentScoreId != pressedScoreId)
@@ -149,9 +146,9 @@ public class GameplayManager : MonoBehaviour
 
             var tempScore = CurrentScore;
 
-            if (CurrentScore.NextScore != null)
+            if (CurrentScore.nextScore != null)
             {
-                CurrentScore = CurrentScore.NextScore;
+                CurrentScore = CurrentScore.nextScore;
             }
             Destroy(tempScore.gameObject);
 
@@ -164,7 +161,7 @@ public class GameplayManager : MonoBehaviour
         if (!hasGameFinished && MinigameManager.Instance.isInitialized)
         {
             Debug.Log("b1 apertado");
-            int currentScoreId = CurrentScore.ColorId;
+            int currentScoreId = CurrentScore.colorId;
             int pressedScoreId = 5;
 
             if (currentScoreId != pressedScoreId)
@@ -180,9 +177,9 @@ public class GameplayManager : MonoBehaviour
 
             var tempScore = CurrentScore;
 
-            if (CurrentScore.NextScore != null)
+            if (CurrentScore.nextScore != null)
             {
-                CurrentScore = CurrentScore.NextScore;
+                CurrentScore = CurrentScore.nextScore;
             }
             Destroy(tempScore.gameObject);
 
@@ -195,7 +192,7 @@ public class GameplayManager : MonoBehaviour
         if (!hasGameFinished && MinigameManager.Instance.isInitialized)
         {
             Debug.Log("b1 apertado");
-            int currentScoreId = CurrentScore.ColorId;
+            int currentScoreId = CurrentScore.colorId;
             int pressedScoreId = 2;
 
             if (currentScoreId != pressedScoreId)
@@ -211,9 +208,9 @@ public class GameplayManager : MonoBehaviour
 
             var tempScore = CurrentScore;
 
-            if (CurrentScore.NextScore != null)
+            if (CurrentScore.nextScore != null)
             {
-                CurrentScore = CurrentScore.NextScore;
+                CurrentScore = CurrentScore.nextScore;
             }
             Destroy(tempScore.gameObject);
 
@@ -226,7 +223,7 @@ public class GameplayManager : MonoBehaviour
         if (!hasGameFinished && MinigameManager.Instance.isInitialized)
         {
             Debug.Log("b1 apertado");
-            int currentScoreId = CurrentScore.ColorId;
+            int currentScoreId = CurrentScore.colorId;
             int pressedScoreId = 0;
 
             if (currentScoreId != pressedScoreId)
@@ -242,9 +239,9 @@ public class GameplayManager : MonoBehaviour
 
             var tempScore = CurrentScore;
 
-            if (CurrentScore.NextScore != null)
+            if (CurrentScore.nextScore != null)
             {
-                CurrentScore = CurrentScore.NextScore;
+                CurrentScore = CurrentScore.nextScore;
             }
             Destroy(tempScore.gameObject);
 
@@ -257,7 +254,7 @@ public class GameplayManager : MonoBehaviour
         if (!hasGameFinished && MinigameManager.Instance.isInitialized)
         {
             Debug.Log("b1 apertado");
-            int currentScoreId = CurrentScore.ColorId;
+            int currentScoreId = CurrentScore.colorId;
             int pressedScoreId = 4;
 
             if (currentScoreId != pressedScoreId)
@@ -273,9 +270,9 @@ public class GameplayManager : MonoBehaviour
 
             var tempScore = CurrentScore;
 
-            if (CurrentScore.NextScore != null)
+            if (CurrentScore.nextScore != null)
             {
-                CurrentScore = CurrentScore.NextScore;
+                CurrentScore = CurrentScore.nextScore;
             }
             Destroy(tempScore.gameObject);
 
@@ -317,7 +314,7 @@ public class GameplayManager : MonoBehaviour
             }
             else
             {
-                prevScore.NextScore = tempScore;
+                prevScore.nextScore = tempScore;
                 prevScore = tempScore;
             }
 
@@ -339,7 +336,7 @@ public class GameplayManager : MonoBehaviour
         
         SoundManager.Instance.PlaySound(_loseClip);
         Debug.Log("score:" + score);
-        MinigameManager.Instance.CurrentScore = score;
+        MinigameManager.Instance.currentScore = score;
 
         GameEnd?.Invoke();
         MinigameManager.Instance.GoToMainMenu();

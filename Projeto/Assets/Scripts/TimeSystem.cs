@@ -6,21 +6,24 @@ using TMPro;
 
 public class TimeSystem : MonoBehaviour
 {
+    public static TimeSystem Instance;
+
     //escala de tempo
-    [SerializeField] private float TimesScale = 300.0f; 
+    [SerializeField] private float timeScale = 300.0f; 
 
     //campos
     public TextMeshProUGUI dataText;
     public TextMeshProUGUI timeText;
 
     [SerializeField] private bool timeOn = true;
-    private int day, month, hour, minute;
+    [SerializeField] private int day, month, hour, minute;
     private float second;
     
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        
 
         day = 1;
         month = 1;
@@ -28,8 +31,32 @@ public class TimeSystem : MonoBehaviour
         minute = 0;
         second  = 0;
 
+        dataText = GameObject.Find("/Canvas/CalendarPanel/Data").GetComponent<TextMeshProUGUI>();
+        if (dataText != null)
+            Debug.Log("data encontrada");
+        else Debug.Log("data nao encontrada");
+
+
+        timeText = GameObject.Find("/Canvas/CalendarPanel/Time").GetComponent<TextMeshProUGUI>();
+        if (timeText != null)
+            Debug.Log("tempo encontrado");
+        else Debug.Log("tempo nao encontrado");
+
         //StartCoroutine(TimeSystemWork());
         StartTimeSystem();
+    }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("Mais que um GameManager");
+            return;
+        }
+        Instance = this;
+        //DontDestroyOnLoad(gameObject);
+
+        
     }
 
     private void StartTimeSystem()
@@ -61,7 +88,7 @@ public class TimeSystem : MonoBehaviour
         if (!timeOn)
             return;
 
-        second += TimesScale * Time.deltaTime;
+        second += timeScale * Time.deltaTime;
         CalculateTime();
         //CalculateCalendar();//caso o CalculateTime() seja apagado
         TextUpdateCalendar();

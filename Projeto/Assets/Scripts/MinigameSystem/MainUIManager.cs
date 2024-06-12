@@ -22,7 +22,7 @@ public class MainUIManager : MonoBehaviour
         int tempScore = 0;
         _scoreText.text = tempScore.ToString();
 
-        int currentScore = MinigameManager.Instance.CurrentScore;
+        int currentScore = MinigameManager.Instance.currentScore;
         int highScore = MinigameManager.Instance.HighScore;
         
         

@@ -83,12 +83,6 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt(expPointsKey, expPoints);
     }
 
-    public void ExpPointsDecrease(int points)
-    {
-        expPoints -= points;
-        PlayerPrefs.SetInt(expPointsKey, expPoints);
-    }
-
     public void PlayerLevelUp()
     {
         playerLevel++;

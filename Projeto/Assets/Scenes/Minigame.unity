@@ -158,7 +158,7 @@ MonoBehaviour:
   increasePoints: 100
   decreasePoints: 100
   isInitialized: 0
-  CurrentScore: 0
+  currentScore: 0
 --- !u!4 &71131231
 Transform:
   m_ObjectHideFlags: 0
@@ -2346,7 +2346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 733342924}
-  - component: {fileID: 733342923}
+  - component: {fileID: 733342925}
   m_Layer: 0
   m_Name: GameplayManager
   m_TagString: Untagged
@@ -2354,32 +2354,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &733342923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 733342922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd70d354405377544b5cd47a2a281ea6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasGameFinished: 0
-  Colors:
-  - {r: 0.92549026, g: 0.5411765, b: 0.5137255, a: 1}
-  - {r: 1, g: 0.7176471, b: 0.37254903, a: 1}
-  - {r: 1, g: 0.9607844, b: 0.4156863, a: 1}
-  - {r: 0.3921569, g: 0.82745105, b: 0.5019608, a: 1}
-  - {r: 0.37254903, g: 0.5411765, b: 0.9333334, a: 1}
-  - {r: 0.63529414, g: 0.37254903, b: 0.6745098, a: 1}
-  _scoreEffect: {fileID: 6824517020897609285, guid: fb2754def2d813444bf74d9788574b74, type: 3}
-  _scoreText: {fileID: 1379762023}
-  _pointClip: {fileID: 8300000, guid: f90742d4813f57b42abeef64e419fbee, type: 3}
-  _spawnTime: 0.5
-  _scorePrefab: {fileID: 7396441271690924941, guid: 8a6575f7faf9d0348a2e65e413109c0c, type: 3}
-  _loseClip: {fileID: 8300000, guid: 227c57a948c929b46be8e7b034a24d3a, type: 3}
 --- !u!4 &733342924
 Transform:
   m_ObjectHideFlags: 0
@@ -2395,6 +2369,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &733342925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733342922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028a042781a781b4bbd53f27e6bc4597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasGameFinished: 0
+  Colors:
+  - {r: 0.92549026, g: 0.5411765, b: 0.5137255, a: 1}
+  - {r: 1, g: 0.7176471, b: 0.37254903, a: 1}
+  - {r: 1, g: 0.9607844, b: 0.4156863, a: 1}
+  - {r: 0.3921569, g: 0.82745105, b: 0.5019608, a: 1}
+  - {r: 0.37254903, g: 0.5411765, b: 0.9333334, a: 1}
+  - {r: 0.63529414, g: 0.37254903, b: 0.6745098, a: 1}
+  _scoreEffect: {fileID: 6824517020897609285, guid: fb2754def2d813444bf74d9788574b74, type: 3}
+  _scoreText: {fileID: 1379762023}
+  _pointClip: {fileID: 8300000, guid: f90742d4813f57b42abeef64e419fbee, type: 3}
+  _spawnTime: 1.5
+  _scorePrefab: {fileID: 7396441271690924941, guid: 8a6575f7faf9d0348a2e65e413109c0c, type: 3}
+  _loseClip: {fileID: 8300000, guid: 227c57a948c929b46be8e7b034a24d3a, type: 3}
 --- !u!1 &745811219
 GameObject:
   m_ObjectHideFlags: 0

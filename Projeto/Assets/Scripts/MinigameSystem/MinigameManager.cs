@@ -18,7 +18,7 @@ public class MinigameManager : MonoBehaviour
 
     //public bool isInitialized {  get; set; }
     public bool isInitialized;
-    public int CurrentScore;
+    public int currentScore;
     private const string highScoreKey = "HighScore";
     //public int highScore;
     
@@ -80,7 +80,7 @@ public class MinigameManager : MonoBehaviour
 
     private void Init()
     {
-        CurrentScore = 0;
+        currentScore = 0;
         isInitialized = false;
     }
 
@@ -90,8 +90,8 @@ public class MinigameManager : MonoBehaviour
     {
         MainUIManager.Instance.UpdateHighScore();
         _menu.SetActive(true);
-        Debug.Log("Current score" + CurrentScore);
-        TotalScore += CurrentScore;
+        Debug.Log("Current score" + currentScore);
+        TotalScore += currentScore;
         UpdateScore();
 
 

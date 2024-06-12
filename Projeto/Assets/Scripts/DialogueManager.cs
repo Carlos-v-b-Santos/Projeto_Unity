@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
-using Ink.UnityIntegration;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -14,8 +14,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
 
-    [Header("Globals Ink File")]
-    [SerializeField] private InkFile globalsInkFile;
+    [Header("Load Globals Ink JSON")]
+    [SerializeField] private TextAsset loadGlobalsJSON;
 
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
@@ -41,7 +41,8 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         Player = GameObject.FindWithTag("Player");
-        botao_proximo = GameObject.Find("Next");
+        
+            
 
         if (instance != null)
         {
@@ -50,7 +51,7 @@ public class DialogueManager : MonoBehaviour
 
         instance = this;
 
-        dialogueVariables = new DialogueVariables(globalsInkFile.filePath);
+        dialogueVariables = new DialogueVariables(loadGlobalsJSON);
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -82,6 +83,15 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
+        if(currentStory.currentChoices.Count == 0)
+        {
+            botao_proximo.SetActive(true);
+        }
+        else 
+        {
+            botao_proximo.SetActive(false);
+        }
+
         //if(Input.GetKeyUp(KeyCode.Escape))
         //{
         //    ContinueStory();
@@ -102,7 +112,7 @@ public class DialogueManager : MonoBehaviour
         currentStory.BindExternalFunction("finalizarQuestStep", () =>
         {
             Debug.Log("finalizar parte da quest");
-            Finalizar();
+            //Finalizar();
         });
 
         currentStory.BindExternalFunction("increaseEtica", (float value) =>
@@ -144,6 +154,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            dialogueVariables.SaveVariables();
             ExitDialogueMode();
         }
     }
@@ -208,10 +219,8 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int choiceIndex){
         currentStory.ChooseChoiceIndex(choiceIndex);
 
-        //teste
-        
 
-    ContinueStory();
+        ContinueStory();
     }
 
     private void OnEnable()
@@ -222,5 +231,13 @@ public class DialogueManager : MonoBehaviour
     private void OnDisable()
     {
         GameEventsManager.Instance.dialogueEvents.OnEnterDialogue -= EnterDialogueMode;
+    }
+
+    public void OnApplicationQuit()
+    {
+        if (dialogueVariables != null)
+        {
+            dialogueVariables.SaveVariables();
+        }
     }
 }
