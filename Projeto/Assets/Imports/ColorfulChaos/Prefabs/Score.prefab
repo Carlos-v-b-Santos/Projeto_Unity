@@ -176,6 +176,6 @@ MonoBehaviour:
   - {x: 15, y: 2.3, z: 0}
   - {x: 15, y: 1.3, z: 0}
   - {x: 15, y: -1.3, z: 0}
-  - {x: 15, y: 2.3, z: 0}
-  ColorId: 0
-  NextScore: {fileID: 0}
+  - {x: 15, y: -2.3, z: 0}
+  colorId: 0
+  nextScore: {fileID: 0}

@@ -95,7 +95,7 @@ public class MinigameManager : MonoBehaviour
         UpdateScore();
 
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
 
     }
 
@@ -103,7 +103,7 @@ public class MinigameManager : MonoBehaviour
     {
         _menu.gameObject.SetActive(false);
         isInitialized = true;
-        GameplayManager.Instance.StartSpawn();
+        Gameplay_1_Manager.Instance.StartSpawn();
     }
 
 

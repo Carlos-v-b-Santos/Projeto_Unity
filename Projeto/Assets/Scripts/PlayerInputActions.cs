@@ -533,6 +533,208 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Minigame_1"",
+            ""id"": ""d1ce5237-9a98-4552-a18e-4c6f6de70381"",
+            ""actions"": [
+                {
+                    ""name"": ""up"",
+                    ""type"": ""Button"",
+                    ""id"": ""f8b1d552-4d02-46e2-ad54-647859e3b273"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""down"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a14a4a8-ba6f-4a41-a16e-6e39cec94e03"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""13ced978-4475-45fd-a28d-7692c8273430"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab12a83a-15e5-4097-95b2-e0697eb0ab50"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2fc85b6-cdb9-4457-8631-00b8a7dcdc8e"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40e05398-6725-4ce2-b487-fcf8567695f8"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Minigame_2"",
+            ""id"": ""53d1400e-6e61-4de4-a337-90f9f660bafa"",
+            ""actions"": [
+                {
+                    ""name"": ""Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""d5a97950-e897-4619-b4c3-b44993e2128e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""b9cc9a24-bec2-4b35-8f8c-f47c92681efb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""35fea607-daa4-4b0e-8190-febca22ac7b4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""c6c026bd-8a67-4f94-87dd-7774d1e53944"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""712601a1-e988-46d5-b1d3-4384a3a7320c"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""acdac76d-aec4-4865-922c-e804936c0e1b"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f713eec-0cce-47f5-a90c-7ee18d83779d"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc719239-f004-4f28-a90d-51be693ffc3c"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d1d7760-7021-45c5-809c-25a4f8c0b4ad"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""821dc50b-9f60-44fe-bb00-ee9257a5442c"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d75ed036-2d41-4849-94d9-4d25f9d0ec1e"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b257496-460e-440b-8a05-4e0675e7cde1"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -575,6 +777,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Minigame_B4 = m_Minigame.FindAction("B4", throwIfNotFound: true);
         m_Minigame_B5 = m_Minigame.FindAction("B5", throwIfNotFound: true);
         m_Minigame_B6 = m_Minigame.FindAction("B6", throwIfNotFound: true);
+        // Minigame_1
+        m_Minigame_1 = asset.FindActionMap("Minigame_1", throwIfNotFound: true);
+        m_Minigame_1_up = m_Minigame_1.FindAction("up", throwIfNotFound: true);
+        m_Minigame_1_down = m_Minigame_1.FindAction("down", throwIfNotFound: true);
+        // Minigame_2
+        m_Minigame_2 = asset.FindActionMap("Minigame_2", throwIfNotFound: true);
+        m_Minigame_2_Up = m_Minigame_2.FindAction("Up", throwIfNotFound: true);
+        m_Minigame_2_Down = m_Minigame_2.FindAction("Down", throwIfNotFound: true);
+        m_Minigame_2_Left = m_Minigame_2.FindAction("Left", throwIfNotFound: true);
+        m_Minigame_2_Right = m_Minigame_2.FindAction("Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -866,6 +1078,130 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public MinigameActions @Minigame => new MinigameActions(this);
+
+    // Minigame_1
+    private readonly InputActionMap m_Minigame_1;
+    private List<IMinigame_1Actions> m_Minigame_1ActionsCallbackInterfaces = new List<IMinigame_1Actions>();
+    private readonly InputAction m_Minigame_1_up;
+    private readonly InputAction m_Minigame_1_down;
+    public struct Minigame_1Actions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public Minigame_1Actions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @up => m_Wrapper.m_Minigame_1_up;
+        public InputAction @down => m_Wrapper.m_Minigame_1_down;
+        public InputActionMap Get() { return m_Wrapper.m_Minigame_1; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Minigame_1Actions set) { return set.Get(); }
+        public void AddCallbacks(IMinigame_1Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Minigame_1ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Minigame_1ActionsCallbackInterfaces.Add(instance);
+            @up.started += instance.OnUp;
+            @up.performed += instance.OnUp;
+            @up.canceled += instance.OnUp;
+            @down.started += instance.OnDown;
+            @down.performed += instance.OnDown;
+            @down.canceled += instance.OnDown;
+        }
+
+        private void UnregisterCallbacks(IMinigame_1Actions instance)
+        {
+            @up.started -= instance.OnUp;
+            @up.performed -= instance.OnUp;
+            @up.canceled -= instance.OnUp;
+            @down.started -= instance.OnDown;
+            @down.performed -= instance.OnDown;
+            @down.canceled -= instance.OnDown;
+        }
+
+        public void RemoveCallbacks(IMinigame_1Actions instance)
+        {
+            if (m_Wrapper.m_Minigame_1ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMinigame_1Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Minigame_1ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Minigame_1ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Minigame_1Actions @Minigame_1 => new Minigame_1Actions(this);
+
+    // Minigame_2
+    private readonly InputActionMap m_Minigame_2;
+    private List<IMinigame_2Actions> m_Minigame_2ActionsCallbackInterfaces = new List<IMinigame_2Actions>();
+    private readonly InputAction m_Minigame_2_Up;
+    private readonly InputAction m_Minigame_2_Down;
+    private readonly InputAction m_Minigame_2_Left;
+    private readonly InputAction m_Minigame_2_Right;
+    public struct Minigame_2Actions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public Minigame_2Actions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Up => m_Wrapper.m_Minigame_2_Up;
+        public InputAction @Down => m_Wrapper.m_Minigame_2_Down;
+        public InputAction @Left => m_Wrapper.m_Minigame_2_Left;
+        public InputAction @Right => m_Wrapper.m_Minigame_2_Right;
+        public InputActionMap Get() { return m_Wrapper.m_Minigame_2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Minigame_2Actions set) { return set.Get(); }
+        public void AddCallbacks(IMinigame_2Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Minigame_2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Minigame_2ActionsCallbackInterfaces.Add(instance);
+            @Up.started += instance.OnUp;
+            @Up.performed += instance.OnUp;
+            @Up.canceled += instance.OnUp;
+            @Down.started += instance.OnDown;
+            @Down.performed += instance.OnDown;
+            @Down.canceled += instance.OnDown;
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
+        }
+
+        private void UnregisterCallbacks(IMinigame_2Actions instance)
+        {
+            @Up.started -= instance.OnUp;
+            @Up.performed -= instance.OnUp;
+            @Up.canceled -= instance.OnUp;
+            @Down.started -= instance.OnDown;
+            @Down.performed -= instance.OnDown;
+            @Down.canceled -= instance.OnDown;
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
+        }
+
+        public void RemoveCallbacks(IMinigame_2Actions instance)
+        {
+            if (m_Wrapper.m_Minigame_2ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMinigame_2Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Minigame_2ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Minigame_2ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Minigame_2Actions @Minigame_2 => new Minigame_2Actions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -898,5 +1234,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnB4(InputAction.CallbackContext context);
         void OnB5(InputAction.CallbackContext context);
         void OnB6(InputAction.CallbackContext context);
+    }
+    public interface IMinigame_1Actions
+    {
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+    }
+    public interface IMinigame_2Actions
+    {
+        void OnUp(InputAction.CallbackContext context);
+        void OnDown(InputAction.CallbackContext context);
+        void OnLeft(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
     }
 }

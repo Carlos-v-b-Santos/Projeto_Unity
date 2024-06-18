@@ -36,16 +36,29 @@ public class GameManager : MonoBehaviour
         }
 
         minigamePoints = PlayerPrefs.GetInt(minigamePointsKey);
+        
+        //GameEventsManager.Instance.timeEvents.StartMorningWork();
     }
 
     private void EnterMinigame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     public void ExitMinigame()
     {
         minigamePoints = PlayerPrefs.GetInt(minigamePointsKey);
         SceneManager.LoadScene(0);
+    }
+
+    public void EndMorningWork()
+    {
+        if(SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            //GameEventsManager.Instance.minigameEvents.ExitMinigame();
+            
+            //ExitMinigame();
+            //GameEventsManager.Instance.timeEvents.StartAfternoonWork();
+        }
     }
 
     private void OnEnable()
@@ -54,6 +67,7 @@ public class GameManager : MonoBehaviour
        
         GameEventsManager.Instance.minigameEvents.OnEnterMinigame += EnterMinigame;
         GameEventsManager.Instance.minigameEvents.OnExitMinigame += ExitMinigame;
+        GameEventsManager.Instance.timeEvents.OnEndMorningWork += EndMorningWork;
     }
 
     private void OnDisable()
@@ -62,5 +76,6 @@ public class GameManager : MonoBehaviour
 
         GameEventsManager.Instance.minigameEvents.OnEnterMinigame -= EnterMinigame;
         GameEventsManager.Instance.minigameEvents.OnExitMinigame -= ExitMinigame;
+        GameEventsManager.Instance.timeEvents.OnEndMorningWork -= EndMorningWork;
     }
 }

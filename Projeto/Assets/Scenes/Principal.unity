@@ -5584,9 +5584,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: 300
-  dataText: {fileID: 1129868703}
-  timeText: {fileID: 52288235}
   timeOn: 1
+  hour: 0
+  minute: 0
 --- !u!4 &692990848
 Transform:
   m_ObjectHideFlags: 0
@@ -6709,6 +6709,52 @@ MonoBehaviour:
   npcName: teste
   npcRole: tester
   inkJSON: {fileID: 4900000, guid: ae4daa19fdfddbe408cc48b0f39c5e96, type: 3}
+--- !u!1 &1033499589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1033499591}
+  - component: {fileID: 1033499590}
+  m_Layer: 0
+  m_Name: TimeUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1033499590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033499589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d275b5a327d4de546a3c5006e5b581fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataText: {fileID: 1129868703}
+  timeText: {fileID: 52288235}
+--- !u!4 &1033499591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033499589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 148.49681, y: 185.6822, z: -5.294497}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1043092255
 GameObject:
   m_ObjectHideFlags: 0
@@ -10342,6 +10388,7 @@ SceneRoots:
   - {fileID: 148868520}
   - {fileID: 964917904}
   - {fileID: 1446792158}
+  - {fileID: 1033499591}
   - {fileID: 692990848}
   - {fileID: 784936983}
   - {fileID: 1763303601}

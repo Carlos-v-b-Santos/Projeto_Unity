@@ -9,6 +9,7 @@ public class GameEventsManager : MonoBehaviour
     public QuestEvents questEvents;
     public DialogueEvents dialogueEvents;
     public MinigameEvents minigameEvents;
+    public TimeEvents timeEvents;
     private void Awake()
     {
         if (Instance != null)
@@ -39,6 +40,12 @@ public class GameEventsManager : MonoBehaviour
         if(minigameEvents != null)
         {
             Debug.Log("minigameEvents intansciado");
+        }
+
+        timeEvents = new TimeEvents();
+        if (timeEvents != null)
+        {
+            Debug.Log("timeEvents intansciado");
         }
     }
 }

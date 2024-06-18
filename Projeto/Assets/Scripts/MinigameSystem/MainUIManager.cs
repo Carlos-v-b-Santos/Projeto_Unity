@@ -101,6 +101,5 @@ public class MainUIManager : MonoBehaviour
     {
         SoundManager.Instance.PlaySound(_clickClip);
         MinigameManager.Instance.GoToGameplay();
-
     }
 }
