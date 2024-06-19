@@ -9,8 +9,11 @@ public class TimeSystem : MonoBehaviour
 {
     public static TimeSystem Instance;
     [SerializeField] private const string day_pp = "day";
+    [SerializeField] private const string bday_pp = "bday";
     [SerializeField] private const string month_pp = "month";
     [SerializeField] private const string year_pp = "year";
+
+    BusinessDay businessDay;
 
     //escala de tempo
     [SerializeField] private float timeScale = 300.0f;
@@ -27,6 +30,17 @@ public class TimeSystem : MonoBehaviour
         }
     }
 
+    public int BDay
+    {
+        get
+        {
+            return PlayerPrefs.GetInt(bday_pp, 1);
+        }
+        set
+        {
+            PlayerPrefs.SetInt(bday_pp, value);
+        }
+    }
     public int Month
     {
         get
@@ -211,6 +225,11 @@ public class TimeSystem : MonoBehaviour
                 Month = 1;
                 Year++;
             }
+        }
+
+        if (BDay >= 5)
+        {
+            BDay = 1;
         }
     }
 

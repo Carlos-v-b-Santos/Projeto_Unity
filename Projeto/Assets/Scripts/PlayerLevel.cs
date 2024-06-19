@@ -4,4 +4,4 @@ public enum PlayerLevel
     JUNIOR_DEV,
     FULL_DEV,
     SENIOR_DEV
-}
+};
