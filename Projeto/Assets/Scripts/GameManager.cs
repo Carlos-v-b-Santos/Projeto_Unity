@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public const string minigamePointsKey = "MINIGAME_POINTS";
 
+    [SerializeField] int indexMinigame;
+
     [SerializeField] int minigamePoints = 0;
 
 
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     private void EnterMinigame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(indexMinigame);
     }
     public void ExitMinigame()
     {

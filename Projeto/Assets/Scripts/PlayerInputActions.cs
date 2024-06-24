@@ -609,7 +609,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ""id"": ""53d1400e-6e61-4de4-a337-90f9f660bafa"",
             ""actions"": [
                 {
-                    ""name"": ""Up"",
+                    ""name"": ""up"",
                     ""type"": ""Button"",
                     ""id"": ""d5a97950-e897-4619-b4c3-b44993e2128e"",
                     ""expectedControlType"": ""Button"",
@@ -618,7 +618,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Down"",
+                    ""name"": ""down"",
                     ""type"": ""Button"",
                     ""id"": ""b9cc9a24-bec2-4b35-8f8c-f47c92681efb"",
                     ""expectedControlType"": ""Button"",
@@ -627,7 +627,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Left"",
+                    ""name"": ""left"",
                     ""type"": ""Button"",
                     ""id"": ""35fea607-daa4-4b0e-8190-febca22ac7b4"",
                     ""expectedControlType"": ""Button"",
@@ -636,7 +636,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Right"",
+                    ""name"": ""right"",
                     ""type"": ""Button"",
                     ""id"": ""c6c026bd-8a67-4f94-87dd-7774d1e53944"",
                     ""expectedControlType"": ""Button"",
@@ -653,7 +653,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Up"",
+                    ""action"": ""up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -664,7 +664,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Up"",
+                    ""action"": ""up"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -675,7 +675,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Down"",
+                    ""action"": ""down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -686,7 +686,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Down"",
+                    ""action"": ""down"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -697,7 +697,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Left"",
+                    ""action"": ""left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -708,7 +708,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Left"",
+                    ""action"": ""left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -719,7 +719,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Right"",
+                    ""action"": ""right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -730,7 +730,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Right"",
+                    ""action"": ""right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -783,10 +783,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Minigame_1_down = m_Minigame_1.FindAction("down", throwIfNotFound: true);
         // Minigame_2
         m_Minigame_2 = asset.FindActionMap("Minigame_2", throwIfNotFound: true);
-        m_Minigame_2_Up = m_Minigame_2.FindAction("Up", throwIfNotFound: true);
-        m_Minigame_2_Down = m_Minigame_2.FindAction("Down", throwIfNotFound: true);
-        m_Minigame_2_Left = m_Minigame_2.FindAction("Left", throwIfNotFound: true);
-        m_Minigame_2_Right = m_Minigame_2.FindAction("Right", throwIfNotFound: true);
+        m_Minigame_2_up = m_Minigame_2.FindAction("up", throwIfNotFound: true);
+        m_Minigame_2_down = m_Minigame_2.FindAction("down", throwIfNotFound: true);
+        m_Minigame_2_left = m_Minigame_2.FindAction("left", throwIfNotFound: true);
+        m_Minigame_2_right = m_Minigame_2.FindAction("right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1136,18 +1136,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // Minigame_2
     private readonly InputActionMap m_Minigame_2;
     private List<IMinigame_2Actions> m_Minigame_2ActionsCallbackInterfaces = new List<IMinigame_2Actions>();
-    private readonly InputAction m_Minigame_2_Up;
-    private readonly InputAction m_Minigame_2_Down;
-    private readonly InputAction m_Minigame_2_Left;
-    private readonly InputAction m_Minigame_2_Right;
+    private readonly InputAction m_Minigame_2_up;
+    private readonly InputAction m_Minigame_2_down;
+    private readonly InputAction m_Minigame_2_left;
+    private readonly InputAction m_Minigame_2_right;
     public struct Minigame_2Actions
     {
         private @PlayerInputActions m_Wrapper;
         public Minigame_2Actions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Up => m_Wrapper.m_Minigame_2_Up;
-        public InputAction @Down => m_Wrapper.m_Minigame_2_Down;
-        public InputAction @Left => m_Wrapper.m_Minigame_2_Left;
-        public InputAction @Right => m_Wrapper.m_Minigame_2_Right;
+        public InputAction @up => m_Wrapper.m_Minigame_2_up;
+        public InputAction @down => m_Wrapper.m_Minigame_2_down;
+        public InputAction @left => m_Wrapper.m_Minigame_2_left;
+        public InputAction @right => m_Wrapper.m_Minigame_2_right;
         public InputActionMap Get() { return m_Wrapper.m_Minigame_2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1157,34 +1157,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_Minigame_2ActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_Minigame_2ActionsCallbackInterfaces.Add(instance);
-            @Up.started += instance.OnUp;
-            @Up.performed += instance.OnUp;
-            @Up.canceled += instance.OnUp;
-            @Down.started += instance.OnDown;
-            @Down.performed += instance.OnDown;
-            @Down.canceled += instance.OnDown;
-            @Left.started += instance.OnLeft;
-            @Left.performed += instance.OnLeft;
-            @Left.canceled += instance.OnLeft;
-            @Right.started += instance.OnRight;
-            @Right.performed += instance.OnRight;
-            @Right.canceled += instance.OnRight;
+            @up.started += instance.OnUp;
+            @up.performed += instance.OnUp;
+            @up.canceled += instance.OnUp;
+            @down.started += instance.OnDown;
+            @down.performed += instance.OnDown;
+            @down.canceled += instance.OnDown;
+            @left.started += instance.OnLeft;
+            @left.performed += instance.OnLeft;
+            @left.canceled += instance.OnLeft;
+            @right.started += instance.OnRight;
+            @right.performed += instance.OnRight;
+            @right.canceled += instance.OnRight;
         }
 
         private void UnregisterCallbacks(IMinigame_2Actions instance)
         {
-            @Up.started -= instance.OnUp;
-            @Up.performed -= instance.OnUp;
-            @Up.canceled -= instance.OnUp;
-            @Down.started -= instance.OnDown;
-            @Down.performed -= instance.OnDown;
-            @Down.canceled -= instance.OnDown;
-            @Left.started -= instance.OnLeft;
-            @Left.performed -= instance.OnLeft;
-            @Left.canceled -= instance.OnLeft;
-            @Right.started -= instance.OnRight;
-            @Right.performed -= instance.OnRight;
-            @Right.canceled -= instance.OnRight;
+            @up.started -= instance.OnUp;
+            @up.performed -= instance.OnUp;
+            @up.canceled -= instance.OnUp;
+            @down.started -= instance.OnDown;
+            @down.performed -= instance.OnDown;
+            @down.canceled -= instance.OnDown;
+            @left.started -= instance.OnLeft;
+            @left.performed -= instance.OnLeft;
+            @left.canceled -= instance.OnLeft;
+            @right.started -= instance.OnRight;
+            @right.performed -= instance.OnRight;
+            @right.canceled -= instance.OnRight;
         }
 
         public void RemoveCallbacks(IMinigame_2Actions instance)

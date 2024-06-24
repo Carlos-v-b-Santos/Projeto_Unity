@@ -216,7 +216,7 @@ public class TimeSystem : MonoBehaviour
     //calcula os dias e meses
     {
         Day++;
-        if(Day >= 30)
+        if(Day > 30)
         {
             Day = 1;
             Month++;
@@ -227,9 +227,11 @@ public class TimeSystem : MonoBehaviour
             }
         }
 
-        if (BDay >= 5)
+        BDay++;
+        if (BDay > 5)
         {
             BDay = 1;
+            Day += 2;
         }
     }
 

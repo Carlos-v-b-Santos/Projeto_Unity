@@ -94,8 +94,7 @@ public class MinigameManager : MonoBehaviour
         TotalScore += currentScore;
         UpdateScore();
 
-
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
 
@@ -103,7 +102,13 @@ public class MinigameManager : MonoBehaviour
     {
         _menu.gameObject.SetActive(false);
         isInitialized = true;
-        Gameplay_1_Manager.Instance.StartSpawn();
+
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+            Gameplay_1_Manager.Instance.StartSpawn();
+        else if (SceneManager.GetActiveScene().buildIndex == 3)
+            Gameplay_2_Manager.Instance.StartSpawn();
+        else if (SceneManager.GetActiveScene().buildIndex == 1)
+            GameplayManager.Instance.StartSpawn();
     }
 
 
