@@ -33,7 +33,7 @@ public class PlayerMinigame_2_Controller : MonoBehaviour
             rigidbody2d_vertical.MovePosition(rigidbody2d_vertical.position + _moveSpeed * positionDifferenceVertical * Time.fixedDeltaTime);
         }
     }
-    private void MoveDown(InputAction.CallbackContext context)
+    public void MoveDown()
     {
         Debug.Log("clicado");
         if (posVerticalId < positionsVertical.Count - 1)
@@ -43,7 +43,7 @@ public class PlayerMinigame_2_Controller : MonoBehaviour
         }
     }
 
-    private void MoveUp(InputAction.CallbackContext context)
+    public void MoveUp()
     {
         Debug.Log("clicado");
         if (posVerticalId > 0)
@@ -52,17 +52,5 @@ public class PlayerMinigame_2_Controller : MonoBehaviour
             //rigidbody2d.MovePosition(positions[posId]);
         }
 
-    }
-
-    private void OnEnable()
-    {
-        GameManager.Instance.playerInputActions.Minigame_2.down.performed += MoveDown;
-        GameManager.Instance.playerInputActions.Minigame_2.up.performed += MoveUp;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.Instance.playerInputActions.Minigame_2.down.performed -= MoveDown;
-        GameManager.Instance.playerInputActions.Minigame_2.up.performed -= MoveUp;
     }
 }

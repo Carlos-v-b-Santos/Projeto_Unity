@@ -105,7 +105,7 @@ public class MinigameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 2)
             Gameplay_1_Manager.Instance.StartSpawn();
-        else if (SceneManager.GetActiveScene().buildIndex == 3)
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
             Gameplay_2_Manager.Instance.StartSpawn();
         else if (SceneManager.GetActiveScene().buildIndex == 1)
             GameplayManager.Instance.StartSpawn();

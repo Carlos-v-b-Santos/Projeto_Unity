@@ -14,15 +14,15 @@ public class NpcMinigame_2_Controller : MonoBehaviour
     public int colorId;
     [SerializeField] private int posHorizontalId;
 
-    [SerializeField] GameObject Player;
-    [SerializeField] GameObject NPC;
+    //[SerializeField] GameObject Player;
+    //[SerializeField] GameObject NPC;
     Rigidbody2D rigidbody2d_horizontal;
 
     // Start is called before the first frame update
     void Start()
     {
         posHorizontalId = 0;
-        rigidbody2d_horizontal = NPC.GetComponent<Rigidbody2D>();
+        rigidbody2d_horizontal = GetComponent<Rigidbody2D>();
 
         rigidbody2d_horizontal.MovePosition(positionsHorizontal[posHorizontalId]);
     }
@@ -37,7 +37,7 @@ public class NpcMinigame_2_Controller : MonoBehaviour
         }
     }
 
-    private void MoveLeft(InputAction.CallbackContext context)
+    public void MoveLeft()
     {
         if (automaticMode)
             return;
@@ -48,7 +48,7 @@ public class NpcMinigame_2_Controller : MonoBehaviour
             //rigidbody2d.MovePosition(positions[posId]);
         }
     }
-    private void MoveRight(InputAction.CallbackContext context)
+    public void MoveRight()
     {
         if (automaticMode)
             return;
@@ -83,15 +83,5 @@ public class NpcMinigame_2_Controller : MonoBehaviour
     //    posHorizontalId = pointID;
     //}
 
-    private void OnEnable()
-    {
-        GameManager.Instance.playerInputActions.Minigame_2.left.performed += MoveLeft;
-        GameManager.Instance.playerInputActions.Minigame_2.right.performed += MoveRight;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.Instance.playerInputActions.Minigame_2.left.performed -= MoveLeft;
-        GameManager.Instance.playerInputActions.Minigame_2.right.performed -= MoveRight;
-    }
+    
 }

@@ -152,6 +152,7 @@ public class Gameplay_2_Manager : MonoBehaviour
         while (!hasGameFinished && MinigameManager.Instance.isInitialized)
         {
             //var tempScore = Instantiate(_scorePrefab);
+
             Instantiate(_scorePrefab_h);
             Instantiate(_scorePrefab_v);
             //if (prevScore == null)
