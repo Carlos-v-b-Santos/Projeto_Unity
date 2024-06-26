@@ -21810,7 +21810,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 2134698724}
   dialogueText: {fileID: 1931572717}
   displayNameText: {fileID: 1277814880}
-  loadGlobalsJSON: {fileID: 4900000, guid: afe435afbb42e7540ac4666d311ce3ae, type: 3}
+  loadGlobalsJSON: {fileID: 4900000, guid: 8c9223b17377fa64784c0f921b3fcf1e, type: 3}
   choices:
   - {fileID: 2041379653}
   - {fileID: 1043092255}
