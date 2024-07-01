@@ -75,7 +75,7 @@ public class TimeSystem : MonoBehaviour
     void Start()
     {
         //DontDestroyOnLoad(gameObject);
-        
+
 
         //day = 1;
         //month = 1;
@@ -96,14 +96,17 @@ public class TimeSystem : MonoBehaviour
         //else Debug.Log("tempo nao encontrado");
         //StartTimeSystem();
 
+
+
         StartTimeSystemMorning();
+
     }
 
     private void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("Mais que um GameManager");
+            Debug.LogError("Mais que um TimeSystem");
             return;
         }
         Instance = this;

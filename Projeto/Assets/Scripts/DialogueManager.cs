@@ -31,7 +31,9 @@ public class DialogueManager : MonoBehaviour
     private DialogueVariables dialogueVariables;
 
     GameManager gameManager;
-    public event Action Finalizar;
+    [SerializeField] Player player;
+    [SerializeField] NpcManager npcManager;
+    //public event Action Finalizar;
 
     //desativar script
     public GameObject Player;
@@ -112,7 +114,31 @@ public class DialogueManager : MonoBehaviour
         currentStory.BindExternalFunction("finalizarQuestStep", () =>
         {
             Debug.Log("finalizar parte da quest");
-            //Finalizar();
+            GameEventsManager.Instance.dialogueEvents.FinishQuestStep();
+        });
+
+        currentStory.BindExternalFunction("increaseRelationship", (string npcName, int value) =>
+        {
+            Debug.Log("aumentar relacionamento com o NPC");
+            npcManager.IncreaseRelationship(npcName, value);
+        });
+
+        currentStory.BindExternalFunction("decreaseRelationship", (string npcName, int value) =>
+        {
+            Debug.Log("diminuir relacionamento com o NPC");
+            npcManager.DecreaseRelationship(npcName, value);
+        });
+
+        currentStory.BindExternalFunction("increaseEthicMeter", (int value) =>
+        {
+            Debug.Log("aumentar o medidor de etica");
+            player.EthicMeterIncrease(value);
+        });
+
+        currentStory.BindExternalFunction("decreaseEthicMeter", (int value) =>
+        {
+            Debug.Log("aumentar o medidor de etica");
+            player.EthicMeterDecrease(value);
         });
 
         currentStory.BindExternalFunction("increaseEtica", (float value) =>

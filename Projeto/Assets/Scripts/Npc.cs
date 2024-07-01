@@ -8,7 +8,7 @@ public class Npc : MonoBehaviour
 
     public string npcName;
     public string npcRole;
-    private int relationshipPoints = 0;
+    [SerializeField] private int relationshipPoints = 0;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
@@ -20,20 +20,33 @@ public class Npc : MonoBehaviour
     //}
     public void Start()
     {
-        relationshipPoints = PlayerPrefs.GetInt(npcName);
+        if (PlayerPrefs.HasKey(npcRole))
+        {
+            relationshipPoints = PlayerPrefs.GetInt(npcRole);
+        }
+        else
+        {
+            relationshipPoints = 0;
+            PlayerPrefs.SetInt(npcRole, relationshipPoints);
+        }
     }
 
-    public void RelationshipPointsIncrease(int points)
+    public void Update()
     {
-        relationshipPoints += points;
-        PlayerPrefs.SetInt(npcName, relationshipPoints);
+        relationshipPoints = PlayerPrefs.GetInt(npcRole);
     }
 
-    public void RelationshipPointsDecrease(int points)
-    {
-        relationshipPoints -= points;
-        PlayerPrefs.SetInt(npcName, relationshipPoints);
-    }
+    //public void RelationshipPointsIncrease(int points)
+    //{
+    //    relationshipPoints += points;
+    //    PlayerPrefs.SetInt(npcName, relationshipPoints);
+    //}
+
+    //public void RelationshipPointsDecrease(int points)
+    //{
+    //    relationshipPoints -= points;
+    //    PlayerPrefs.SetInt(npcName, relationshipPoints);
+    //}
 
     private void Interact(InputAction.CallbackContext context)
     {

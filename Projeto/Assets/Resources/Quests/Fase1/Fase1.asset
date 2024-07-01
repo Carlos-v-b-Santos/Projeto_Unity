@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572577fdbcd978e419a0c7c75abcc113, type: 3}
+  m_Name: Fase1
+  m_EditorClassIdentifier: 
+  <Id>k__BackingField: Fase1
+  displayName: Fase 1
+  ethicsPoints: 0
+  competencyPoints: 0
+  questPrerequisites: []
+  questStepPrefabs:
+  - {fileID: 4382246474591650034, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+  - {fileID: 8746735966903548350, guid: 98d6532f6eae45347a46d5ab6af04fb8, type: 3}
+  - {fileID: 275046004523015654, guid: 19430ebe268c03f4994794b8762e9a9c, type: 3}
+  - {fileID: 8182133252425993072, guid: 4c0c43af3416b4b47a5ebaf709da69b8, type: 3}
+  - {fileID: 8104481591871617826, guid: 280a27df855ec1343bec145e9e7cd58a, type: 3}
+  - {fileID: 386868473129788972, guid: 2270f6732d187b244b12d90832f56f79, type: 3}
+  ethicsPointsReward: 100
+  competencyPointsReward: 100

@@ -960,6 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91689910dee80364eb3d16a8eeb2ba40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   loadQuestState: 1
 --- !u!1 &318903937
 GameObject:
@@ -1003,6 +1004,50 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5423907d6ea75634c8cfe46b9ba251e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &366494675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366494676}
+  - component: {fileID: 366494677}
+  m_Layer: 0
+  m_Name: NpcManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &366494676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366494675}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366494677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366494675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1751a23007a14774cbb239f171f50bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &390176502
@@ -1052,6 +1097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Savio
   npcRole: back-end senior
+  relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: 3fb4fa73cd0830048b7b1f17db66956c, type: 3}
 --- !u!58 &390176505
 CircleCollider2D:
@@ -1680,7 +1726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19c874f6b4026784c8f0e594b0d20b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexMinigame: 3
+  indexMinigame: 1
   minigamePoints: 0
 --- !u!1001 &444793884
 PrefabInstance:
@@ -5869,7 +5915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96514d3d9c2190f4e9ea87337e8532ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questInfoForPoint: {fileID: 11400000, guid: acb71dba6f66ac44689c34a61f79f1cb, type: 2}
+  questInfoForPoint: {fileID: 11400000, guid: 8d13796e1229c7a4cad163462cd17f35, type: 2}
   startPoint: 1
   finishPoint: 1
 --- !u!58 &784936982
@@ -5916,7 +5962,7 @@ Transform:
   m_GameObject: {fileID: 784936980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.89, y: 2.6, z: 0}
+  m_LocalPosition: {x: 1.73, y: 3.4, z: 0}
   m_LocalScale: {x: 3.6375, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6680,8 +6726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0cc9776396354d418663e4184daacd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Luiza
-  npcRole: Leader of Softaware
+  npcName: teste
+  npcRole: teste
+  relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: c3827f6f0854cdd40bf5bb1c746f2abc, type: 3}
 --- !u!58 &934110975
 CircleCollider2D:
@@ -7542,7 +7589,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Bernardo
-  npcRole: databse
+  npcRole: database
+  relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: 6e0c6436f52590d4b87b6f240199fafd, type: 3}
 --- !u!1 &1033499589
 GameObject:
@@ -16054,6 +16102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Felicia
   npcRole: front-end
+  relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: 460e746e7ff99de4b821e76f189b7010, type: 3}
 --- !u!58 &1236641480
 CircleCollider2D:
@@ -16983,6 +17032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Raquel
   npcRole: requirements
+  relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: bae4f08f10bd08a44b3d9d500665b6ac, type: 3}
 --- !u!58 &1610960482
 CircleCollider2D:
@@ -21817,6 +21867,8 @@ MonoBehaviour:
   - {fileID: 822981122}
   - {fileID: 417000197}
   - {fileID: 11619017}
+  player: {fileID: 1446792163}
+  npcManager: {fileID: 366494677}
   Player: {fileID: 0}
   botao_proximo: {fileID: 440723172}
 --- !u!1 &1851114170
@@ -22014,6 +22066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Luiza
   npcRole: Leader of Softaware
+  relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: da2b26f9008d703408bacebe11ef7660, type: 3}
 --- !u!58 &1909358546
 CircleCollider2D:
@@ -22232,6 +22285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Tadeu
   npcRole: tester
+  relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: 64168a304378602489d32817b1442975, type: 3}
 --- !u!58 &1934719362
 CircleCollider2D:
@@ -22870,6 +22924,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 217090371}
   - {fileID: 441258318}
+  - {fileID: 366494676}
   - {fileID: 148868520}
   - {fileID: 964917904}
   - {fileID: 1446792158}

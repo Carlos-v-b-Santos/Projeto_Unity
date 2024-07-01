@@ -1,5 +1,11 @@
 INCLUDE GlobalsVar.ink
 
+EXTERNAL finalizarQuestStep()
+EXTERNAL increaseRelationship(npc, value)
+EXTERNAL decreaseRelationship(npc, value)
+EXTERNAL increaseEthicMeter(value)
+EXTERNAL decreaseEthicMeter(value)
+
 {historyProgression:
 - 0: -> Fase1_1
 - 1: -> Fase1_2
@@ -38,6 +44,7 @@ nada.
 = A 
 Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! Nossa equipe é bem diversificada. Vem! Vou te apresentar aos outros, eles devem estar na sala de reuniões.#speaker:Felicia
 ~ historyProgression = 1
+~ finalizarQuestStep()
 //troca de ambiente
 -> END
 
@@ -45,11 +52,13 @@ Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! No
     Como eu esperava, aí estão vocês!#speaker:Felicia
     "Logo depois a líder de projeto atribui a tarefa de acompanhar o Sávio que é o desenvolvedor back-end sênior, a equipe está encarregada de trabalhar em um projeto para o setor de RH de uma grande empresa. A  proposta é criar um software que facilite a análise de currículo dos funcionários atuais e dos futuros, para encontrar aqueles que melhor se adequam ao cargo de acordo com sua formação e habilidades. A reunião se estende até a hora do almoço e se encerra com todos indo fazer suas refeições, o The player fica encarregado de procurar pelo Sávio quando a pausa acabar."#speaker:Narrador
     ~ historyProgression = 2
+    ~ finalizarQuestStep()
 -> END
 
 === Fase1_3 ===
     Após o almoço, o The player se encaminha para sala do Sávio, se anuncia e logo entra iniciando o diálogo. Ambos conversam e Sávio explica sobre as tarefas e a dinâmica do expediente.
     ~ historyProgression = 3
+    ~ finalizarQuestStep()
 -> END
 
 === Fase1_4 ===
@@ -63,24 +72,27 @@ Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! No
     
     *[Não! Priorizar o filtro e ignorar as demais funcionalidades parece tolice.]
         -> Fase1_4.C
--> END
 
 = A
     Raquel concorda.
     Sávio discorda, argumenta que você não tem experiência para dar uma opinião fundamentada, prefere levar isso para a próxima reunião e discutir com quem realmente deve opinar no projeto.
     ~ historyProgression = 4
+    ~ increaseRelationship("requirements", 10)
+    ~ finalizarQuestStep()
 -> END
     
 = B
     Raquel desaprova um pouco e  diz que não é tão fácil quanto parece mudar algo que já foi acertado anteriormente
     Sávio aprova e ele diz que comunicação é o melhor caminho e que vai levar o assunto para a próxima reunião.
     ~ historyProgression = 4
+    ~ finalizarQuestStep()
 ->END
 
 = C
     Raquel desaprova e diz que todos os requisitos foram anteriormente bem discutidos e definidos por ela e o cliente, sendo ousadia da sua parte questionar como tolice a vontade deste.
     Sávio aprova um pouco e ele diz que antes de fazer qualquer julgamento é melhor discutirmos mais sobre o assunto na próxima reunião.
     ~ historyProgression = 4 
+    ~ finalizarQuestStep()
 -> END
 
 === Fase1_5 ===
@@ -108,6 +120,7 @@ Após um breve momento de silêncio, a front-end começa a dizer que estava na c
 A líder da equipe interrompe e toma as rédeas da situação ordenando  que fiquem calados, em seguida adia a reunião e os dispensa.
 Todos saem da sala, exceto a front-end que se sente ofendida e exige uma retratação da parte de Sávio, pelo que foi dito. Luiza reconhece o erro de Sávio e diz que vai conversar com ele. 
 ~historyProgression = 5
+~ finalizarQuestStep()
 -> END
 
 === Fase1_7 ===
@@ -132,7 +145,6 @@ Então é perguntado ao jogador sobre o posicionamento dele:
     -> Fase1_7_1.C
 *[dizer que acha que era melhor abandonar o projeto completamente, por conta da discriminação.]
     -> Fase1_7_1.D
--> END
 
 = A
 - perde pontos de ética
@@ -142,6 +154,7 @@ Então é perguntado ao jogador sobre o posicionamento dele:
 - requisitos, desaprova um pouco
 - tester, desaprova um pouco
 - banco de dados, reage de forma neutra
+~ decreaseEthicMeter(25)
 -> Fase1_7_2
 
 = B
@@ -152,6 +165,7 @@ Então é perguntado ao jogador sobre o posicionamento dele:
 - requisitos, desaprova
 - tester, desaprova um pouco
 - banco de dados, reage de forma neutra
+~ decreaseEthicMeter(25)
 -> Fase1_7_2
 
 = C
@@ -162,6 +176,7 @@ Então é perguntado ao jogador sobre o posicionamento dele:
 - requisitos, aprova
 - tester, aprova um pouco
 - banco de dados, reage de forma neutra
+~ increaseEthicMeter(25)
 -> Fase1_7_2
 
 = D
@@ -172,6 +187,7 @@ Então é perguntado ao jogador sobre o posicionamento dele:
 - requisitos, desaprova
 - tester, desaprova um pouco
 - banco de dados, desaprova um pouco
+~ increaseEthicMeter(25)
 -> Fase1_7_2
 
 === Fase1_7_2 ===
@@ -183,5 +199,5 @@ Com isso,a líder de projeto explica os problemas envolvendo principalmente os c
 O stakeholder argumenta que isso complicaria em vez de simplificar.
 A líder de projeto concorda que acaba sendo mais complicado,porém mais justo e que a parte das recomendações automáticas seria feita depois do registro geral de funcionários, como algo complementar. Dessa forma poderiam focar primeiro na parte mais importante.Por fim, o stakeholder concorda e a reunião se encerra.
 Todos ficam satisfeitos com o resultado.Após encerrar a chamada, Luiza dá a oportunidade de Sávio se retratar, mas ele o faz de forma breve e objetiva sem mostrar muito entusiasmo. O clima não melhora entre a equipe, já que as garotas seguem afetadas pelo ocorrido, e então todos são dispensados.
-
+~ finalizarQuestStep()
 -> END

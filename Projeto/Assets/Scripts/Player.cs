@@ -1,6 +1,7 @@
 using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static Unity.Collections.AllocatorManager;
@@ -30,7 +31,15 @@ public class Player : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
 
-        ethicMeter = PlayerPrefs.GetInt(ethicMeterKey);
+        if (PlayerPrefs.HasKey(ethicMeterKey))
+        {
+            ethicMeter = PlayerPrefs.GetInt(ethicMeterKey);
+        }
+        else
+        {
+            ethicMeter = 100;
+        }
+
         expPoints = PlayerPrefs.GetInt(ethicMeterKey);
         playerLevel = PlayerPrefs.GetInt(playerLevelKey);
     }

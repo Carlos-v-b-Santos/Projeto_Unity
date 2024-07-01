@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     private void EnterMinigame()
     {
+        
         SceneManager.LoadScene(indexMinigame);
     }
     public void ExitMinigame()

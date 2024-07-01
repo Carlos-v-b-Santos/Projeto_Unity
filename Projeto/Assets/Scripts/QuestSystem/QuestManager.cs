@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    [SerializeField] Player player;
+
     [Header("Config")]
     [SerializeField] private bool loadQuestState = true;
     
@@ -118,6 +120,8 @@ public class QuestManager : MonoBehaviour
         {
             ChangeQuestState(quest.info.Id, QuestState.CAN_FINISH);
         }
+
+        SaveQuest(quest);
     }
 
     private void FinishQuest(string id)
@@ -130,6 +134,7 @@ public class QuestManager : MonoBehaviour
 
     private void ClaimRewards(Quest quest)
     {
+        //player.EthicMeterIncrease(quest.info.ethicsPointsReward);
         //enviar eventos para entregar a recompensa
         //GameEventsManager.instance.goldEvents.GoldGained(quest.info.goldReward);
         //GameEventsManager.instance.playerEvents.ExperienceGained(quest.info.experienceReward);
@@ -189,7 +194,7 @@ public class QuestManager : MonoBehaviour
             SaveQuest(quest);
         }
     }
-     
+    
     private void SaveQuest(Quest quest)
     {
         try

@@ -15,4 +15,11 @@ public class DialogueEvents
     {
         OnExitDialogue?.Invoke();
     }
+
+    public event Action OnFinishQuestStep;
+    public void FinishQuestStep()
+    {
+        Debug.Log("finalizando...");
+        OnFinishQuestStep?.Invoke();
+    }
 }

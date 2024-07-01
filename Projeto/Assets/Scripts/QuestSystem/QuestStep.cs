@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class QuestStep : MonoBehaviour
 {
-    private bool isFinished = false;
+    [SerializeField] private bool isFinished = false;
     private string questId;
     private int stepIndex;
 
@@ -19,10 +19,13 @@ public abstract class QuestStep : MonoBehaviour
     }
     protected void FinishQuestStep()
     {
+        Debug.Log("para finalizar dnv");
         if (!isFinished)
         {
+            Debug.Log("finalizado");
             isFinished = true;
             GameEventsManager.Instance.questEvents.AdvanceQuest(questId);
+            
             Destroy(this.gameObject);
         }
     }

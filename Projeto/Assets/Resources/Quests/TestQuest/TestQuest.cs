@@ -31,10 +31,10 @@ public class TestQuest : QuestStep
     //------------------------------------------------------
     private void OnEnable()
     {
-        DialogueManager.instance.Finalizar += FinishQuestStep;
+        GameEventsManager.Instance.dialogueEvents.OnFinishQuestStep += FinishQuestStep;
     }
     private void OnDisable()
     {
-        DialogueManager.instance.Finalizar -= FinishQuestStep;
+        GameEventsManager.Instance.dialogueEvents.OnFinishQuestStep -= FinishQuestStep;
     }
 }
