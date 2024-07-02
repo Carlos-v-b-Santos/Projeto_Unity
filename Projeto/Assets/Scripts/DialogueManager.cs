@@ -104,6 +104,7 @@ public class DialogueManager : MonoBehaviour
     {
         //Player.GetComponent<MouseMove>().enabled = false;
         //------------------
+        TimeSystem.Instance.PauseTimeSystem();
 
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
@@ -155,11 +156,15 @@ public class DialogueManager : MonoBehaviour
     private void ExitDialogueMode()
     {
         //Player.GetComponent<MouseMove>().enabled = true;
+        TimeSystem.Instance.StartTimeSystem();
 
         dialogueVariables.StopListening(currentStory);
 
         currentStory.UnbindExternalFunction("increaseEtica");
-        currentStory.UnbindExternalFunction("finalizarQuestStep");
+        currentStory.UnbindExternalFunction("increaseRelationship");
+        currentStory.UnbindExternalFunction("decreaseRelationship");
+        currentStory.UnbindExternalFunction("increaseEthicMeter");
+        currentStory.UnbindExternalFunction("decreaseEthicMeter");
 
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);

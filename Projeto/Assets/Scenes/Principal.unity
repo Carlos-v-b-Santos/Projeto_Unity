@@ -960,7 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91689910dee80364eb3d16a8eeb2ba40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1446792163}
   loadQuestState: 1
 --- !u!1 &318903937
 GameObject:
@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Savio
-  npcRole: back-end senior
+  npcRole: Backend_Senior
   relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: 3fb4fa73cd0830048b7b1f17db66956c, type: 3}
 --- !u!58 &390176505
@@ -7589,7 +7589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Bernardo
-  npcRole: database
+  npcRole: Database
   relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: 6e0c6436f52590d4b87b6f240199fafd, type: 3}
 --- !u!1 &1033499589
@@ -16101,7 +16101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Felicia
-  npcRole: front-end
+  npcRole: Frontend_full
   relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: 460e746e7ff99de4b821e76f189b7010, type: 3}
 --- !u!58 &1236641480
@@ -17031,7 +17031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Raquel
-  npcRole: requirements
+  npcRole: Requirements
   relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: bae4f08f10bd08a44b3d9d500665b6ac, type: 3}
 --- !u!58 &1610960482
@@ -22065,7 +22065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Luiza
-  npcRole: Leader of Softaware
+  npcRole: Leader_of_Software
   relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: da2b26f9008d703408bacebe11ef7660, type: 3}
 --- !u!58 &1909358546
@@ -22284,7 +22284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcName: Tadeu
-  npcRole: tester
+  npcRole: Tester
   relationshipPoints: 0
   inkJSON: {fileID: 4900000, guid: 64168a304378602489d32817b1442975, type: 3}
 --- !u!58 &1934719362

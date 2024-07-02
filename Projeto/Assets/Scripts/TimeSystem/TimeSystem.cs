@@ -99,6 +99,7 @@ public class TimeSystem : MonoBehaviour
 
 
         StartTimeSystemMorning();
+        DontDestroyOnLoad(gameObject);
 
     }
 
@@ -110,10 +111,13 @@ public class TimeSystem : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        
+
+        
+        
     }
 
-    private void StartTimeSystem()
+    public void StartTimeSystem()
     {
         timeOn = true;
     }
@@ -141,7 +145,7 @@ public class TimeSystem : MonoBehaviour
         StartTimeSystem();
     }
 
-    private void PauseTimeSystem()
+    public void PauseTimeSystem()
     {
         timeOn = false;
     }

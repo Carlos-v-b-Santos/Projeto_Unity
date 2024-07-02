@@ -6,6 +6,13 @@ EXTERNAL decreaseRelationship(npc, value)
 EXTERNAL increaseEthicMeter(value)
 EXTERNAL decreaseEthicMeter(value)
 
+VAR leaderKEY = "Leader_of_Software"
+VAR backendKEY = "Backend_Senior"
+VAR frontendKEY = "Frontend_full"
+VAR requirementsKEY = "Requirements"
+VAR testerKEY = "Tester"
+VAR databaseKEY = "Database"
+
 {historyProgression:
 - 0: -> Fase1_1
 - 1: -> Fase1_2
@@ -77,13 +84,16 @@ Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! No
     Raquel concorda.
     Sávio discorda, argumenta que você não tem experiência para dar uma opinião fundamentada, prefere levar isso para a próxima reunião e discutir com quem realmente deve opinar no projeto.
     ~ historyProgression = 4
-    ~ increaseRelationship("requirements", 10)
+    ~ increaseRelationship(requirementsKEY, 40)
+    ~ decreaseRelationship(backendKEY, 20)
     ~ finalizarQuestStep()
 -> END
     
 = B
     Raquel desaprova um pouco e  diz que não é tão fácil quanto parece mudar algo que já foi acertado anteriormente
     Sávio aprova e ele diz que comunicação é o melhor caminho e que vai levar o assunto para a próxima reunião.
+    ~ decreaseRelationship(requirementsKEY, 20)
+    ~ increaseRelationship(backendKEY, 40)
     ~ historyProgression = 4
     ~ finalizarQuestStep()
 ->END
@@ -91,6 +101,8 @@ Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! No
 = C
     Raquel desaprova e diz que todos os requisitos foram anteriormente bem discutidos e definidos por ela e o cliente, sendo ousadia da sua parte questionar como tolice a vontade deste.
     Sávio aprova um pouco e ele diz que antes de fazer qualquer julgamento é melhor discutirmos mais sobre o assunto na próxima reunião.
+    ~ decreaseRelationship(requirementsKEY, 40)
+    ~ increaseRelationship(backendKEY, 20)
     ~ historyProgression = 4 
     ~ finalizarQuestStep()
 -> END
@@ -148,46 +160,95 @@ Então é perguntado ao jogador sobre o posicionamento dele:
 
 = A
 - perde pontos de ética
+~ decreaseEthicMeter(30)
+
 - lider de projeto, desaprova
+~ decreaseRelationship(leaderKEY,40)
+
 - back-end sênior, desaprova um pouco
+~ decreaseRelationship(backendKEY,20)
+
 - front-end, desaprova
+~ decreaseRelationship(frontendKEY,40)
+
 - requisitos, desaprova um pouco
+~ decreaseRelationship(requirementsKEY,20)
+
 - tester, desaprova um pouco
+~ decreaseRelationship(testerKEY,20)
+
 - banco de dados, reage de forma neutra
-~ decreaseEthicMeter(25)
+
 -> Fase1_7_2
 
 = B
 - perde pontos de ética
+~ decreaseEthicMeter(30)
+
 - lider de projeto, desaprova um pouco
+~ decreaseRelationship(leaderKEY,20)
+
 - back-end sênior, aprova um pouco
+~ increaseRelationship(backendKEY,20)
+
 - front-end, desaprova
+~ decreaseRelationship(frontendKEY,40)
+
 - requisitos, desaprova
+~ decreaseRelationship(requirementsKEY,40)
+
 - tester, desaprova um pouco
+~ decreaseRelationship(testerKEY,20)
+
 - banco de dados, reage de forma neutra
-~ decreaseEthicMeter(25)
+
 -> Fase1_7_2
 
 = C
 - ganha pontos de ética
+~ increaseEthicMeter(30)
+
 - lider de projeto, aprova
+~ increaseRelationship(leaderKEY,40)
+
 - back-end sênior, aprova um pouco
+~ increaseRelationship(backendKEY,20)
+
 - front-end, aprova
+~ increaseRelationship(frontendKEY,40)
+
 - requisitos, aprova
+~ increaseRelationship(requirementsKEY,40)
+
 - tester, aprova um pouco
+~ increaseRelationship(testerKEY,20)
+
 - banco de dados, reage de forma neutra
-~ increaseEthicMeter(25)
+
 -> Fase1_7_2
 
 = D
 - ganha pontos de ética
+~ increaseEthicMeter(30)
+
 - lider de projeto, desaprova
+~ decreaseRelationship(leaderKEY,40)
+
 - back-end sênior, desaprova
+~ decreaseRelationship(backendKEY,20)
+
 - front-end, aprova
+~ increaseRelationship(frontendKEY,40)
+
 - requisitos, desaprova
+~ decreaseRelationship(requirementsKEY,40)
+
 - tester, desaprova um pouco
+~ decreaseRelationship(testerKEY,20)
+
 - banco de dados, desaprova um pouco
-~ increaseEthicMeter(25)
+~ decreaseRelationship(backendKEY,20)
+
 -> Fase1_7_2
 
 === Fase1_7_2 ===
