@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3219195460173634944, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
       propertyPath: minDay
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4382246474591650034, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
       propertyPath: m_Name

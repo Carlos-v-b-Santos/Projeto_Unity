@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
 
@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
         else
         {
             ethicMeter = 100;
+            PlayerPrefs.SetInt(ethicMeterKey, ethicMeter);
         }
 
         expPoints = PlayerPrefs.GetInt(ethicMeterKey);
@@ -46,6 +47,9 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (DialogueManager.instance.dialogueIsPlaying)
+            return;
+
         PlayerMove(GetMoveInput());
 
         //transform.position = position;
@@ -100,6 +104,9 @@ public class Player : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext context)
     {
+        if (DialogueManager.instance.dialogueIsPlaying)
+            return;
+
         Debug.Log("interagir");
         //RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 2f, LayerMask.GetMask("Interactable"));
         if (computerIsNear)

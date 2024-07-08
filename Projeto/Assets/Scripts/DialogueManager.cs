@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
     private Story currentStory;
 
-    private bool dialogueIsPlaying;
+    public bool dialogueIsPlaying;
 
     public static DialogueManager instance;
 

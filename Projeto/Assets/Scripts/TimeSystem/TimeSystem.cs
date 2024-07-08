@@ -99,7 +99,7 @@ public class TimeSystem : MonoBehaviour
 
 
         StartTimeSystemMorning();
-        DontDestroyOnLoad(gameObject);
+        
 
     }
 
@@ -111,10 +111,10 @@ public class TimeSystem : MonoBehaviour
             return;
         }
         Instance = this;
-        
+        DontDestroyOnLoad(gameObject);
 
-        
-        
+
+
     }
 
     public void StartTimeSystem()

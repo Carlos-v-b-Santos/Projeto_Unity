@@ -12,7 +12,6 @@ public class MinigameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text  scoreText;
     [SerializeField] GameObject _menu;
-    public int TotalScore = 0;
     [SerializeField] private int increasePoints = 100;
     [SerializeField] private int decreasePoints = 100;
 
@@ -20,8 +19,9 @@ public class MinigameManager : MonoBehaviour
     public bool isInitialized;
     public int currentScore;
     private const string highScoreKey = "HighScore";
+    private const string totalScoreKey = "TotalScore";
     //public int highScore;
-    
+
     public int HighScore
     {
         get
@@ -31,6 +31,18 @@ public class MinigameManager : MonoBehaviour
         set
         {
             PlayerPrefs.SetInt(highScoreKey, value);
+        }
+    }
+
+    public int TotalScore
+    {
+        get
+        {
+            return PlayerPrefs.GetInt(totalScoreKey, 0);
+        }
+        set
+        {
+            PlayerPrefs.SetInt(totalScoreKey, value);
         }
     }
 
@@ -47,7 +59,7 @@ public class MinigameManager : MonoBehaviour
             Instance = this;
         }
         
-        TotalScore = PlayerPrefs.GetInt("totalScore");
+        TotalScore = PlayerPrefs.GetInt(totalScoreKey);
         Init();
         UpdateScore();
         //highScore = PlayerPrefs.GetInt(highScoreKey);
@@ -56,25 +68,25 @@ public class MinigameManager : MonoBehaviour
     // Update is called once per frame
     void UpdateScore()
     {
-        PlayerPrefs.SetInt("MINIGAME_POINTS", TotalScore);
-        scoreText.text = string.Format("pontos:" + TotalScore);
+        PlayerPrefs.SetInt("MINIGAME_POINTS", currentScore);
+        scoreText.text = string.Format("pontos:" + currentScore);
     }
 
     public void IncreasePoints()
     {
-        TotalScore += increasePoints;
+        currentScore += increasePoints;
         UpdateScore();
     }
 
     public void DecreasePoints()
     {
-        TotalScore -= decreasePoints;
+        currentScore -= decreasePoints;
         UpdateScore();
     }
 
     public void ResetPoints()
     {
-        TotalScore = 0;
+        currentScore = 0;
         UpdateScore();
     }
 
