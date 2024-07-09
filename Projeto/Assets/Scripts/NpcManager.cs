@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NpcManager : MonoBehaviour
 {
+    public static NpcManager Instance;
+
     public List<NavNpc> npcMap = new List<NavNpc>();
     
     //RP = relationship points
@@ -18,6 +20,16 @@ public class NpcManager : MonoBehaviour
     void Start()
     {
         //DontDestroyOnLoad(this);
+    }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogWarning("Mais de uma instancia");
+        }
+
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -46,6 +58,7 @@ public class NpcManager : MonoBehaviour
         {
             if (npcRole == npcMap[i].npcRole)
             {
+                npcMap[i].Move(newPos);
                 break;
             }
         }
