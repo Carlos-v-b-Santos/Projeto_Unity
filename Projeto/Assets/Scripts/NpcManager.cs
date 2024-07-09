@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NpcManager : MonoBehaviour
 {
+    public List<NavNpc> npcMap = new List<NavNpc>();
+    
     //RP = relationship points
     //private const string leaderRPKey = "leaderRP";
     //private const string backendRPKey = "backendRP";
@@ -37,4 +39,17 @@ public class NpcManager : MonoBehaviour
         temp -= value;
         PlayerPrefs.SetInt(npcName, temp);
     }
+
+    public void MoveNpc(string npcRole, Vector3 newPos)
+    {
+        for (int i = 0; i < npcMap.Count; i++)
+        {
+            if (npcRole == npcMap[i].npcRole)
+            {
+                break;
+            }
+        }
+
+    }
+
 }

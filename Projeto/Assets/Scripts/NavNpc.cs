@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-public class Nav : MonoBehaviour
+public class NavNpc : MonoBehaviour
 {
     //Ponto para o qual o personagem irá se mover
-    private GameObject Point;
+    //private GameObject Point;
     //Variável NavMeshAgent Para configurar A movimentação do personagem
+    public string npcRole;
     private NavMeshAgent agent;
+    [SerializeField] Vector3 initPos;
     void Start()
     {
         //Pega o Componente NavMeshAgent
@@ -16,14 +18,22 @@ public class Nav : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         // Encontra o ponto Na cena
-        Point = GameObject.Find("Point");
-
+        //Point = GameObject.Find("Point");
+        Move(initPos);
     }
 
+    //private void Update()
+    //{
+    //    agent.SetDestination(initPos);
+    //}
+    //void Update()
+    //{
+    //Faz o personagem se locomover pelo cenario até o point
+    //agent.SetDestination(Point.transform.position);
+    //}
 
-    void Update()
+    public void Move(Vector3 newPos)
     {
-        //Faz o personagem se locomover pelo cenario até o point
-        agent.SetDestination(Point.transform.position);
+        agent.SetDestination(newPos);
     }
 }
