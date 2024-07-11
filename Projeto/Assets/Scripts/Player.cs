@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using static Unity.Collections.AllocatorManager;
 
@@ -17,11 +18,14 @@ public class Player : MonoBehaviour
     [SerializeField] private int playerLevel = 0;
 
     [SerializeField] float moveSpeed = 10;
+    Transform transformParent;
     Rigidbody2D rigidbody2d;
     [SerializeField] Vector2 lookDirection = new Vector2(1, 0);
 
     [SerializeField] private bool computerIsNear;
     [SerializeField] private bool npcIsNear;
+
+    NavMeshAgent agent;
     //float horizontalMove;
     //float verticalMove;
 
@@ -29,7 +33,10 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        agent = GetComponentInParent<NavMeshAgent>();
+
         rigidbody2d = GetComponent<Rigidbody2D>();
+        transformParent = GetComponentInParent<Transform>();
 
         if (PlayerPrefs.HasKey(ethicMeterKey))
         {
@@ -43,6 +50,13 @@ public class Player : MonoBehaviour
 
         expPoints = PlayerPrefs.GetInt(ethicMeterKey);
         playerLevel = PlayerPrefs.GetInt(playerLevelKey);
+
+        agent.ResetPath();
+    }
+
+    private void Awake()
+    {
+        //agent.ResetPath();
     }
 
     void FixedUpdate()
@@ -70,7 +84,9 @@ public class Player : MonoBehaviour
 
     public void PlayerMove(Vector2 position)
     {
+        
         rigidbody2d.MovePosition(position);
+        transformParent.position = position;
         if (!Mathf.Approximately(position.x, 0.0f) || !Mathf.Approximately(position.y, 0.0f))//para animação
         {
             lookDirection.Set(position.x, position.y);

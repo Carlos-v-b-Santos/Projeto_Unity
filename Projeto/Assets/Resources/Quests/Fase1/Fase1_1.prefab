@@ -20,13 +20,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fase1_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6866880567703458492, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+      propertyPath: m_Radius
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866880567703458492, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9077693429515393348, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.46
+      value: 13.58
       objectReference: {fileID: 0}
     - target: {fileID: 9077693429515393348, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 3.48
       objectReference: {fileID: 0}
     - target: {fileID: 9077693429515393348, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
       propertyPath: m_LocalPosition.z
@@ -63,5 +71,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4382246474591650034, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2483208945997168853}
   m_SourcePrefab: {fileID: 100100000, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+--- !u!1 &8746735966903548350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4382246474591650034, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+  m_PrefabInstance: {fileID: 5022212832563132748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2483208945997168853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746735966903548350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722bdd267dc49b14caa12a49be522db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFinished: 0
+  pos: {x: 13.5, y: 2.5}
+  minDay: 0
+  inkJSON: {fileID: 4900000, guid: c3827f6f0854cdd40bf5bb1c746f2abc, type: 3}
+  npcMovePos: {x: 23.585, y: 3.53, z: 0}
+  playerMovePos: {x: 13.24, y: 3.55, z: 0}

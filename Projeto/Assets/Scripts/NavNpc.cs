@@ -9,11 +9,13 @@ public class NavNpc : MonoBehaviour
     //Variável NavMeshAgent Para configurar A movimentação do personagem
     public string npcRole;
     private NavMeshAgent agent;
+    private Transform transformNpc;
     [SerializeField] Vector3 initPos;
     void Start()
     {
         //Pega o Componente NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
+        transformNpc = GetComponent<Transform>();
         //Variaveis setadas como False para Não utilizar os eixos Y Baseado em 3 dimensões
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -36,4 +38,13 @@ public class NavNpc : MonoBehaviour
     {
         agent.SetDestination(newPos);
     }
+
+    public void MoveInstant(Vector3 newPos)
+    {
+        agent.ResetPath();
+        agent.Warp(newPos);
+    }
+
+
+
 }

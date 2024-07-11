@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4382246474591650034}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: -2.4711556}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,3 +112,15 @@ MonoBehaviour:
   pos: {x: 1, y: 1}
   minDay: 0
   inkJSON: {fileID: 4900000, guid: c3827f6f0854cdd40bf5bb1c746f2abc, type: 3}
+  npcsRole:
+  - Leader_of_Software
+  - Backend_Senior
+  - Requirements
+  - Tester
+  - Database
+  NpcsPositions:
+  - {x: 13.214, y: 9.404, z: 0}
+  - {x: 23.765, y: 5.426, z: 0}
+  - {x: 13.233, y: 7.437, z: 0}
+  - {x: 13.24, y: 5.427, z: 0}
+  - {x: 23.751, y: 7.61, z: 0}
