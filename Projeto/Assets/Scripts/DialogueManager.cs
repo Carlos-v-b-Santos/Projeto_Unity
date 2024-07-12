@@ -39,6 +39,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject Player;
     public GameObject botao_proximo;
 
+    [SerializeField] private bool finishQuestStep = false;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -115,7 +117,8 @@ public class DialogueManager : MonoBehaviour
         currentStory.BindExternalFunction("finalizarQuestStep", () =>
         {
             Debug.Log("finalizar parte da quest");
-            GameEventsManager.Instance.dialogueEvents.FinishQuestStep();
+
+            if (!finishQuestStep) finishQuestStep = true;
         });
 
         currentStory.BindExternalFunction("increaseRelationship", (string npcName, int value) =>
@@ -169,6 +172,12 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+
+        if (finishQuestStep)
+        {
+            GameEventsManager.Instance.dialogueEvents.FinishQuestStep();
+            finishQuestStep = false;
+        }
 
         GameEventsManager.Instance.dialogueEvents.ExitDialogue();
     }

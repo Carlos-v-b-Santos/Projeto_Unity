@@ -7,6 +7,7 @@ public class NavNpc : MonoBehaviour
     //Ponto para o qual o personagem irá se mover
     //private GameObject Point;
     //Variável NavMeshAgent Para configurar A movimentação do personagem
+    public bool isMoving;
     public string npcRole;
     private NavMeshAgent agent;
     private Transform transformNpc;
@@ -36,15 +37,21 @@ public class NavNpc : MonoBehaviour
 
     public void Move(Vector3 newPos)
     {
+        if (!agent.enabled)
+            agent.enabled = true;
+
+        
+        agent.ResetPath();
         agent.SetDestination(newPos);
+        isMoving = true;
     }
 
     public void MoveInstant(Vector3 newPos)
     {
+        if (!agent.enabled)
+            agent.enabled = true;
+
         agent.ResetPath();
         agent.Warp(newPos);
     }
-
-
-
 }

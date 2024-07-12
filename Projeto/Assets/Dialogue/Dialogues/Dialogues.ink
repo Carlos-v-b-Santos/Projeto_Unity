@@ -32,10 +32,7 @@ nada.
     ++ [sim, sou eu]
     Como eu imaginava! Meu nome é Felícia, sou a desenvolvedora Front-end e você é ?
     
-    ***[Carlos] 
-        ~ playerName = "Carlos"
-        -> Fase1_1.A
-        
+    ***[Carlos] -> Fase1_1.A //~ playerName = "Carlos"
     +++[Rodrigo]
         ~ playerName = "Rodrigo"
         -> Fase1_1.A
@@ -49,10 +46,9 @@ nada.
         -> Fase1_1.A
     
 = A 
-Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! Nossa equipe é bem diversificada. Vem! Vou te apresentar aos outros, eles devem estar na sala de reuniões.#speaker:Felicia
 ~ historyProgression = 1
 ~ finalizarQuestStep()
-//troca de ambiente
+Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! Nossa equipe é bem diversificada. Vem! Vou te apresentar aos outros, eles devem estar na sala de reuniões.<> #speaker:Felicia 
 -> END
 
 === Fase1_2 ===

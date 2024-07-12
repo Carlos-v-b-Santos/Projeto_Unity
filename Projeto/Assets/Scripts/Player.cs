@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool npcIsNear;
 
     NavMeshAgent agent;
+    NavNpc navNpc;
     //float horizontalMove;
     //float verticalMove;
 
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         agent = GetComponentInParent<NavMeshAgent>();
+        navNpc = GetComponentInParent<NavNpc>();
 
         rigidbody2d = GetComponent<Rigidbody2D>();
         transformParent = GetComponentInParent<Transform>();
@@ -70,7 +72,14 @@ public class Player : MonoBehaviour
         //position.x = position.x + speed * horizontalMove * Time.deltaTime;
         //position.y = position.y + speed * verticalMove * Time.deltaTime;
 
-        
+        if (navNpc.isMoving)
+        {
+           Debug.Log(agent.remainingDistance);
+           if (agent.remainingDistance < 0.001f)
+           {
+               navNpc.isMoving = false;
+           }
+        }
     }
 
     private Vector2 GetMoveInput()
@@ -84,9 +93,16 @@ public class Player : MonoBehaviour
 
     public void PlayerMove(Vector2 position)
     {
-        
-        rigidbody2d.MovePosition(position);
-        transformParent.position = position;
+
+
+        //agent.enabled = false;
+
+        //rigidbody2d.MovePosition(position);
+        //transformParent.position = position;
+        if(navNpc.isMoving) return;
+
+        agent.SetDestination(position);
+
         if (!Mathf.Approximately(position.x, 0.0f) || !Mathf.Approximately(position.y, 0.0f))//para animação
         {
             lookDirection.Set(position.x, position.y);
