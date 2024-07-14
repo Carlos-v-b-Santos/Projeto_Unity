@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
             //ExitMinigame();
             //GameEventsManager.Instance.timeEvents.StartAfternoonWork();
         }
+        SceneManager.LoadScene(0);
     }
 
     private void OnEnable()

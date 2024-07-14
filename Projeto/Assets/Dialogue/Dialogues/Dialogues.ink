@@ -47,8 +47,7 @@ nada.
     
 = A 
 ~ historyProgression = 1
-~ finalizarQuestStep()
-Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! Nossa equipe é bem diversificada. Vem! Vou te apresentar aos outros, eles devem estar na sala de reuniões.<> #speaker:Felicia 
+{finalizarQuestStep()}Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! Nossa equipe é bem diversificada. Vem! Vou te apresentar aos outros, eles devem estar na sala de reuniões.<> #speaker:Felicia 
 -> END
 
 === Fase1_2 ===

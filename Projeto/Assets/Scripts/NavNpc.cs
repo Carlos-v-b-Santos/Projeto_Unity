@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 public class NavNpc : MonoBehaviour
@@ -12,6 +13,9 @@ public class NavNpc : MonoBehaviour
     private NavMeshAgent agent;
     private Transform transformNpc;
     [SerializeField] Vector3 initPos;
+
+    [SerializeField] public float moveVelOriginal;
+    [SerializeField] float moveVel;
     void Start()
     {
         //Pega o Componente NavMeshAgent
@@ -34,16 +38,37 @@ public class NavNpc : MonoBehaviour
     //Faz o personagem se locomover pelo cenario até o point
     //agent.SetDestination(Point.transform.position);
     //}
-
+    IEnumerator IsMoving()
+    {
+        isMoving = true;
+        Debug.Log(npcRole + " distancia permanecente: " + agent.remainingDistance);
+        while (agent.pathPending)
+        {
+            Debug.Log("path nao calculado");
+            yield return null;
+        }
+        while (agent.remainingDistance != 0f)
+        {
+            
+            yield return null;
+        }
+        isMoving = false;
+    }
+    
     public void Move(Vector3 newPos)
     {
-        if (!agent.enabled)
-            agent.enabled = true;
-
-        
         agent.ResetPath();
+
+        //if (!agent.enabled)
+        //    agent.enabled = true;
+
+        //agent.speed = moveVel;
+        
+        
         agent.SetDestination(newPos);
-        isMoving = true;
+
+        //isMoving = true;
+        StartCoroutine(IsMoving());
     }
 
     public void MoveInstant(Vector3 newPos)

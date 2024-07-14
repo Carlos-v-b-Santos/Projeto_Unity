@@ -18,5 +18,7 @@ public class Fase1_mov : Fase1
         {
             NpcManager.Instance.MoveNpcInstant(npcsRole[i], NpcsPositions[i]);
         }
+
+        TimeSystem.Instance.PauseTimeSystem();
     }
 }

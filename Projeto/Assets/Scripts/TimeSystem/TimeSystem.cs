@@ -122,7 +122,7 @@ public class TimeSystem : MonoBehaviour
         timeOn = true;
     }
 
-    private void StartTimeSystemMorning()
+    public void StartTimeSystemMorning()
     {
         //Day = PlayerPrefs.GetInt(day_pp);
         //Month = PlayerPrefs.GetInt(month_pp);
@@ -134,7 +134,7 @@ public class TimeSystem : MonoBehaviour
     //    StartCoroutine(TimeSystemWork());
     }
 
-    private void StartTimeSystemAfternoon()
+    public void StartTimeSystemAfternoon()
     {
         //Day = PlayerPrefs.GetInt(day_pp);
         //Month = PlayerPrefs.GetInt(month_pp);
@@ -149,7 +149,7 @@ public class TimeSystem : MonoBehaviour
     {
         timeOn = false;
     }
-    private void PauseTimeSystem(TextAsset inkJSON)
+    public void PauseTimeSystem(TextAsset inkJSON)
     {
         timeOn = false;
     //    StopCoroutine(TimeSystemWork());

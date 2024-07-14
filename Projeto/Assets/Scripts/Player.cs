@@ -72,14 +72,15 @@ public class Player : MonoBehaviour
         //position.x = position.x + speed * horizontalMove * Time.deltaTime;
         //position.y = position.y + speed * verticalMove * Time.deltaTime;
 
-        if (navNpc.isMoving)
-        {
-           Debug.Log(agent.remainingDistance);
-           if (agent.remainingDistance < 0.001f)
-           {
-               navNpc.isMoving = false;
-           }
-        }
+        //if (navNpc.isMoving)
+        //{
+        //   Debug.Log(agent.remainingDistance);
+        //   if (agent.remainingDistance < 0.001f)
+        //   {
+        //       navNpc.isMoving = false;
+        //       agent.speed = navNpc.moveVelOriginal;
+        //    }
+        //}
     }
 
     private Vector2 GetMoveInput()

@@ -631,6 +631,8 @@ MonoBehaviour:
   isMoving: 0
   npcRole: Tester
   initPos: {x: -4.6, y: 4.725, z: 0}
+  moveVelOriginal: 3.5
+  moveVel: 3.5
 --- !u!195 &128368194
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -640,17 +642,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 128368190}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 1
+  m_Radius: 0.1
+  m_Speed: 3.5
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.25
+  m_Height: 0.2
+  m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &148868519
@@ -1394,6 +1396,8 @@ MonoBehaviour:
   isMoving: 0
   npcRole: Leader_of_Software
   initPos: {x: 6.5, y: 12.65, z: 0}
+  moveVelOriginal: 3.5
+  moveVel: 3.5
 --- !u!195 &306363989
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1403,17 +1407,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 306363985}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 1
+  m_Radius: 0.1
+  m_Speed: 3.5
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.25
+  m_Height: 0.2
+  m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &318903937
@@ -2038,7 +2042,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 10
+  m_Speed: 9
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 1000
@@ -2062,9 +2066,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3181bc270149d554795501c6a39bdb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMoving: 0
+  isMoving: 1
   npcRole: Player
   initPos: {x: 1, y: 1, z: 0}
+  moveVelOriginal: 9
+  moveVel: 3.5
 --- !u!1 &440723172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,17 +2507,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 518195385}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 1
+  m_Radius: 0.1
+  m_Speed: 3.5
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.25
+  m_Height: 0.2
+  m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &518195388
@@ -2529,6 +2535,8 @@ MonoBehaviour:
   isMoving: 0
   npcRole: Backend_Senior
   initPos: {x: 7.473, y: 4.54, z: 0}
+  moveVelOriginal: 3.5
+  moveVel: 3.5
 --- !u!50 &518195389
 Rigidbody2D:
   serializedVersion: 4
@@ -15384,6 +15392,8 @@ MonoBehaviour:
   isMoving: 0
   npcRole: Requirements
   initPos: {x: -1.54, y: 10.675, z: 0}
+  moveVelOriginal: 3.5
+  moveVel: 3.5
 --- !u!195 &1098417446
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -15393,17 +15403,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 1098417442}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 1
+  m_Radius: 0.1
+  m_Speed: 3.5
+  m_Acceleration: 100
   avoidancePriority: 50
-  m_AngularSpeed: 2000
+  m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.25
+  m_Height: 0.2
+  m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &1105029341
@@ -17916,6 +17926,8 @@ MonoBehaviour:
   isMoving: 0
   npcRole: Database
   initPos: {x: -4.6, y: 10.755, z: 0}
+  moveVelOriginal: 3.5
+  moveVel: 3.5
 --- !u!50 &1423658034
 Rigidbody2D:
   serializedVersion: 4
@@ -17952,19 +17964,19 @@ NavMeshAgent:
   m_GameObject: {fileID: 1423658031}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3
-  m_Acceleration: 1
+  m_Radius: 0.1
+  m_Speed: 3.5
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.25
+  m_Height: 0.2
+  m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1446792155
 GameObject:
   m_ObjectHideFlags: 0
@@ -18483,6 +18495,8 @@ MonoBehaviour:
   isMoving: 0
   npcRole: Frontend_full
   initPos: {x: -1.529, y: 4.544, z: 0}
+  moveVelOriginal: 3.5
+  moveVel: 3.5
 --- !u!195 &1569077198
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -18492,17 +18506,17 @@ NavMeshAgent:
   m_GameObject: {fileID: 1569077195}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 1
-  m_Acceleration: 1
+  m_Radius: 0.1
+  m_Speed: 3.5
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.25
+  m_Height: 0.2
+  m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!50 &1569077199
@@ -23687,6 +23701,7 @@ MonoBehaviour:
   npcManager: {fileID: 366494677}
   Player: {fileID: 0}
   botao_proximo: {fileID: 440723172}
+  finishQuestStep: 0
 --- !u!1 &1843060848
 GameObject:
   m_ObjectHideFlags: 0

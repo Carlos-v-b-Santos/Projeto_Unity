@@ -10,7 +10,13 @@ public class Fase1_1 : Fase1
     // Start is called before the first frame update
     private void Awake()
     {
+        NpcManager.Instance.MoveNpc("Player", playerMovePos);
         NpcManager.Instance.MoveNpc("Frontend_full",npcMovePos);
-        NpcManager.Instance.MoveNpc("Player",playerMovePos);
+        
+    }
+
+    private void OnDestroy()
+    {
+        GameEventsManager.Instance.timeEvents.EndMorningWork();
     }
 }

@@ -58,6 +58,7 @@ public class NpcManager : MonoBehaviour
         {
             if (npcRole == npcMap[i].npcRole)
             {
+                Debug.Log("movendo NPC " + npcRole);
                 npcMap[i].Move(newPos);
                 break;
             }
