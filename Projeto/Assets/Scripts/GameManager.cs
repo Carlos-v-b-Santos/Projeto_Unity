@@ -63,6 +63,12 @@ public class GameManager : MonoBehaviour
             //GameEventsManager.Instance.timeEvents.StartAfternoonWork();
         }
         SceneManager.LoadScene(0);
+        TimeSystem.Instance.StartTimeSystemAfternoon();
+    }
+
+    private void EndWorkingDay()
+    {
+        
     }
 
     private void OnEnable()
@@ -72,6 +78,7 @@ public class GameManager : MonoBehaviour
         GameEventsManager.Instance.minigameEvents.OnEnterMinigame += EnterMinigame;
         GameEventsManager.Instance.minigameEvents.OnExitMinigame += ExitMinigame;
         GameEventsManager.Instance.timeEvents.OnEndMorningWork += EndMorningWork;
+        GameEventsManager.Instance.timeEvents.OnEndWorkingDay += EndWorkingDay;
     }
 
     private void OnDisable()

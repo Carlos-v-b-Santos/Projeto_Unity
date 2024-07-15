@@ -31,6 +31,7 @@ public class QuestManager : MonoBehaviour
         GameEventsManager.Instance.questEvents.OnFinishQuest += FinishQuest;
 
         GameEventsManager.Instance.questEvents.OnQuestStepStateChange += QuestStepStateChange;
+
     }
 
     private void OnDisable()
@@ -130,6 +131,7 @@ public class QuestManager : MonoBehaviour
         Quest quest = GetQuestById(id);
         ClaimRewards(quest);
         ChangeQuestState(quest.info.Id, QuestState.FINISHED);
+        SaveQuest(quest);
     }
 
     private void ClaimRewards(Quest quest)

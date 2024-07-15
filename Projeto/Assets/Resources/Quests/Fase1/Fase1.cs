@@ -6,7 +6,7 @@ using UnityEngine;
 public class Fase1 : QuestStep
 {
     [SerializeField] Vector2 pos;
-    [SerializeField] int minDay = 0;
+    [SerializeField] protected int minDay = 0;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;

@@ -10,6 +10,7 @@ TagManager:
   - wall
   - Obstacle
   - Block
+  - WorkStationPoint
   layers:
   - Default
   - TransparentFX

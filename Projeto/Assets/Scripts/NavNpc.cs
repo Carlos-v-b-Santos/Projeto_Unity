@@ -16,7 +16,7 @@ public class NavNpc : MonoBehaviour
 
     [SerializeField] public float moveVelOriginal;
     [SerializeField] float moveVel;
-    void Start()
+    void Awake()
     {
         //Pega o Componente NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
@@ -26,7 +26,9 @@ public class NavNpc : MonoBehaviour
         agent.updateUpAxis = false;
         // Encontra o ponto Na cena
         //Point = GameObject.Find("Point");
-        Move(initPos);
+        
+        agent.speed = moveVelOriginal;
+        MoveInitPos();
     }
 
     //private void Update()
@@ -49,25 +51,24 @@ public class NavNpc : MonoBehaviour
         }
         while (agent.remainingDistance != 0f)
         {
-            
             yield return null;
         }
+        
         isMoving = false;
+        agent.speed = moveVelOriginal;
     }
     
     public void Move(Vector3 newPos)
     {
         agent.ResetPath();
 
-        //if (!agent.enabled)
-        //    agent.enabled = true;
+        if (!agent.enabled)
+            agent.enabled = true;
 
-        //agent.speed = moveVel;
-        
-        
+        agent.speed = moveVel;
+                
         agent.SetDestination(newPos);
 
-        //isMoving = true;
         StartCoroutine(IsMoving());
     }
 
@@ -79,4 +80,10 @@ public class NavNpc : MonoBehaviour
         agent.ResetPath();
         agent.Warp(newPos);
     }
+
+    public void MoveInitPos()
+    {
+        Move(initPos);
+    }
+
 }

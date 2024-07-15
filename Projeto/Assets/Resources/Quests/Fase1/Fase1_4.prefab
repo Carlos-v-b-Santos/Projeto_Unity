@@ -67,5 +67,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4382246474591650034, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5447462986343185515}
   m_SourcePrefab: {fileID: 100100000, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+--- !u!1 &8104481591871617826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4382246474591650034, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+  m_PrefabInstance: {fileID: 5523729688797477840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5447462986343185515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104481591871617826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4da40c42a39bb4fbe4be546da85a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFinished: 0
+  pos: {x: 14, y: 2.5}
+  minDay: 3
+  inkJSON: {fileID: 4900000, guid: c3827f6f0854cdd40bf5bb1c746f2abc, type: 3}
+  NpcsRoles:
+  - Leader_of_Software
+  - Backend_Senior
+  - Frontend_full
+  - Requirements
+  - Tester
+  - Database
+  NpcsPos:
+  - {x: 13.214, y: 9.404, z: 0}
+  - {x: 23.765, y: 5.426, z: 0}
+  - {x: 23.585, y: 3.53, z: 0}
+  - {x: 13.233, y: 7.437, z: 0}
+  - {x: 13.24, y: 5.427, z: 0}
+  - {x: 23.751, y: 7.61, z: 0}

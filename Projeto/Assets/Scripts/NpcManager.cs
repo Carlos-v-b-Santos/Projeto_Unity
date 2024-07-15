@@ -63,7 +63,22 @@ public class NpcManager : MonoBehaviour
                 break;
             }
         }
+    }
 
+    public void MoveNpc(List<string> npcRoles, List<Vector3> newPos)
+    {
+        for (int i = 0; i < npcMap.Count; i++)
+        {
+            for (int j = 0; j < npcRoles.Count; j++)
+            {
+                if (npcRoles[j] == npcMap[i].npcRole)
+                {
+                    Debug.Log("movendo NPC " + npcRoles[j]);
+                    npcMap[i].Move(newPos[j]);
+                    break;
+                }
+            }
+        }
     }
 
     public void MoveNpcInstant(string npcRole, Vector3 newPos)
@@ -78,4 +93,45 @@ public class NpcManager : MonoBehaviour
         }
     }
 
+    public void MoveNpcInstant(List<string> npcRoles, List<Vector3> newPos)
+    {
+        for (int i = 0; i < npcMap.Count; i++)
+        {
+            for (int j = 0; j < npcRoles.Count; j++)
+            {
+                if (npcRoles[j] == npcMap[i].npcRole)
+                {
+                    npcMap[i].MoveInstant(newPos[j]);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void MoveNpcInitPos(string npcRole)
+    {
+        for (int i = 0; i < npcMap.Count; i++)
+        {
+            if (npcRole == npcMap[i].npcRole)
+            {
+                npcMap[i].MoveInitPos();
+                break;
+            }
+        }
+    }
+
+    public void MoveNpcInitPos(List<string> npcRoles)
+    {
+        for (int i = 0; i < npcMap.Count; i++)
+        {
+            for (int j = 0; j < npcRoles.Count; j++)
+            {
+                if (npcRoles[j] == npcMap[i].npcRole)
+                {
+                    npcMap[i].MoveInitPos();
+                    break;
+                }
+            }
+        }
+    }
 }

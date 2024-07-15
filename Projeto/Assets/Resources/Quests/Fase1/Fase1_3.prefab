@@ -9,6 +9,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3219195460173634944, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+      propertyPath: pos.x
+      value: 4.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219195460173634944, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+      propertyPath: pos.y
+      value: 4.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219195460173634944, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
       propertyPath: minDay
       value: 2
       objectReference: {fileID: 0}
@@ -18,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9077693429515393348, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.33
       objectReference: {fileID: 0}
     - target: {fileID: 9077693429515393348, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.67
       objectReference: {fileID: 0}
     - target: {fileID: 9077693429515393348, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59,5 +67,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4382246474591650034, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3909454091154929003}
   m_SourcePrefab: {fileID: 100100000, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+--- !u!1 &8182133252425993072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4382246474591650034, guid: abf4225e20dd25f4e9606a557451b249, type: 3}
+  m_PrefabInstance: {fileID: 5574360283632962434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-3909454091154929003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8182133252425993072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6551656d9bd2b49a7bf3ce95ff724d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFinished: 0
+  pos: {x: 4.33, y: 4.67}
+  minDay: 2
+  inkJSON: {fileID: 4900000, guid: c3827f6f0854cdd40bf5bb1c746f2abc, type: 3}
+  NpcsRoles:
+  - Backend_Senior
+  - Requirements
+  NpcsPos:
+  - {x: 6.475, y: 6.243, z: 0}
+  - {x: 5.36, y: 6.24, z: 0}
