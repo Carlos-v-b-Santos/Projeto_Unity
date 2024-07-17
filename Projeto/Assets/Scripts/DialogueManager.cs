@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
 
+    [SerializeField] private GameObject InputName;
+
     [Header("Load Globals Ink JSON")]
     [SerializeField] private TextAsset loadGlobalsJSON;
 
@@ -113,6 +115,11 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(true);
 
         dialogueVariables.StartListening(currentStory);
+
+        currentStory.BindExternalFunction("inputPlayerName", () =>
+        {
+            
+        });
 
         currentStory.BindExternalFunction("finalizarQuestStep", () =>
         {

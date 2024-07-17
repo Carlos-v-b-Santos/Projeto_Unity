@@ -1,5 +1,6 @@
 INCLUDE GlobalsVar.ink
 
+EXTERNAL inputPlayerName()
 EXTERNAL finalizarQuestStep()
 EXTERNAL increaseRelationship(npc, value)
 EXTERNAL decreaseRelationship(npc, value)

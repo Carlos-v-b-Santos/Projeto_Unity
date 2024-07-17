@@ -21,8 +21,11 @@ public class Fase1_2 : Fase1
     // Update is called once per frame
     void OnDestroy()
     {
-        NpcManager.Instance.MoveNpc("Player", Point.transform.position);
-        NpcManager.Instance.MoveNpcInitPos("Backend_Senior");
-        TimeSystem.Instance.StartTimeSystemAfternoon();
+        if (isFinished)
+        {
+            NpcManager.Instance.MoveNpc("Player", Point.transform.position);
+            NpcManager.Instance.MoveNpcInitPos("Backend_Senior");
+            TimeSystem.Instance.StartTimeSystemAfternoon();
+        } 
     }
 }

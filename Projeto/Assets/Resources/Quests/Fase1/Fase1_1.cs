@@ -17,6 +17,6 @@ public class Fase1_1 : Fase1
 
     private void OnDestroy()
     {
-        GameEventsManager.Instance.timeEvents.EndMorningWork();
+        if (isFinished) GameEventsManager.Instance.timeEvents.EndMorningWork();
     }
 }

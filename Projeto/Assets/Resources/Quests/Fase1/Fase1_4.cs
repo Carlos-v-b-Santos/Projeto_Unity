@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Fase1_4 : Fase1
 {
+    [SerializeField] Vector3 playerPos;
+
     [SerializeField] List<string> NpcsRoles = new List<string>();
     [SerializeField] List<Vector3> NpcsPos = new List<Vector3>();
     // Start is called before the first frame update
@@ -12,6 +14,7 @@ public class Fase1_4 : Fase1
     {
         if (TimeSystem.Instance.Day >= this.minDay)
         {
+            NpcManager.Instance.MoveNpc("Player", playerPos);
             NpcManager.Instance.MoveNpcInstant(NpcsRoles, NpcsPos);
             TimeSystem.Instance.PauseTimeSystem();
         }
@@ -19,7 +22,6 @@ public class Fase1_4 : Fase1
 
     private void OnDestroy()
     {
-        GameEventsManager.Instance.timeEvents.EndMorningWork();
-
+        if(isFinished) GameEventsManager.Instance.timeEvents.EndMorningWork();
     }
 }

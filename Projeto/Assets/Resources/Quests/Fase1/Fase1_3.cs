@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Fase1_3 : Fase1
 {
-    private GameObject Player;
     private GameObject Point;
 
     [SerializeField] List<string> NpcsRoles = new List<string>();
@@ -14,7 +13,6 @@ public class Fase1_3 : Fase1
     // Start is called before the first frame update
     void Awake()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
         Point = GameObject.FindGameObjectWithTag("WorkStationPoint");
 
         if(TimeSystem.Instance.Day >= this.minDay)
@@ -26,6 +24,6 @@ public class Fase1_3 : Fase1
 
     private void OnDestroy()
     {
-        NpcManager.Instance.MoveNpcInitPos(NpcsRoles);
+        if (isFinished) NpcManager.Instance.MoveNpcInitPos(NpcsRoles);
     }
 }

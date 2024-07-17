@@ -1,10 +1,14 @@
+using System.Collections;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    
 
     public PlayerInputActions playerInputActions;
 
@@ -14,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] int minigamePoints = 0;
 
-
+    [SerializeField] TransitionLevel transitionLevel;
     private void Awake()
     {
         if (Instance != null)
@@ -38,19 +42,22 @@ public class GameManager : MonoBehaviour
         }
 
         minigamePoints = PlayerPrefs.GetInt(minigamePointsKey);
-        
+
         //GameEventsManager.Instance.timeEvents.StartMorningWork();
+        //DontDestroyOnLoad(this);
     }
 
     private void EnterMinigame()
     {
-        
-        SceneManager.LoadScene(indexMinigame);
+
+        //SceneManager.LoadScene(indexMinigame);
+        transitionLevel.TransitionLevelAnim(indexMinigame);
     }
     public void ExitMinigame()
     {
         minigamePoints = PlayerPrefs.GetInt(minigamePointsKey);
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        transitionLevel.TransitionLevelAnim(0);
     }
 
     public void EndMorningWork()
@@ -62,9 +69,13 @@ public class GameManager : MonoBehaviour
             //ExitMinigame();
             //GameEventsManager.Instance.timeEvents.StartAfternoonWork();
         }
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
+        transitionLevel.TransitionLevelAnim(0);
+
         TimeSystem.Instance.StartTimeSystemAfternoon();
     }
+
+    
 
     private void EndWorkingDay()
     {

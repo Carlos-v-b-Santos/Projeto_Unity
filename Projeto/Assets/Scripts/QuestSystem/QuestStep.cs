@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class QuestStep : MonoBehaviour
 {
-    [SerializeField] private bool isFinished = false;
+    [SerializeField] protected bool isFinished = false;
     private string questId;
     private int stepIndex;
 
