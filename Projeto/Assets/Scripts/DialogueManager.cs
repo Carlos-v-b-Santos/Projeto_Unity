@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
 
     private const string SPEAKER_TAG = "speaker";
+    public const string playerNameKey = "PLAYER_NAME";
 
     private DialogueVariables dialogueVariables;
 
@@ -42,6 +43,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject botao_proximo;
 
     [SerializeField] private bool finishQuestStep = false;
+
+    
 
     // Start is called before the first frame update
     private void Awake()
@@ -116,9 +119,9 @@ public class DialogueManager : MonoBehaviour
 
         dialogueVariables.StartListening(currentStory);
 
-        currentStory.BindExternalFunction("inputPlayerName", () =>
+        currentStory.BindExternalFunction("playerName", () =>
         {
-            
+            return (PlayerPrefs.GetString(playerNameKey));
         });
 
         currentStory.BindExternalFunction("finalizarQuestStep", () =>

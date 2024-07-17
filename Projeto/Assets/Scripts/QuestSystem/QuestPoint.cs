@@ -26,14 +26,14 @@ public class QuestPoint : MonoBehaviour
     }
 
     //teste
-    private void Update()
-    {
-        if (Input.GetKeyDown("space"))
-        {
-            Debug.Log("space key was pressed");
-            SubmitPressed();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown("space"))
+    //    {
+    //        Debug.Log("space key was pressed");
+    //        SubmitPressed();
+    //    }
+    //}
 
     private void OnEnable()
     {
@@ -47,26 +47,17 @@ public class QuestPoint : MonoBehaviour
         //GameEventsManager.Instance.inputEvents.onSubmitPressed -= SubmitPressed;
     }
 
-    private void SubmitPressed()
-    {
-        
+    //private void SubmitPressed()
+    //{
+    //    
 
-        if (!playerIsNear)
-        {
-            return;
-        }
+    //    if (!playerIsNear)
+    //    {
+    //        return;
+    //    }
 
-        if(currentQuestState.Equals(QuestState.CAN_START)&& startPoint) 
-        {
-            Debug.Log("Quest Iniciada");
-            GameEventsManager.Instance.questEvents.StartQuest(questId);
-        }
-        else if(currentQuestState.Equals(QuestState.CAN_FINISH)&& finishPoint)
-        {
-            Debug.Log("Quest Finalizada");
-            GameEventsManager.Instance.questEvents.FinishQuest(questId);
-        }
-    }
+       
+    //}
 
     private void QuestStateChange(Quest quest)
     {
@@ -81,17 +72,23 @@ public class QuestPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
-        if (otherCollider.CompareTag("Player"))
+        if (currentQuestState.Equals(QuestState.CAN_START) && startPoint)
         {
-            playerIsNear = true;
+            Debug.Log("Quest Iniciada");
+            GameEventsManager.Instance.questEvents.StartQuest(questId);
+        }
+        else if (currentQuestState.Equals(QuestState.CAN_FINISH) && finishPoint)
+        {
+            Debug.Log("Quest Finalizada");
+            GameEventsManager.Instance.questEvents.FinishQuest(questId);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D otherCollider)
-    {
-        if (otherCollider.CompareTag("Player"))
-        {
-            playerIsNear = false;
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D otherCollider)
+    //{
+    //    if (otherCollider.CompareTag("Player"))
+    //    {
+    //        playerIsNear = false;
+    //    }
+    //}
 }

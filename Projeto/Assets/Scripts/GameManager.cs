@@ -8,11 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    
-
     public PlayerInputActions playerInputActions;
 
     public const string minigamePointsKey = "MINIGAME_POINTS";
+    public const string playerNameKey = "PLAYER_NAME";
 
     [SerializeField] int indexMinigame;
 
@@ -45,6 +44,12 @@ public class GameManager : MonoBehaviour
 
         //GameEventsManager.Instance.timeEvents.StartMorningWork();
         //DontDestroyOnLoad(this);
+    }
+
+    public void EnterPrincipalScene()
+    {
+        minigamePoints = PlayerPrefs.GetInt(minigamePointsKey);
+        transitionLevel.TransitionLevelAnim(0);
     }
 
     private void EnterMinigame()

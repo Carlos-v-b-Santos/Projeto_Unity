@@ -1,6 +1,6 @@
 INCLUDE GlobalsVar.ink
 
-EXTERNAL inputPlayerName()
+EXTERNAL playerName()
 EXTERNAL finalizarQuestStep()
 EXTERNAL increaseRelationship(npc, value)
 EXTERNAL decreaseRelationship(npc, value)
@@ -33,22 +33,22 @@ nada.
     ++ [sim, sou eu]
     Como eu imaginava! Meu nome é Felícia, sou a desenvolvedora Front-end e você é ?
     
-    ***[Carlos] -> Fase1_1.A //~ playerName = "Carlos"
-    +++[Rodrigo]
-        ~ playerName = "Rodrigo"
+    //***[Carlos] -> Fase1_1.A //~ playerName = "Carlos"
+    //+++[Rodrigo]
+        //~ playerName = "Rodrigo"
         -> Fase1_1.A
         
-    +++[João]
-        ~ playerName = "João"
-        -> Fase1_1.A
+    //+++[João]
+       // ~ playerName = "João"
+    //    -> Fase1_1.A
         
-    +++[Ana]
-        ~playerName = "Ana"
-        -> Fase1_1.A
+    //+++[Ana]
+        //~playerName = "Ana"
+    //    -> Fase1_1.A
     
 = A 
 ~ historyProgression = 1
-{finalizarQuestStep()}Bem vindo ao time {playerName} , espero que você se acomode muito bem aqui ! Nossa equipe é bem diversificada. Vem! Vou te apresentar aos outros, eles devem estar na sala de reuniões.<> #speaker:Felicia 
+{finalizarQuestStep()}Bem vindo ao time {playerName()} , espero que você se acomode muito bem aqui ! Nossa equipe é bem diversificada. Vem! Vou te apresentar aos outros, eles devem estar na sala de reuniões.<> #speaker:Felicia 
 -> END
 
 === Fase1_2 ===

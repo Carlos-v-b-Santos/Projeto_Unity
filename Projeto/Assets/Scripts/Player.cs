@@ -9,10 +9,12 @@ using static Unity.Collections.AllocatorManager;
 
 public class Player : MonoBehaviour
 {
+    public const string playerNameKey = "PLAYER_NAME";
     private const string ethicMeterKey = "ETHIC_METER";
     private const string expPointsKey = "EXP_POINTS";
     private const string playerLevelKey = "PLAYER_LEVEL";
-    
+
+    [SerializeField] private string PlayerName;
     [SerializeField] private int ethicMeter = 100;
     [SerializeField] private int expPoints = 0;
     [SerializeField] private int playerLevel = 0;
@@ -49,6 +51,8 @@ public class Player : MonoBehaviour
             ethicMeter = 100;
             PlayerPrefs.SetInt(ethicMeterKey, ethicMeter);
         }
+
+        PlayerName = PlayerPrefs.GetString(playerNameKey);
 
         expPoints = PlayerPrefs.GetInt(ethicMeterKey);
         playerLevel = PlayerPrefs.GetInt(playerLevelKey);
