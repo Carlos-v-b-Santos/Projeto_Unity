@@ -13,6 +13,8 @@ public class Npc : MonoBehaviour
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
 
+    [SerializeField] private GameObject interactIcon;
+
     //void OnMouseDown()
     //{
     //GameEventsManager.Instance.dialogueEvents.EnterDialogue(inkJSON);
@@ -76,6 +78,7 @@ public class Npc : MonoBehaviour
         {
             Debug.Log("player entrou na area");
             playerIsNear = true;
+            interactIcon.SetActive(true);
         }
     }
 
@@ -85,6 +88,7 @@ public class Npc : MonoBehaviour
         if (otherCollider.CompareTag("Player"))
         {
             playerIsNear = false;
+            interactIcon.SetActive(false);
         }
     }
 }

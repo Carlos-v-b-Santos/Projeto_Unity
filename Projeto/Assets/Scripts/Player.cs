@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     [SerializeField] private bool computerIsNear;
     [SerializeField] private bool npcIsNear;
 
+    [SerializeField] private GameObject interactIcon;
+
     NavMeshAgent agent;
     NavNpc navNpc;
     //float horizontalMove;
@@ -164,6 +166,7 @@ public class Player : MonoBehaviour
         if (otherCollider.CompareTag("pc"))
         {
             computerIsNear = true;
+            interactIcon.SetActive(true);
         }
 
         //if (otherCollider.CompareTag("npc"))
@@ -177,7 +180,9 @@ public class Player : MonoBehaviour
         Debug.Log("player saiu da area");
         if (otherCollider.CompareTag("pc"))
         {
+
             computerIsNear = false;
+            interactIcon.SetActive(false);
         }
 
         //if (otherCollider.CompareTag("npc"))
