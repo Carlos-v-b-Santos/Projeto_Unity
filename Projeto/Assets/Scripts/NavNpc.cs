@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 public class NavNpc : MonoBehaviour
 {
     //Ponto para o qual o personagem irá se mover
@@ -16,6 +17,9 @@ public class NavNpc : MonoBehaviour
 
     [SerializeField] public float moveVelOriginal;
     [SerializeField] float moveVel;
+
+    [SerializeField] Vector2 lookDirection = new Vector2(1, 0);
+    public Animator animator;
     void Awake()
     {
         //Pega o Componente NavMeshAgent
@@ -40,7 +44,7 @@ public class NavNpc : MonoBehaviour
     //Faz o personagem se locomover pelo cenario até o point
     //agent.SetDestination(Point.transform.position);
     //}
-    IEnumerator IsMoving()
+    IEnumerator IsMoving(Vector3 newPos)
     {
         isMoving = true;
         Debug.Log(npcRole + " distancia permanecente: " + agent.remainingDistance);
@@ -51,9 +55,18 @@ public class NavNpc : MonoBehaviour
         }
         while (agent.remainingDistance != 0f)
         {
+            lookDirection.Set(newPos.x - transform.position.x,newPos.y - transform.position.y);
+            lookDirection.Normalize();
+
+            animator.SetBool("IsMoving", true);
+            animator.SetFloat("Horizontal", lookDirection.x);
+            animator.SetFloat("Vertical", lookDirection.y);
+
+
             yield return null;
         }
-        
+
+        animator.SetBool("IsMoving", false);
         isMoving = false;
         agent.speed = moveVelOriginal;
     }
@@ -69,7 +82,7 @@ public class NavNpc : MonoBehaviour
                 
         agent.SetDestination(newPos);
 
-        StartCoroutine(IsMoving());
+        StartCoroutine(IsMoving(newPos));
     }
 
     public void MoveInstant(Vector3 newPos)

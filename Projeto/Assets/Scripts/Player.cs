@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     //float horizontalMove;
     //float verticalMove;
 
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -94,8 +95,16 @@ public class Player : MonoBehaviour
         Vector2 playerMove = GameManager.Instance.playerInputActions.Player.Move.ReadValue<Vector2>();
         Vector2 position = rigidbody2d.position;
         position += moveSpeed * Time.deltaTime * playerMove;
-        
-        return position;
+
+        if (playerMove.x == 0.0f && playerMove.y == 0.0f)
+        {
+            return position;
+        }
+        else 
+        {
+            animator.SetBool("IsSitting", false);
+            return position;
+        }
     }
 
     public void PlayerMove(Vector2 position)
@@ -106,14 +115,29 @@ public class Player : MonoBehaviour
 
         //rigidbody2d.MovePosition(position);
         //transformParent.position = position;
-        if(navNpc.isMoving) return;
+        if (navNpc.isMoving)
+        {
+            animator.SetBool("IsSitting", false);
+            return;
+        }
 
         agent.SetDestination(position);
 
-        if (!Mathf.Approximately(position.x, 0.0f) || !Mathf.Approximately(position.y, 0.0f))//para animação
+        if (!Mathf.Approximately(transform.position.x, position.x) || !Mathf.Approximately(transform.position.y, position.y))
         {
-            lookDirection.Set(position.x, position.y);
+            lookDirection.Set(position.x - transform.position.x, position.y - transform.position.y);
             lookDirection.Normalize();
+
+            
+            animator.SetBool("IsMoving", true);
+            //animator.SetBool("IsSitting", false);
+            animator.SetFloat("Horizontal", lookDirection.x);
+            animator.SetFloat("Vertical", lookDirection.y);
+
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
     }
 
