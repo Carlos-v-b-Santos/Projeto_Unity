@@ -25,7 +25,7 @@ VAR databaseKEY = "Database"
 nada.
 
 === Fase1_1 ===
-    Bom dia! Onde estão as correspondências? #speaker:???????
+    Bom dia! Onde estão as correspondências? #speaker:??????? #portrait:frontendKEY
     * [desculpe, o que?]
     Você sabe, as encomendas!
     ...

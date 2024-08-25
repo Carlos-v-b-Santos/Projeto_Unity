@@ -29,6 +29,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager instance;
 
     private const string SPEAKER_TAG = "speaker";
+    private const string PORTRAIT_TAG = "portrait";
     public const string playerNameKey = "PLAYER_NAME";
 
     private DialogueVariables dialogueVariables;
