@@ -108,6 +108,21 @@ public class NpcManager : MonoBehaviour
         }
     }
 
+    public void MoveNpcInstant(List<string> npcRoles, List<GameObject> newPos)
+    {
+        for (int i = 0; i < npcMap.Count; i++)
+        {
+            for (int j = 0; j < npcRoles.Count; j++)
+            {
+                if (npcRoles[j] == npcMap[i].npcRole)
+                {
+                    npcMap[i].MoveInstant(newPos[j].transform.position);
+                    break;
+                }
+            }
+        }
+    }
+
     public void MoveNpcInitPos(string npcRole)
     {
         for (int i = 0; i < npcMap.Count; i++)

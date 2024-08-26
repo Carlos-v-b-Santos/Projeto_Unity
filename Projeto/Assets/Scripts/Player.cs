@@ -65,6 +65,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        animator.SetBool("IsMoving",false);
+        animator.SetBool("IsSitting", false);
         //agent.ResetPath();
     }
 
