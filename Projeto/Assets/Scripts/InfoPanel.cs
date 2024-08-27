@@ -16,7 +16,7 @@ public class InfoPanel : MonoBehaviour
     public List<TextMeshProUGUI> npcsRelations = new List<TextMeshProUGUI>();
     public List<string> npcsNames = new List<string>();
     public List<string> npcsRoles = new List<string>();
-    private bool isActive;
+    [SerializeField] bool isActive;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,8 +79,11 @@ public class InfoPanel : MonoBehaviour
     }
 
     private void OnEnable()
+
     {
         GameManager.Instance.playerInputActions.Player.Menu.performed += SwitchState;
+        GameManager.Instance.playerInputActions.Player.Menu.performed += SwitchState;
+        
     }
 
     private void OnDisable()
