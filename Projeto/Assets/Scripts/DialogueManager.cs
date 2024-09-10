@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
@@ -46,7 +45,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private bool finishQuestStep = false;
 
-    [SerializeField] private Button[] selected;
+    
 
     // Start is called before the first frame update
     private void Awake()
@@ -97,9 +96,6 @@ public class DialogueManager : MonoBehaviour
         if(currentStory.currentChoices.Count == 0)
         {
             botao_proximo.SetActive(true);
-            Debug.Log("opção 0 selecionada");
-            selected[0].Select();
-
         }
         else 
         {
@@ -199,11 +195,8 @@ public class DialogueManager : MonoBehaviour
 
     public void ContinueStory()
     {
-        
-
-        if (currentStory.canContinue)
+        if(currentStory.canContinue)
         {
-            
             dialogueText.text = currentStory.Continue();
 
             DisplayChoices();
@@ -215,8 +208,6 @@ public class DialogueManager : MonoBehaviour
             dialogueVariables.SaveVariables();
             ExitDialogueMode();
         }
-
-        
     }
 
     private void HandleTags(List<string> currentTags)
@@ -246,9 +237,7 @@ public class DialogueManager : MonoBehaviour
     {
         List<Choice> currentChoices = currentStory.currentChoices;
 
-        
-
-        if (currentChoices.Count > choices.Length)
+        if(currentChoices.Count > choices.Length)
         {
             Debug.LogError("Mais escolhas que o UI suporta" + currentChoices.Count);
         }
@@ -265,15 +254,10 @@ public class DialogueManager : MonoBehaviour
         for(int i = index; i < choices.Length; i++)
         {
             choices[i].gameObject.SetActive(false);
-            
 
         }
 
-        //selecionar opcao
-        Debug.Log("opção 1 selecionada");
-        selected[1].Select();
-
-        // StartCoroutine(SelectFirstChoice());
+       // StartCoroutine(SelectFirstChoice());
     }
 
     //private IEnumerator SelectFirstChoice()

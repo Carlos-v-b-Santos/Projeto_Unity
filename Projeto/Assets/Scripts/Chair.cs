@@ -14,9 +14,6 @@ public class Chair : MonoBehaviour
 
     private void Interact(InputAction.CallbackContext context)
     {
-        if (DialogueManager.instance.dialogueIsPlaying)
-            return;
-
         Debug.Log("interagir chair");
         //RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position, lookDirection, 2f, LayerMask.GetMask("Interactable"));
         if (!playerIsNear)
