@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     public void EnterPrincipalScene()
     {
         minigamePoints = PlayerPrefs.GetInt(minigamePointsKey);
-        transitionLevel.TransitionLevelAnim(0);
+        transitionLevel.TransitionLevelAnim(1);
     }
 
     private void EnterMinigame()
@@ -62,12 +62,12 @@ public class GameManager : MonoBehaviour
     {
         minigamePoints = PlayerPrefs.GetInt(minigamePointsKey);
         //SceneManager.LoadScene(0);
-        transitionLevel.TransitionLevelAnim(0);
+        transitionLevel.TransitionLevelAnim(1);
     }
 
     public void EndMorningWork()
     {
-        if(SceneManager.GetActiveScene().buildIndex != 0)
+        if(SceneManager.GetActiveScene().buildIndex != 1)
         {
             //GameEventsManager.Instance.minigameEvents.ExitMinigame();
             
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
             //GameEventsManager.Instance.timeEvents.StartAfternoonWork();
         }
         //SceneManager.LoadScene(0);
-        transitionLevel.TransitionLevelAnim(0);
+        transitionLevel.TransitionLevelAnim(1);
 
         TimeSystem.Instance.StartTimeSystemAfternoon();
     }
