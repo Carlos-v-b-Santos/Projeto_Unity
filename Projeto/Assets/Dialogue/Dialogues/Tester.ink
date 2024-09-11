@@ -3,6 +3,7 @@ INCLUDE GlobalsVar.ink
 {historyProgression:
 - 4: -> Fase1_5_t
 - 5: -> Fase1_6_t
+- 7: -> Fase2_2_t
 }
 
 nada.
@@ -42,3 +43,22 @@ Dentro da normalidade. Ele se sentiu frustrado e achou que aquela fosse a forma 
 = D
 O Sávio vacilou de certa forma, ele podia simplesmente discordar se atacar a Felícia. E ela também errou em questionar demais as intenções do cliente. Não sei dizer quem tem mais razão.
 -> Fase1_6_t
+
+=== Fase2_2_t ===
+
++[O que você acha das mudanças no projeto e da nova questão da propriedade intelectual?]
+-> Fase2_2_t.A
+    
++[Como você está lidando com o clima atual na equipe?]
+-> Fase2_2_t.B
+
++[Até mais]
+-> END
+
+= A
+A questão da propriedade intelectual precisa ser resolvida para evitar retrabalho no futuro. No entanto, é essencial que a equipe não perca o ritmo. A produtividade é importante, mas não podemos comprometer a qualidade.
+-> Fase2_2_t
+
+= B
+Estou focado em meus testes, mas a tensão entre Luíza e Sávio está afetando o ambiente. Espero que possamos resolver isso rapidamente para continuar com o trabalho.
+-> Fase2_2_t

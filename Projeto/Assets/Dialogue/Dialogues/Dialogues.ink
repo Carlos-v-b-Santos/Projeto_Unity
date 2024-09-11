@@ -256,5 +256,6 @@ Com isso,a líder de projeto explica os problemas envolvendo principalmente os c
 O stakeholder argumenta que isso complicaria em vez de simplificar.
 A líder de projeto concorda que acaba sendo mais complicado,porém mais justo e que a parte das recomendações automáticas seria feita depois do registro geral de funcionários, como algo complementar. Dessa forma poderiam focar primeiro na parte mais importante.Por fim, o stakeholder concorda e a reunião se encerra.
 Todos ficam satisfeitos com o resultado.Após encerrar a chamada, Luiza dá a oportunidade de Sávio se retratar, mas ele o faz de forma breve e objetiva sem mostrar muito entusiasmo. O clima não melhora entre a equipe, já que as garotas seguem afetadas pelo ocorrido, e então todos são dispensados.
+~historyProgression = 6
 ~ finalizarQuestStep()
 -> END

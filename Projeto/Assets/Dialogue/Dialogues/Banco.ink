@@ -3,6 +3,7 @@ INCLUDE GlobalsVar.ink
 {historyProgression:
 - 4: -> Fase1_5_b
 - 5: -> Fase1_6_b
+- 7: -> Fase2_2_b
 }
 nada.
 
@@ -42,3 +43,22 @@ De forma esperada, ele se estressou com a petulância da Felícia.
 = D
 Ele de fato existiu, mas sou imparcial quanto a escolher um lado para me posicionar. Só espero que se resolvam.
 -> Fase1_6_b
+
+=== Fase2_2_b ===
+
++[O que você acha das mudanças no projeto e da nova questão da propriedade intelectual?]
+-> Fase2_2_b.A
+    
++[Como você está lidando com o clima atual na equipe?]
+-> Fase2_2_b.B
+
++[Até mais]
+-> END
+
+= A
+A conformidade é importante, mas precisamos considerar o impacto disso no projeto como um todo. Muitas mudanças podem causar problemas adicionais e atrasos.
+-> Fase2_2_b
+
+= B
+Estou tentando não me envolver muito nas disputas, mas é difícil não notar a tensão. Espero que possamos encontrar uma solução que todos aceitem e que mantenha o projeto no caminho certo.
+-> Fase2_2_b

@@ -3,6 +3,7 @@ INCLUDE GlobalsVar.ink
 {historyProgression:
 - 4: -> Fase1_5_f
 - 5: -> Fase1_6_f
+- 7: -> Fase2_2_f
 }
 nada.
 
@@ -41,3 +42,22 @@ Ele se diz profissional, mas para se exaltar daquela forma com certeza deve ter 
 = D
 Me senti completamente ofendida e de certa forma humilhada, já que ele desmereceu o meu trabalho e minha capacidade. Foi horrível da parte generalizar todas nós, me fez questionar sobre os princípios com os quais ele foi criado, espero que a Luíza faça algo a respeito. Minha relação com ele será estritamente profissional daqui para frente , não pretendo manter contato fora desse ambiente.
 -> Fase1_6_f
+
+=== Fase2_2_f ===
+
++[O que você acha das mudanças no projeto e da nova questão da propriedade intelectual?]
+-> Fase2_2_f.A
+    
++[Como você está lidando com o clima atual na equipe?]
+-> Fase2_2_f.B
+
++[Até mais]
+-> END
+
+= A
+Estou preocupada com a complexidade adicional que isso pode trazer. Precisamos encontrar um equilíbrio entre conformidade e eficiência. Se ficarmos presos em processos legais, pode atrasar o desenvolvimento.
+-> Fase2_2_f
+
+= B
+É desafiador, especialmente porque todos parecem estar em desacordo. Acredito que devemos ouvir todos os lados e buscar uma solução que mantenha a equipe unida.
+-> Fase2_2_f

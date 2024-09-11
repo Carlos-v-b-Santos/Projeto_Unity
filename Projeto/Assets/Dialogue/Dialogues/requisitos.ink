@@ -3,6 +3,7 @@ INCLUDE GlobalsVar.ink
 {historyProgression:
 - 4: -> Fase1_5_r
 - 5: -> Fase1_6_r
+- 7: -> Fase2_2_r
 }
 nada.
 
@@ -41,3 +42,22 @@ Apesar de concordar que Felícia foi incisiva demais e provocou de certa forma a
 = D
 Apesar de simpatizar com o  Sávio, estou contra ele e a favor de Felícia dessa vez! A entonação com a qual tudo foi dito me deixou com certa indignação, não esperava que ele pensasse assim, estou surpresa de uma forma ruim. Não há muito o que fazer para mudar o passado, todavia espero que ele se redima de alguma forma.
 -> Fase1_6_r
+
+=== Fase2_2_r ===
+
++[O que você acha das mudanças no projeto e da nova questão da propriedade intelectual?]
+-> Fase2_2_r.A
+    
++[Como você está lidando com o clima atual na equipe?]
+-> Fase2_2_r.B
+
++[Até mais]
+-> END
+
+= A
+A conformidade com a propriedade intelectual é crucial. Se não garantirmos que estamos corretos, podemos enfrentar problemas graves no futuro. Contudo, entendo que isso pode impactar os prazos.
+-> Fase2_2_r
+
+= B
+A tensão é palpável. Estou tentando ajudar a equipe a manter o foco nos requisitos essenciais e minimizar qualquer impacto negativo das disputas internas.
+-> Fase2_2_r

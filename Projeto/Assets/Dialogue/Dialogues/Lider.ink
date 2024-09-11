@@ -3,6 +3,7 @@ INCLUDE GlobalsVar.ink
 {historyProgression:
 - 4: -> Fase1_5_l
 - 5: -> Fase1_6_l
+- 7: -> Fase2_2_l
 }
 nada.
 
@@ -41,3 +42,22 @@ Eu já falei para a (front-end) parar de ficar acusando os stakeholders, não o 
 = D
 Foi bastante ofensivo as palavras que ele usou, de certa forma fiquei um pouco revoltada mas tive que me controlar para não perder a cabeça, já conversei com ele a respeito e as devidas providências foram tomadas
 -> Fase1_6_l
+
+=== Fase2_2_l ===
+
++[O que você acha das mudanças no projeto e da nova questão da propriedade intelectual?]
+-> Fase2_2_l.A
+    
++[Como você está lidando com o clima atual na equipe?]
+-> Fase2_2_l.B
+
++[Até mais]
+-> END
+
+= A
+A solução para o projeto é razoável, mas a questão da propriedade intelectual precisa ser tratada com seriedade. Temos que garantir que todos os nossos desenvolvimentos estejam em conformidade com as leis e cumprindo as exigências do cliente. Não podemos dar margem para problemas legais.
+-> Fase2_2_l
+
+= B
+Estou tentando manter a equipe focada e comprometida, mas é difícil quando há tantas tensões, preciso lidar com a petulância do Sávio sem que possa desencadear novos conflitos com os demais . Preciso garantir que todos estejam alinhados, e qualquer desvio dos padrões pode comprometer nosso trabalho.
+-> Fase2_2_l
