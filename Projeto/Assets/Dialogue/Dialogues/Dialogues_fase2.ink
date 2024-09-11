@@ -16,7 +16,7 @@ VAR databaseKEY = "Database"
 
 {historyProgression:
 - 6: -> Fase2_1
-- 7: -> Fase2_2_1
+- 7: -> Fase2_2
 }
 nada.
 
@@ -28,6 +28,14 @@ A biblioteca externa que foi utilizada está sob a licença GPL (General Public 
 ~historyProgression = 7
 ~ finalizarQuestStep()
 ->END
+
+=== Fase2_2 ===
+Está pronto para a reunião?
++[sim]
+    -> Fase2_2_1
++[não]
+    okay
+-> END
 
 === Fase2_2_1 ===
 Precisamos revisar todas as partes do código para garantir a conformidade com a propriedade intelectual. Não podemos arriscar problemas legais que prejudiquem nossa reputação ou causem perdas financeiras.#speaker:Luiza
