@@ -8,7 +8,7 @@ INCLUDE GlobalsVar.ink
 nada.
 
 === Fase1_5_b ===
-Bernardo diz que não se importa muito com o caso, para ele quanto mais informações estiverem presentes no banco de dados, mais precisas vão ser os relatórios. Embora ele reconheça que nunca teve que criar um banco com dados desse tipo, considera que sempre  há uma primeira vez para tudo.
+Bernardo diz que não se importa muito com o caso, para ele quanto mais informações estiverem presentes no banco de dados, mais precisas vão ser os relatórios. Embora ele reconheça que nunca teve que criar um banco com dados desse tipo, considera que sempre  há uma primeira vez para tudo. #speaker:Bernardo
 -> END
 
 
@@ -29,19 +29,19 @@ Bernardo diz que não se importa muito com o caso, para ele quanto mais informa�
 -> END
 
 = A
-Não acho que ela exista de fato, só estão tentando usar o filtro para uma abordagem diferente na hora de selecionar os candidatos. Mas dependendo do uso, pode ser que role uma distinção quanto aos candidatos.
+Não acho que ela exista de fato, só estão tentando usar o filtro para uma abordagem diferente na hora de selecionar os candidatos. Mas dependendo do uso, pode ser que role uma distinção quanto aos candidatos. #speaker:Bernardo
 -> Fase1_6_b
 
 = B
-Um pouco tendenciosos.Porém não me parecem nocivos.
+Um pouco tendenciosos. Porém não me parecem nocivos. #speaker:Bernardo
 -> Fase1_6_b
 
 = C
-De forma esperada, ele se estressou com a petulância da Felícia.
+De forma esperada, ele se estressou com a petulância da Felícia. #speaker:Bernardo
 -> Fase1_6_b
 
 = D
-Ele de fato existiu, mas sou imparcial quanto a escolher um lado para me posicionar. Só espero que se resolvam.
+Ele de fato existiu, mas sou imparcial quanto a escolher um lado para me posicionar. Só espero que se resolvam. #speaker:Bernardo
 -> Fase1_6_b
 
 === Fase2_2_b ===
@@ -56,9 +56,9 @@ Ele de fato existiu, mas sou imparcial quanto a escolher um lado para me posicio
 -> END
 
 = A
-A conformidade é importante, mas precisamos considerar o impacto disso no projeto como um todo. Muitas mudanças podem causar problemas adicionais e atrasos.
+A conformidade é importante, mas precisamos considerar o impacto disso no projeto como um todo. Muitas mudanças podem causar problemas adicionais e atrasos. #speaker:Bernardo
 -> Fase2_2_b
 
 = B
-Estou tentando não me envolver muito nas disputas, mas é difícil não notar a tensão. Espero que possamos encontrar uma solução que todos aceitem e que mantenha o projeto no caminho certo.
+Estou tentando não me envolver muito nas disputas, mas é difícil não notar a tensão. Espero que possamos encontrar uma solução que todos aceitem e que mantenha o projeto no caminho certo. #speaker:Bernardo
 -> Fase2_2_b

@@ -9,7 +9,7 @@ INCLUDE GlobalsVar.ink
 nada.
 
 === Fase1_5_t ===
-Tadeu diz que não sabe dizer uma opinião formada pois em um primeiro momento. E se necessário é só fazer o que o cliente pede, mas se o pedido atrapalha o processo de desenvolvimento, ou  gere até mesmo um caso de discriminação como a Felicia diz, então não é bem assim...Sugere que você decida por si mesmo.
+Tadeu diz que não sabe dizer uma opinião formada pois em um primeiro momento. E se necessário é só fazer o que o cliente pede, mas se o pedido atrapalha o processo de desenvolvimento, ou  gere até mesmo um caso de discriminação como a Felicia diz, então não é bem assim...Sugere que você decida por si mesmo. #speaker:Tadeu
 -> END
 
 === Fase1_6_t ===
@@ -29,19 +29,19 @@ Tadeu diz que não sabe dizer uma opinião formada pois em um primeiro momento. 
 -> END
 
 = A
-Acredito que ela possa vir a ocorrer, mas também pode não se concretizar. Prefiro não dar uma opinião concreta quanto a isso, afinal não sabemos as reais intenções do cliente.
+Acredito que ela possa vir a ocorrer, mas também pode não se concretizar. Prefiro não dar uma opinião concreta quanto a isso, afinal não sabemos as reais intenções do cliente. #speaker:Tadeu
 -> Fase1_6_t
 
 = B
-Um pouco atípicos, mas nada tão surpreendente.
+Um pouco atípicos, mas nada tão surpreendente. #speaker:Tadeu
 -> Fase1_6_t
 
 = C
-Dentro da normalidade. Ele se sentiu frustrado e achou que aquela fosse a forma adequada de se expressar.
+Dentro da normalidade. Ele se sentiu frustrado e achou que aquela fosse a forma adequada de se expressar. #speaker:Tadeu
 -> Fase1_6_t
 
 = D
-O Sávio vacilou de certa forma, ele podia simplesmente discordar se atacar a Felícia. E ela também errou em questionar demais as intenções do cliente. Não sei dizer quem tem mais razão.
+O Sávio vacilou de certa forma, ele podia simplesmente discordar se atacar a Felícia. E ela também errou em questionar demais as intenções do cliente. Não sei dizer quem tem mais razão. #speaker:Tadeu
 -> Fase1_6_t
 
 === Fase2_2_t ===
@@ -56,9 +56,9 @@ O Sávio vacilou de certa forma, ele podia simplesmente discordar se atacar a Fe
 -> END
 
 = A
-A questão da propriedade intelectual precisa ser resolvida para evitar retrabalho no futuro. No entanto, é essencial que a equipe não perca o ritmo. A produtividade é importante, mas não podemos comprometer a qualidade.
+A questão da propriedade intelectual precisa ser resolvida para evitar retrabalho no futuro. No entanto, é essencial que a equipe não perca o ritmo. A produtividade é importante, mas não podemos comprometer a qualidade. #speaker:Tadeu
 -> Fase2_2_t
 
 = B
-Estou focado em meus testes, mas a tensão entre Luíza e Sávio está afetando o ambiente. Espero que possamos resolver isso rapidamente para continuar com o trabalho.
+Estou focado em meus testes, mas a tensão entre Luíza e Sávio está afetando o ambiente. Espero que possamos resolver isso rapidamente para continuar com o trabalho. #speaker:Tadeu
 -> Fase2_2_t

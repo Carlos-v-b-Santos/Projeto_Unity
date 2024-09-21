@@ -21,9 +21,9 @@ VAR databaseKEY = "Database"
 nada.
 
 === Fase2_1 ===
-O ambiente na startup continua tenso após o tumultuado dia anterior. A equipe precisa avançar no desenvolvimento do software, mas agora a propriedade intelectual se torna um ponto crítico e um novo conflito surge entre Luíza e Sávio. 
-Durante o desenvolvimento do software, a equipe de back-end, liderada por Sávio, utilizou um código-fonte aberto de uma biblioteca externa para implementar uma funcionalidade crítica. O uso desse código acelerou o desenvolvimento, permitindo que o projeto fosse entregue dentro do prazo estipulado. No entanto, durante uma auditoria de código interna, Luíza, a líder do projeto, percebeu que a licença da biblioteca impõe certas restrições que podem representar riscos legais.
-A biblioteca externa que foi utilizada está sob a licença GPL (General Public License), que exige que qualquer software derivado ou que faça uso direto de seu código-fonte seja distribuído com o mesmo tipo de licença. Isso implica que, se o software da startup for lançado comercialmente, ele precisará ser distribuído como software de código aberto, algo que a empresa não pode aceitar, pois pretende vender o software sob uma licença proprietária para seus clientes.
+O ambiente na startup continua tenso após o tumultuado dia anterior. A equipe precisa avançar no desenvolvimento do software, mas agora a propriedade intelectual se torna um ponto crítico e um novo conflito surge entre Luíza e Sávio. #speaker:Narrador
+Durante o desenvolvimento do software, a equipe de back-end, liderada por Sávio, utilizou um código-fonte aberto de uma biblioteca externa para implementar uma funcionalidade crítica. O uso desse código acelerou o desenvolvimento, permitindo que o projeto fosse entregue dentro do prazo estipulado. No entanto, durante uma auditoria de código interna, Luíza, a líder do projeto, percebeu que a licença da biblioteca impõe certas restrições que podem representar riscos legais. #speaker:Narrador
+A biblioteca externa que foi utilizada está sob a licença GPL (General Public License), que exige que qualquer software derivado ou que faça uso direto de seu código-fonte seja distribuído com o mesmo tipo de licença. Isso implica que, se o software da startup for lançado comercialmente, ele precisará ser distribuído como software de código aberto, algo que a empresa não pode aceitar, pois pretende vender o software sob uma licença proprietária para seus clientes. #speaker:Narrador
 
 ~historyProgression = 7
 ~ finalizarQuestStep()

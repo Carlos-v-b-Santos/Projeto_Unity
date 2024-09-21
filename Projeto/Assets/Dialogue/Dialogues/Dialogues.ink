@@ -59,13 +59,13 @@ nada.
 -> END
 
 === Fase1_3 ===
-    Após o almoço, o The player se encaminha para sala do Sávio, se anuncia e logo entra iniciando o diálogo. Ambos conversam e Sávio explica sobre as tarefas e a dinâmica do expediente.
+    Após o almoço, o The player se encaminha para sala do Sávio, se anuncia e logo entra iniciando o diálogo. Ambos conversam e Sávio explica sobre as tarefas e a dinâmica do expediente. #speaker:Narrador
     ~ historyProgression = 3
     ~ finalizarQuestStep()
 -> END
 
 === Fase1_4 ===
-    Tudo ocorreu como o esperado durante a primeira semana. É segunda novamente, Sávio está em sua sala conversando com Raquel ( Requisitos ) ,o the player se encontra apenas como ouvinte, a respeito de alguns requisitos do projeto que parecem peculiares e parecem desnecessários. Contudo o cliente exigiu que esses fossem atendidos e sejam inseridos com prioridade mesmo que atrase outras funcionalidades mais relevantes. Um destes requisitos é o desenvolvimento de um filtro automatizado que leva em conta, sexo, raça, orientação sexual e religião para a escolha do candidato que venha preencher determinada vaga.
+    Tudo ocorreu como o esperado durante a primeira semana. É segunda novamente, Sávio está em sua sala conversando com Raquel ( Requisitos ) ,o the player se encontra apenas como ouvinte, a respeito de alguns requisitos do projeto que parecem peculiares e parecem desnecessários. Contudo o cliente exigiu que esses fossem atendidos e sejam inseridos com prioridade mesmo que atrase outras funcionalidades mais relevantes. Um destes requisitos é o desenvolvimento de um filtro automatizado que leva em conta, sexo, raça, orientação sexual e religião para a escolha do candidato que venha preencher determinada vaga. #speaker:Narrador
     Você não concorda comigo que o planejamento de requisitos é adequado e segue exatamente o que nos foi solicitado?#speaker:Raquel
     * [Sim, realizar os pedidos do cliente é sempre o maior objetivo.]
         -> Fase1_4.A
@@ -77,8 +77,8 @@ nada.
         -> Fase1_4.C
 
 = A
-    Raquel concorda.
-    Sávio discorda, argumenta que você não tem experiência para dar uma opinião fundamentada, prefere levar isso para a próxima reunião e discutir com quem realmente deve opinar no projeto.
+    Raquel concorda. #speaker:Narrador
+    Sávio discorda, argumenta que você não tem experiência para dar uma opinião fundamentada, prefere levar isso para a próxima reunião e discutir com quem realmente deve opinar no projeto. #speaker:Narrador
     ~ historyProgression = 4
     ~ increaseRelationship(requirementsKEY, 40)
     ~ decreaseRelationship(backendKEY, 20)
@@ -86,8 +86,8 @@ nada.
 -> END
     
 = B
-    Raquel desaprova um pouco e  diz que não é tão fácil quanto parece mudar algo que já foi acertado anteriormente
-    Sávio aprova e ele diz que comunicação é o melhor caminho e que vai levar o assunto para a próxima reunião.
+    Raquel desaprova um pouco e  diz que não é tão fácil quanto parece mudar algo que já foi acertado anteriormente #speaker:Narrador
+    Sávio aprova e ele diz que comunicação é o melhor caminho e que vai levar o assunto para a próxima reunião. #speaker:Narrador
     ~ decreaseRelationship(requirementsKEY, 20)
     ~ increaseRelationship(backendKEY, 40)
     ~ historyProgression = 4
@@ -95,8 +95,8 @@ nada.
 ->END
 
 = C
-    Raquel desaprova e diz que todos os requisitos foram anteriormente bem discutidos e definidos por ela e o cliente, sendo ousadia da sua parte questionar como tolice a vontade deste.
-    Sávio aprova um pouco e ele diz que antes de fazer qualquer julgamento é melhor discutirmos mais sobre o assunto na próxima reunião.
+    Raquel desaprova e diz que todos os requisitos foram anteriormente bem discutidos e definidos por ela e o cliente, sendo ousadia da sua parte questionar como tolice a vontade deste. #speaker:Narrador
+    Sávio aprova um pouco e ele diz que antes de fazer qualquer julgamento é melhor discutirmos mais sobre o assunto na próxima reunião. #speaker:Narrador
     ~ decreaseRelationship(requirementsKEY, 40)
     ~ increaseRelationship(backendKEY, 20)
     ~ historyProgression = 4 
@@ -112,21 +112,21 @@ Está pronto para a reunião?
 -> END
 
 === Fase1_6 ===
-Conforme o horário marcado, na sala de reuniões Luiza começa falando que estava ciente das agitações na equipe com relação ao planejamento de requisitos e por isso para a reunião de hoje ela incluiu os donos do projeto que está em desenvolvimento. 
-Logo, o representante da empresa entra na chamada e  Luiza inicia explicação das pautas da reunião e em seguida questiona a possibilidade do requisito ser desconsiderado e estabelecer como prioridade as outras funcionalidades mais "estruturais"
-O stakeholder diz que como foi planejado anteriormente, preferia que esse "sistema de filtragem" continue como o primeiro a ser implementado.
-A líder de projeto pede esclarecimento quanto ao motivo.
-Em contrapartida ,o stakeholder insiste que é pedido direto de sua empresa e deixa claro que não há abertura para questionamentos.
-A líder de projeto então tenta negociar para amenizar os campos do filtro, removendo algumas funcionalidades como os campos de gênero, etnia, orientação sexual e religião.
-O stakeholder diz que não é possível, pois são indispensáveis para os interesses da empresa e que cabe a eles somente executar conforme o que foi descrito e solicitado.
+Conforme o horário marcado, na sala de reuniões Luiza começa falando que estava ciente das agitações na equipe com relação ao planejamento de requisitos e por isso para a reunião de hoje ela incluiu os donos do projeto que está em desenvolvimento. #speaker:Narrador
+Logo, o representante da empresa entra na chamada e  Luiza inicia explicação das pautas da reunião e em seguida questiona a possibilidade do requisito ser desconsiderado e estabelecer como prioridade as outras funcionalidades mais "estruturais" #speaker:Narrador
+O stakeholder diz que como foi planejado anteriormente, preferia que esse "sistema de filtragem" continue como o primeiro a ser implementado. #speaker:Narrador
+A líder de projeto pede esclarecimento quanto ao motivo. #speaker:Narrador
+Em contrapartida ,o stakeholder insiste que é pedido direto de sua empresa e deixa claro que não há abertura para questionamentos. #speaker:Narrador
+A líder de projeto então tenta negociar para amenizar os campos do filtro, removendo algumas funcionalidades como os campos de gênero, etnia, orientação sexual e religião. #speaker:Narrador
+O stakeholder diz que não é possível, pois são indispensáveis para os interesses da empresa e que cabe a eles somente executar conforme o que foi descrito e solicitado. #speaker:Narrador
 A front-end entra no meio e insiste em perguntar que interesses são esses em  querem saber sobre cada candidato essas características específicas, o que faz parecer que eles querem favorecer certos grupos.
-Irritado, ele argumenta que é mais simples do que parece, a empresa quer começar a passar uma visão de inclusividade mas  para isso precisa filtrar os candidatos que são mulheres e que são negros, contrata-los e aumentar a porcentagem dessas minorias dentro da empresa.
-Felícia rebate: Tudo bem quanto ao sexo e etnia, mas e quanto à orientação sexual e a religião?
-O stakeholder revira os olhos e fala de forma grosseira que são interesses da empresa, não vai ficar explicando algo que já foi planejado anteriormente com a requisitos, cumprimenta a líder, saindo abruptamente da chamada.
-A líder dá uma bronca na front-end, constrangendo - a  na frente dos outros membros que continuam sentados.
-Após um breve momento de silêncio, a front-end começa a dizer que estava na cara que a empresa estava querendo era um sistema discriminatório e pergunta irritada para a requisitos o porquê dela ter aceitado aquilo. Raquel  se defende dizendo que aquilo era um exagero e quando planejou os requisitos, embora alguns fossem estranhos,não pareciam representar nenhum mal.Neste momento Sávio entra na conversa, exaltado, diz que Felícia está sendo intrometida demais e que apoia o ponto de vista da requisitos, continua, dizendo que Felícia deveria exercer sua função sem questionar, já que o papel dela é só enfeitar o trabalho de todos, assim como todas as outras fazem.Pela fala dele incluir todas as outras integrantes da equipe, a conversa ganha maiores proporções e num instante instalou-se um clima inóspito, resultando em um grande bate-boca.
-A líder da equipe interrompe e toma as rédeas da situação ordenando  que fiquem calados, em seguida adia a reunião e os dispensa.
-Todos saem da sala, exceto a front-end que se sente ofendida e exige uma retratação da parte de Sávio, pelo que foi dito. Luiza reconhece o erro de Sávio e diz que vai conversar com ele. 
+Irritado, ele argumenta que é mais simples do que parece, a empresa quer começar a passar uma visão de inclusividade mas  para isso precisa filtrar os candidatos que são mulheres e que são negros, contrata-los e aumentar a porcentagem dessas minorias dentro da empresa. #speaker:Narrador
+Felícia rebate: Tudo bem quanto ao sexo e etnia, mas e quanto à orientação sexual e a religião? #speaker:Narrador
+O stakeholder revira os olhos e fala de forma grosseira que são interesses da empresa, não vai ficar explicando algo que já foi planejado anteriormente com a requisitos, cumprimenta a líder, saindo abruptamente da chamada. #speaker:Narrador
+A líder dá uma bronca na front-end, constrangendo - a  na frente dos outros membros que continuam sentados. #speaker:Narrador
+Após um breve momento de silêncio, a front-end começa a dizer que estava na cara que a empresa estava querendo era um sistema discriminatório e pergunta irritada para a requisitos o porquê dela ter aceitado aquilo. Raquel  se defende dizendo que aquilo era um exagero e quando planejou os requisitos, embora alguns fossem estranhos,não pareciam representar nenhum mal.Neste momento Sávio entra na conversa, exaltado, diz que Felícia está sendo intrometida demais e que apoia o ponto de vista da requisitos, continua, dizendo que Felícia deveria exercer sua função sem questionar, já que o papel dela é só enfeitar o trabalho de todos, assim como todas as outras fazem.Pela fala dele incluir todas as outras integrantes da equipe, a conversa ganha maiores proporções e num instante instalou-se um clima inóspito, resultando em um grande bate-boca. #speaker:Narrador
+A líder da equipe interrompe e toma as rédeas da situação ordenando  que fiquem calados, em seguida adia a reunião e os dispensa. #speaker:Narrador
+Todos saem da sala, exceto a front-end que se sente ofendida e exige uma retratação da parte de Sávio, pelo que foi dito. Luiza reconhece o erro de Sávio e diz que vai conversar com ele. #speaker:Narrador
 ~historyProgression = 5
 ~ finalizarQuestStep()
 -> END
@@ -140,10 +140,10 @@ Está pronto para a reunião?
 -> END
 
 === Fase1_7_1 ===
-Chega o momento de todos reunirem na na sala , antes do stakeholder entrar na chamada a líder discute com todos o que pensam daquela situação e sobre a possível discriminação que poderia ocorrer.
-O banco de dados e o back-end Sênior são neutros na situação, o que for decidido terá o aval deles.
-A líder de projeto, a Front-end, a Requisitos e o tester são contra a implementação do sistema no planejamento atual, acreditando que a funcionalidade deve ser no mínimo alterada, senão, completamente excluída. E caso o stakeholder não concorde com as mudanças, o projeto será abandonado.
-Então é perguntado ao jogador sobre o posicionamento dele:
+Chega o momento de todos reunirem na na sala , antes do stakeholder entrar na chamada a líder discute com todos o que pensam daquela situação e sobre a possível discriminação que poderia ocorrer. #speaker:Narrador
+O banco de dados e o back-end Sênior são neutros na situação, o que for decidido terá o aval deles. #speaker:Narrador
+A líder de projeto, a Front-end, a Requisitos e o tester são contra a implementação do sistema no planejamento atual, acreditando que a funcionalidade deve ser no mínimo alterada, senão, completamente excluída. E caso o stakeholder não concorde com as mudanças, o projeto será abandonado. #speaker:Narrador
+Então é perguntado ao jogador sobre o posicionamento dele: #speaker:Narrador
 *[dizer que o planejamento inicial não tinha nada de errado e que não precisava mudar de forma alguma]
     -> Fase1_7_1.A
     
@@ -248,14 +248,14 @@ Então é perguntado ao jogador sobre o posicionamento dele:
 -> Fase1_7_2
 
 === Fase1_7_2 ===
-Após ouvir a opinião de todos, finalmente, se inicia a reunião com o stakeholder.
-A líder de projeto começa com os argumentos de que a funcionalidade estava atrasando o desenvolvimento de outras mais importantes.O stakeholder responde friamente que já disse que era uma funcionalidade prioritária.
-Em oposição , a lider de projeto então fala que se não é possível remover a funcionalidade, deve-se modificar, principalmente pela sua equipe estar preocupada com a possibilidade do algoritmo ser utilizado como uma ferramenta para discriminação.
+Após ouvir a opinião de todos, finalmente, se inicia a reunião com o stakeholder. #speaker:Narrador
+A líder de projeto começa com os argumentos de que a funcionalidade estava atrasando o desenvolvimento de outras mais importantes.O stakeholder responde friamente que já disse que era uma funcionalidade prioritária. #speaker:Narrador
+Em oposição , a lider de projeto então fala que se não é possível remover a funcionalidade, deve-se modificar, principalmente pela sua equipe estar preocupada com a possibilidade do algoritmo ser utilizado como uma ferramenta para discriminação. #speaker:Narrador
 Ouvindo isso,o stakeholder recua e resolve dar visão ao que  eles têm a dizer.
-Com isso,a líder de projeto explica os problemas envolvendo principalmente os campos de "religião", "orientação sexual", e sobre como esse "filtro" funcionaria se baseando nos dados dos funcionários de cada categoria, dessa forma recomendando candidatos que manteriam as diferenças etnicas e de sexo equilibridas.
-O stakeholder argumenta que isso complicaria em vez de simplificar.
-A líder de projeto concorda que acaba sendo mais complicado,porém mais justo e que a parte das recomendações automáticas seria feita depois do registro geral de funcionários, como algo complementar. Dessa forma poderiam focar primeiro na parte mais importante.Por fim, o stakeholder concorda e a reunião se encerra.
-Todos ficam satisfeitos com o resultado.Após encerrar a chamada, Luiza dá a oportunidade de Sávio se retratar, mas ele o faz de forma breve e objetiva sem mostrar muito entusiasmo. O clima não melhora entre a equipe, já que as garotas seguem afetadas pelo ocorrido, e então todos são dispensados.
+Com isso,a líder de projeto explica os problemas envolvendo principalmente os campos de "religião", "orientação sexual", e sobre como esse "filtro" funcionaria se baseando nos dados dos funcionários de cada categoria, dessa forma recomendando candidatos que manteriam as diferenças etnicas e de sexo equilibridas. #speaker:Narrador
+O stakeholder argumenta que isso complicaria em vez de simplificar. #speaker:Narrador
+A líder de projeto concorda que acaba sendo mais complicado,porém mais justo e que a parte das recomendações automáticas seria feita depois do registro geral de funcionários, como algo complementar. Dessa forma poderiam focar primeiro na parte mais importante.Por fim, o stakeholder concorda e a reunião se encerra. #speaker:Narrador
+Todos ficam satisfeitos com o resultado.Após encerrar a chamada, Luiza dá a oportunidade de Sávio se retratar, mas ele o faz de forma breve e objetiva sem mostrar muito entusiasmo. O clima não melhora entre a equipe, já que as garotas seguem afetadas pelo ocorrido, e então todos são dispensados. #speaker:Narrador
 ~historyProgression = 6
 ~ finalizarQuestStep()
 -> END
