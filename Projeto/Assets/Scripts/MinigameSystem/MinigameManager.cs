@@ -115,11 +115,11 @@ public class MinigameManager : MonoBehaviour
         _menu.gameObject.SetActive(false);
         isInitialized = true;
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (SceneManager.GetActiveScene().buildIndex == 2)
             Gameplay_1_Manager.Instance.StartSpawn();
-        else if (SceneManager.GetActiveScene().buildIndex == 2)
-            Gameplay_2_Manager.Instance.StartSpawn();
         else if (SceneManager.GetActiveScene().buildIndex == 3)
+            Gameplay_2_Manager.Instance.StartSpawn();
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
             GameplayManager.Instance.StartSpawn();
     }
 
